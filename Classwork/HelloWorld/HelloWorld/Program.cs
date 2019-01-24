@@ -17,6 +17,7 @@ namespace HelloWorld
         {
             NewGame();
             DisplayGame();
+        
         }
 
         private static void CSharpBasics()
@@ -120,5 +121,7 @@ namespace HelloWorld
         private static bool owned;
         private static bool completed;
     }
+
+   
 }
 
