@@ -71,13 +71,55 @@ namespace HelloWorld
 
         private static void DisplayGame ()
         {
-            string literall = "Hello Bob";
+            string literal1 = "Hello \"Bob\"";
+            string path = "C:\\Windows\\System32";
+            path += "\\Temp";
+            string path2 = @"C:\Windows\System32";
 
+            //1.string Concat
             Console.WriteLine("Name: " + name);
-            Console.WriteLine("Price: " + price);
-            Console.WriteLine("Publisher: " + publisher);
-            Console.WriteLine("Owned? " + owned);
-            Console.WriteLine("Completed? " + completed);            
+
+            //2. String format
+            string str = String.Format("Price: {0:C}",price);  // :C is currency
+            Console.WriteLine(str);
+            // Console.WriteLine("Price: " + price);
+
+            //3. Function overload- this one just calls string format
+            Console.WriteLine("Publisher: {0} ", publisher);
+
+            //4. Concatenation
+            str =String.Concat("Owned?", " ", owned);
+            Console.WriteLine(str);
+            //Console.WriteLine("Owned? " + owned);
+
+            //5.Interpolation- combo of string format with concat
+            //Console.WriteLine("Completed? " + completed);            
+            //Console.WriteLine("Completed? {0}", completed);
+            Console.WriteLine($"Completed? {completed}");
+
+            //Convert to a string
+            string strPrice = price.ToString("C");// format specifier currency
+            string strLiteral = "Hello".ToString(); // you can convert string to string
+            10.ToString(); // "10"  
+
+            //Is string empty
+            string input = ""; 
+            int length = input.Length;
+            bool isEmpty;
+
+            //if (input != null)
+            //    isEmpty = input.Length == 0;
+            //else
+            //    isEmpty = true;
+            isEmpty = (input != null) ? input.Length == 0 : true;
+
+            isEmpty = input.Length == 0; // comparing against 0
+            isEmpty = input == "";// comparing against empty string
+            isEmpty = input == String.Empty;  // comparing if empty by using string.empty
+
+            isEmpty = String.IsNullOrEmpty(input);   // most used
+
+
         }
 
         private static bool ReadBoolean ( string message )
