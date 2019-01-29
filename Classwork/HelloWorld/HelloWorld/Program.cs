@@ -71,10 +71,10 @@ namespace HelloWorld
 
         private static void DisplayGame ()
         {
-            string literal1 = "Hello \"Bob\"";
-            string path = "C:\\Windows\\System32";
+            var literal1 = "Hello \"Bob\"";
+            var path = "C:\\Windows\\System32";
             path += "\\Temp";
-            string path2 = @"C:\Windows\System32";
+            var path2 = @"C:\Windows\System32";
 
             //1.string Concat
             Console.WriteLine("Name: " + name);
@@ -119,42 +119,88 @@ namespace HelloWorld
 
             isEmpty = String.IsNullOrEmpty(input);   // most used
 
+            //Comparison
+            bool areEqual = "Hello" == "hello";  // false cuase case sensitive
+            areEqual = String.Compare("Hello","hello", true) == 0;       // mostly used. true 
+
+            //Conversion
+            input = input.ToUpper();
+            input = input.ToLower();
+
+            //Manipulation
+            bool startsWith = input.StartsWith("http:"); //useful for pacing return boolean
+            bool endsWith = input.EndsWith("/"); // useful for parcing return boolen
+
+            input = input.TrimStart();
+            input = input.TrimEnd();
+            input = input.Trim();   //^^ to trim, default is white space, but can be used for specific
+
+            input = input.PadLeft(10);
+            input = input.PadRight(10);
+
+
+
+
+
+
+
 
         }
 
         private static bool ReadBoolean ( string message )
         {
-            Console.WriteLine(message);
-            string result = Console.ReadLine();
+            do
+            {
+                Console.WriteLine(message);
+                string result = Console.ReadLine().ToUpper();
+                
+                //Validate it is a boolean
+                if (result == "Y")
+                    return true;
+                if (result == "N")
+                    return false;
 
-            //Validate it is a boolean
-            //HACK: Fix this expression
-            if (result == "Y")
-                return true;
-            if (result == "y")
-                return true;
-            if (result == "n")
-                return false;
-            if (result == "N")
-                return false;
+             
+                 //switch (result)
+                //{
+                //    case "Y":
+                //    case "y": return true;
 
-            //TODO: Add validation
-            return false;
+                //    case "N": 
+                //    case "n": return false;
+
+                //    default: Console.WriteLine("Enter Y or N"); break;
+                //};
+
+                
+                //if (result == "y")
+                //  return true;
+                //if (result == "n")
+                //  return false;
+
+                Console.WriteLine("Enter Y or N");
+            } while (true);
+                
         }
 
         //bool TryParse( string input, out decimal result );
 
         private static decimal ReadDecimal ( string message )
         {
-            Console.WriteLine(message);
-            string value = Console.ReadLine();
+            while (true) // loops until a decimal is coded
+            {
+                Console.WriteLine(message);
+                string value = Console.ReadLine();
 
-            //decimal result;
-            ///if (Decimal.TryParse(value, out result))            
-            if (Decimal.TryParse(value, out decimal result))
-                return result;
+            
+                 //decimal result;
+                 ///if (Decimal.TryParse(value, out result))            
+                 if (Decimal.TryParse(value, out decimal result))
+                    return result;
 
-            return 0;
+                Console.WriteLine("Enter a valid decimal value");
+            };
+           
         }
 
         private static string name;
