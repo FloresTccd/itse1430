@@ -104,7 +104,7 @@ namespace HelloWorld
 
             //Is string empty
             string input = ""; 
-            int length = input.Length;
+           // int length = input.Length;
             bool isEmpty;
 
             //if (input != null)
@@ -202,6 +202,31 @@ namespace HelloWorld
             };
            
         }
+
+        private static void PlayWithArrays()
+        {
+            //int size = 100; // dont need it use .length
+            int[] prices = new int[100];
+            for (var index = 0; index < prices.Length; ++index)
+            {
+                prices[index] = index + 1;
+            };
+
+            DisplayArray(prices);
+
+            var input = "field1, field2, field3;field4";
+            var field = input.Split(',',';');
+        }
+        private static void DisplayArray( int[] values/*, int count*/ )
+        {
+            //for (var index = 0; index < values.Length; ++index)
+            foreach (var item in values)
+            {
+                //Console.WriteLine(values[index]);
+                Console.WriteLine(item);
+            };
+        }
+
 
         private static string name;
         private static string publisher;
