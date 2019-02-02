@@ -33,6 +33,7 @@ namespace PizzaCreator
             total += SizeOfPizza();
             total += Meats();
             total += Vegetables();
+            total += Sauce();
 
 
             //RedoOrder("Would you like to start a new Order?Y/N");
@@ -161,6 +162,28 @@ namespace PizzaCreator
 
 
             return totalVeggies;
+        }
+
+        private static decimal Sauce()
+        {
+            while (true)
+            {
+                Console.WriteLine("What type of Sauce? T= Traditional, G = Garlic, O= Oregano");
+                string result = Console.ReadLine().ToUpper();
+                switch (result)
+                {
+                    case "T":
+                    return 0;
+                    case "G":
+                    return 1;
+                    case "O":
+                    return 1;
+                    default:
+                    Console.WriteLine("Please pick from menu");
+                    break;
+
+                }
+            }
         }
 
         private static void ModifyOrder()
