@@ -122,15 +122,7 @@ namespace PizzaCreator
 
         private static void DisplaySelectedOption( string option, bool hasOption )
         {
-            Console.Write(option);
-            if (hasOption)
-            {
-                Console.WriteLine(selectedItemUi);
-
-            } else
-            {
-                Console.WriteLine(unselectedItemUi);
-            }
+            Console.WriteLine(option + (hasOption ? selectedItemUi : unselectedItemUi));
         }
 
         private static void HandleMenuOneChoice()
