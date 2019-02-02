@@ -14,41 +14,8 @@ namespace PizzaCreator
 {
     class Program
     {
-        private static void HandleMenuOneChoice()
-        {
+        private static decimal total = 0;
 
-            bool userQuit = false;
-
-            while (!userQuit)
-            {
-                DisplayMenuOne();
-                var menuOneChoice = Console.ReadLine();
-                switch (menuOneChoice)
-                {
-                    case "1":
-                    NewOrder();
-                    break;
-                    case "2":
-                    ModifyOrder();
-                    break;
-                    case "3":
-                    DisplayOrder();
-                    break;
-                    case "4":
-                    userQuit = true;
-                    break;
-
-                    default:
-                        {
-                            Console.WriteLine("Invalid Entry");
-                            break;
-                        }
-                }
-
-
-
-            }// end of while loop
-        }
         static void Main( string[] args )
         {
             //DisplayMenuOne();
@@ -95,12 +62,48 @@ namespace PizzaCreator
             throw new NotImplementedException();
         }
 
+        private static void HandleMenuOneChoice()
+        {
 
+            bool userQuit = false;
+
+            while (!userQuit)
+            {
+                DisplayMenuOne();
+                var menuOneChoice = Console.ReadLine();
+                switch (menuOneChoice)
+                {
+                    case "1":
+                    NewOrder();
+                    break;
+                    case "2":
+                    ModifyOrder();
+                    break;
+                    case "3":
+                    DisplayOrder();
+                    break;
+                    case "4":
+                    userQuit = true;
+                    break;
+
+                    default:
+                        {
+                            Console.WriteLine("Invalid Entry");
+                            break;
+                        }
+                }
+
+
+
+            }// end of while loop
+        }
 
         private static void DisplayMenuOne()
         {
             Console.WriteLine("Tccd Pizza");
-            Console.WriteLine("---------- \t\t\t CART:$");
+           
+            string cartString = String.Format(" ---------- \t\t\t CART:{0:C}", total);
+            Console.WriteLine(cartString);
             Console.WriteLine("1.New Order");
             Console.WriteLine("2.Modify Order");
             Console.WriteLine("3.Display Order");
