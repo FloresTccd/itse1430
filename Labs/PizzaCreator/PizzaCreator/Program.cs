@@ -18,7 +18,7 @@ namespace PizzaCreator
 
         static void Main( string[] args )
         {
-            //DisplayMenuOne();
+            
             HandleMenuOneChoice();
 
 
@@ -27,28 +27,34 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-            double sizeOfPizza = SizeOfPizza();
+            decimal sizeOfPizza = SizeOfPizza();
+            total += sizeOfPizza;
 
 
             //RedoOrder("Would you like to start a new Order?Y/N");
         }
 
-        private static double SizeOfPizza()
+        private static decimal SizeOfPizza()
         {
-            Console.WriteLine("What size Pizza?\n S=Small \n M=Medium \n L=Large");
-            string result = Console.ReadLine().ToUpper();
-            switch (result)
+           
+            
+            while (true)
             {
-                case "S":
-                return 5.00;
-                case "M":
-                return 6.25;
-                case "L":
-                return 8.75;
-                default:
-                Console.WriteLine("Please pick S,M,L.");
-                return 0;
+                Console.WriteLine("What size Pizza?\n S=Small \n M=Medium \n L=Large");
+                string result = Console.ReadLine().ToUpper();
+                switch (result)
+                {
+                    case "S":
+                    return 5.00M;
+                    case "M":
+                    return 6.25M;
+                    case "L":
+                    return 8.75M;
+                    default:
+                    Console.WriteLine("Please pick S,M,L.");
+                    break;
 
+                }
             }
         }
 
