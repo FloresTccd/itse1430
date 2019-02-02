@@ -32,6 +32,8 @@ namespace PizzaCreator
            
             total += SizeOfPizza();
             total += Meats();
+            total += Vegetables();
+
 
             //RedoOrder("Would you like to start a new Order?Y/N");
         }
@@ -108,6 +110,57 @@ namespace PizzaCreator
 
 
             return totalMeats;
+        }
+
+        private static decimal Vegetables()
+        {
+            decimal totalVeggies = 0;
+            bool veggieDone = false;
+            bool oliveSelected = false;
+            bool mushroomsSelected = false;
+            bool onionsSelected = false;
+            bool peppersSelected = false;
+
+            while (!veggieDone)
+            {
+                Console.WriteLine("What kinda of Vegetables? $0.50each \n");
+                DisplaySelectedOption("B = Black Olives", oliveSelected);
+                DisplaySelectedOption("M = Mushrooms", mushroomsSelected);
+                DisplaySelectedOption("O = Onions", onionsSelected);
+                DisplaySelectedOption("P = Peppers", peppersSelected);
+                Console.WriteLine("D = Done");
+                string result = Console.ReadLine().ToUpper();
+                switch (result)
+                {
+                    case "B":
+                    oliveSelected = !oliveSelected;
+                    break;
+                    case "M":
+                    mushroomsSelected = !mushroomsSelected;
+                    break;
+                    case "O":
+                    onionsSelected = !onionsSelected;
+                    break;
+                    case "P":
+                    peppersSelected = !peppersSelected;
+                    break;
+                    case "D":
+                    veggieDone = true;
+                    break;
+                    default:
+                    Console.WriteLine("Press select from Menu Only");
+                    break;
+
+                }
+            }
+            totalVeggies += oliveSelected ? .50M : 0;
+            totalVeggies += mushroomsSelected ? .50M : 0;
+            totalVeggies += onionsSelected ? .50M : 0;
+            totalVeggies += peppersSelected ? .50M : 0;
+
+
+
+            return totalVeggies;
         }
 
         private static void ModifyOrder()
