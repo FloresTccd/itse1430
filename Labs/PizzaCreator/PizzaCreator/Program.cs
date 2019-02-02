@@ -15,10 +15,12 @@ namespace PizzaCreator
     class Program
     {
         private static decimal total = 0;
+        private static string selectedItemUi = "[X]";
+        private static string unselectedItemUi = "[ ]";
 
         static void Main( string[] args )
         {
-            
+
             HandleMenuOneChoice();
 
 
@@ -27,17 +29,17 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-            decimal sizeOfPizza = SizeOfPizza();
-            total += sizeOfPizza;
-
+           
+            total += SizeOfPizza();
+            total += Meats();
 
             //RedoOrder("Would you like to start a new Order?Y/N");
         }
 
         private static decimal SizeOfPizza()
         {
-           
-            
+
+
             while (true)
             {
                 Console.WriteLine("What size Pizza?\n S=Small \n M=Medium \n L=Large");
@@ -57,6 +59,56 @@ namespace PizzaCreator
                 }
             }
         }
+        private static decimal Meats()
+        {
+            decimal totalMeats = 0;
+            bool meatDone = false;
+            bool baconSelected = false;
+            bool hamSelected = false;
+            bool pepperoniSelected = false;
+            bool sausageSelected = false;
+
+            while (!meatDone)
+            {
+                Console.WriteLine("What kinda of Meats? $0.75each \n");
+                DisplaySelectedOption("B = Bacon", baconSelected);
+                DisplaySelectedOption("H = Ham", hamSelected);
+                DisplaySelectedOption("P = Pepperoni", pepperoniSelected);
+                DisplaySelectedOption("S = Sausage", sausageSelected);
+                Console.WriteLine("D = Done");
+                string result = Console.ReadLine().ToUpper();
+                switch (result)
+                {
+                    case "B":
+                    baconSelected = !baconSelected;
+                    break;
+                    case "H":
+                    hamSelected = !hamSelected;
+                    break;
+                    case "P":
+                    pepperoniSelected = !pepperoniSelected;
+                    break;
+                    case "S":
+                    sausageSelected = !sausageSelected;
+                    break;
+                    case "D":
+                    meatDone = true;
+                    break;
+                    default:
+                    Console.WriteLine("Press select from Menu Only");
+                    break;
+
+                }
+            }
+            totalMeats += baconSelected ? .75M : 0;
+            totalMeats += hamSelected ? .75M : 0;
+            totalMeats += pepperoniSelected ? .75M : 0;
+            totalMeats += sausageSelected ? .75M : 0;
+
+
+
+            return totalMeats;
+        }
 
         private static void ModifyOrder()
         {
@@ -66,6 +118,19 @@ namespace PizzaCreator
         private static void DisplayOrder()
         {
             throw new NotImplementedException();
+        }
+
+        private static void DisplaySelectedOption( string option, bool hasOption )
+        {
+            Console.Write(option);
+            if (hasOption)
+            {
+                Console.WriteLine(selectedItemUi);
+
+            } else
+            {
+                Console.WriteLine(unselectedItemUi);
+            }
         }
 
         private static void HandleMenuOneChoice()
@@ -107,7 +172,7 @@ namespace PizzaCreator
         private static void DisplayMenuOne()
         {
             Console.WriteLine("Tccd Pizza");
-           
+
             string cartString = String.Format(" ---------- \t\t\t CART:{0:C}", total);
             Console.WriteLine(cartString);
             Console.WriteLine("1.New Order");
