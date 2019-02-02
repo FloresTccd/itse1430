@@ -71,49 +71,162 @@ namespace HelloWorld
 
         private static void DisplayGame ()
         {
-            string literall = "Hello Bob";
+            var literal1 = "Hello \"Bob\"";
+            var path = "C:\\Windows\\System32";
+            path += "\\Temp";
+            var path2 = @"C:\Windows\System32";
 
+            //1.string Concat
             Console.WriteLine("Name: " + name);
-            Console.WriteLine("Price: " + price);
-            Console.WriteLine("Publisher: " + publisher);
-            Console.WriteLine("Owned? " + owned);
-            Console.WriteLine("Completed? " + completed);            
+
+            //2. String format
+            string str = String.Format("Price: {0:C}",price);  // :C is currency
+            Console.WriteLine(str);
+            // Console.WriteLine("Price: " + price);
+
+            //3. Function overload- this one just calls string format
+            Console.WriteLine("Publisher: {0} ", publisher);
+
+            //4. Concatenation
+            str =String.Concat("Owned?", " ", owned);
+            Console.WriteLine(str);
+            //Console.WriteLine("Owned? " + owned);
+
+            //5.Interpolation- combo of string format with concat
+            //Console.WriteLine("Completed? " + completed);            
+            //Console.WriteLine("Completed? {0}", completed);
+            Console.WriteLine($"Completed? {completed}");
+
+            //Convert to a string
+            string strPrice = price.ToString("C");// format specifier currency
+            string strLiteral = "Hello".ToString(); // you can convert string to string
+            10.ToString(); // "10"  
+
+            //Is string empty
+            string input = ""; 
+           // int length = input.Length;
+            bool isEmpty;
+
+            //if (input != null)
+            //    isEmpty = input.Length == 0;
+            //else
+            //    isEmpty = true;
+            isEmpty = (input != null) ? input.Length == 0 : true;
+
+            isEmpty = input.Length == 0; // comparing against 0
+            isEmpty = input == "";// comparing against empty string
+            isEmpty = input == String.Empty;  // comparing if empty by using string.empty
+
+            isEmpty = String.IsNullOrEmpty(input);   // most used
+
+            //Comparison
+            bool areEqual = "Hello" == "hello";  // false cuase case sensitive
+            areEqual = String.Compare("Hello","hello", true) == 0;       // mostly used. true 
+
+            //Conversion
+            input = input.ToUpper();
+            input = input.ToLower();
+
+            //Manipulation
+            bool startsWith = input.StartsWith("http:"); //useful for pacing return boolean
+            bool endsWith = input.EndsWith("/"); // useful for parcing return boolen
+
+            input = input.TrimStart();
+            input = input.TrimEnd();
+            input = input.Trim();   //^^ to trim, default is white space, but can be used for specific
+
+            input = input.PadLeft(10);
+            input = input.PadRight(10);
+
+
+
+
+
+
+
+
         }
 
         private static bool ReadBoolean ( string message )
         {
-            Console.WriteLine(message);
-            string result = Console.ReadLine();
+            do
+            {
+                Console.WriteLine(message);
+                string result = Console.ReadLine().ToUpper();
+                
+                //Validate it is a boolean
+                if (result == "Y")
+                    return true;
+                if (result == "N")
+                    return false;
 
-            //Validate it is a boolean
-            //HACK: Fix this expression
-            if (result == "Y")
-                return true;
-            if (result == "y")
-                return true;
-            if (result == "n")
-                return false;
-            if (result == "N")
-                return false;
+             
+                 //switch (result)
+                //{
+                //    case "Y":
+                //    case "y": return true;
 
-            //TODO: Add validation
-            return false;
+                //    case "N": 
+                //    case "n": return false;
+
+                //    default: Console.WriteLine("Enter Y or N"); break;
+                //};
+
+                
+                //if (result == "y")
+                //  return true;
+                //if (result == "n")
+                //  return false;
+
+                Console.WriteLine("Enter Y or N");
+            } while (true);
+                
         }
 
         //bool TryParse( string input, out decimal result );
 
         private static decimal ReadDecimal ( string message )
         {
-            Console.WriteLine(message);
-            string value = Console.ReadLine();
+            while (true) // loops until a decimal is coded
+            {
+                Console.WriteLine(message);
+                string value = Console.ReadLine();
 
-            //decimal result;
-            ///if (Decimal.TryParse(value, out result))            
-            if (Decimal.TryParse(value, out decimal result))
-                return result;
+            
+                 //decimal result;
+                 ///if (Decimal.TryParse(value, out result))            
+                 if (Decimal.TryParse(value, out decimal result))
+                    return result;
 
-            return 0;
+                Console.WriteLine("Enter a valid decimal value");
+            };
+           
         }
+
+        private static void PlayWithArrays()
+        {
+            //int size = 100; // dont need it use .length
+            int[] prices = new int[100];
+            for (var index = 0; index < prices.Length; ++index)
+            {
+                prices[index] = index + 1;
+            };
+
+            DisplayArray(prices);
+
+            var input = "field1, field2, field3;field4";
+            var field = input.Split(',',';');
+        }
+        private static void DisplayArray( int[] values/*, int count*/ )
+        {
+            //for (var index = 0; index < values.Length; ++index)
+            foreach (var item in values)
+            {
+                //Console.WriteLine(values[index]);
+                Console.WriteLine(item);
+            };
+        }
+
 
         private static string name;
         private static string publisher;
