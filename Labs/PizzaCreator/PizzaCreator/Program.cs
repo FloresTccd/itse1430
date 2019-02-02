@@ -34,6 +34,8 @@ namespace PizzaCreator
             total += Meats();
             total += Vegetables();
             total += Sauce();
+            total += Cheese();
+            total += Delivery();
 
 
             //RedoOrder("Would you like to start a new Order?Y/N");
@@ -168,7 +170,7 @@ namespace PizzaCreator
         {
             while (true)
             {
-                Console.WriteLine("What type of Sauce? T= Traditional, G = Garlic, O= Oregano");
+                Console.WriteLine("What type of Sauce? \n T= Traditional \n G = Garlic \n O= Oregano \n");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
@@ -178,6 +180,46 @@ namespace PizzaCreator
                     return 1;
                     case "O":
                     return 1;
+                    default:
+                    Console.WriteLine("Please pick from menu");
+                    break;
+
+                }
+            }
+        }
+
+        private static decimal Cheese()
+        {
+            while (true)
+            {
+                Console.WriteLine("What type of Cheese?\n R = Regular \n E = Extra \n");
+                string result = Console.ReadLine().ToUpper();
+                switch (result)
+                {
+                    case "R":
+                    return 0;
+                    case "E":
+                    return 1.25M;
+                    default:
+                    Console.WriteLine("Please pick from menu");
+                    break;
+
+                }
+            }
+        }
+
+        private static decimal Delivery()
+        {
+            while (true)
+            {
+                Console.WriteLine("Is this Take out or Delivery?\n T = Take Out \n D = Delivery \n");
+                string result = Console.ReadLine().ToUpper();
+                switch (result)
+                {
+                    case "T":
+                    return 0;
+                    case "D":
+                    return 2.50M;
                     default:
                     Console.WriteLine("Please pick from menu");
                     break;
