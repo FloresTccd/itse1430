@@ -14,6 +14,7 @@ namespace PizzaCreator
 {
     class Program
     {
+        private static bool isOrderInProgress = false;
         private static decimal total = 0;
         private static string selectedItemUi = "[X]";
         private static string unselectedItemUi = "[ ]";
@@ -29,14 +30,28 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-           
-            total += SizeOfPizza();
-            total += Meats();
-            total += Vegetables();
-            total += Sauce();
-            total += Cheese();
-            total += Delivery();
+            if (isOrderInProgress)
+            {
+                Console.WriteLine("Order in Progress \n Start Over? (Y/N)");
+                string result = Console.ReadLine().ToUpper();
+                if (result == "Y")
+                {
+                    isOrderInProgress = false;
 
+                }
+            }
+
+            if (!isOrderInProgress)
+            {
+                total += SizeOfPizza();
+                total += Meats();
+                total += Vegetables();
+                total += Sauce();
+                total += Cheese();
+                total += Delivery();
+            } 
+            
+        
 
             //RedoOrder("Would you like to start a new Order?Y/N");
         }
