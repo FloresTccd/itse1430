@@ -35,6 +35,9 @@ namespace PizzaCreator
         private static bool onionsSelected = false;
         private static bool peppersSelected = false;
 
+        private static decimal pricePerMeat = .75M;
+        private static decimal pricePerVeggie = .50M;
+
 
 
 
@@ -275,6 +278,18 @@ namespace PizzaCreator
 
         private static void DisplayOrder()
         {
+            switch (pizzaChoice)
+            {
+                case "S":
+                Console.WriteLine("Small Pizza \t\t\t " + CalculateSizeOfPizzaTotal());
+                break;
+                case "M":
+                Console.WriteLine("Medium Pizza \t\t\t 0.00");
+                break;
+                case "L":
+                Console.WriteLine("Large Pizza \t\t\t 0.0.0");
+                break;
+            }
 
         }
 
@@ -404,10 +419,10 @@ namespace PizzaCreator
         private static decimal CalculateMeatTotal()
         {
             decimal total = 0;
-            total += baconSelected ? .75M : 0;
-            total += hamSelected ? .75M : 0;
-            total += pepperoniSelected ? .75M : 0;
-            total += sausageSelected ? .75M : 0;
+            total += baconSelected ? pricePerMeat : 0;
+            total += hamSelected ? pricePerMeat : 0;
+            total += pepperoniSelected ? pricePerMeat : 0;
+            total += sausageSelected ? pricePerMeat : 0;
 
             return total;
         }
@@ -415,10 +430,10 @@ namespace PizzaCreator
         private static decimal CalculateVeggiesTotal()
         {
             decimal totalVeggies = 0;
-            totalVeggies += oliveSelected ? .50M : 0;
-            totalVeggies += mushroomsSelected ? .50M : 0;
-            totalVeggies += onionsSelected ? .50M : 0;
-            totalVeggies += peppersSelected ? .50M : 0;
+            totalVeggies += oliveSelected ? pricePerVeggie : 0;
+            totalVeggies += mushroomsSelected ? pricePerVeggie : 0;
+            totalVeggies += onionsSelected ? pricePerVeggie : 0;
+            totalVeggies += peppersSelected ? pricePerVeggie : 0;
             return totalVeggies;
         }
 
