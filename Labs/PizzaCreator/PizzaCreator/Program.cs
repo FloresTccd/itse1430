@@ -251,7 +251,7 @@ namespace PizzaCreator
             bool selectedOne = false;
             while (!selectedOne)
             {
-                
+
                 Console.WriteLine("What type of Sauce?\n");
                 DisplaySelectedOption("T = Traditional", sauceChoice == "T");
                 DisplaySelectedOption("G = Garlic", sauceChoice == "G");
@@ -305,7 +305,7 @@ namespace PizzaCreator
 
                 }
             }
-            
+
         }
 
         private static void Delivery()
@@ -352,16 +352,34 @@ namespace PizzaCreator
             switch (pizzaChoice)
             {
                 case "S":
-                Console.WriteLine("Small Pizza \t\t\t " + CalculateSizeOfPizzaTotal());
+                Console.WriteLine("Small Pizza \t\t\t$" + CalculateSizeOfPizzaTotal());
                 break;
                 case "M":
-                Console.WriteLine("Medium Pizza \t\t\t 0.00");
+                Console.WriteLine("Medium Pizza \t\t\t$" + CalculateSizeOfPizzaTotal());
                 break;
                 case "L":
-                Console.WriteLine("Large Pizza \t\t\t 0.0.0");
+                Console.WriteLine("Large Pizza \t\t\t$" + CalculateSizeOfPizzaTotal());
                 break;
             }
-            //TODO REST OF DISPLAY
+            switch (deliveryChoice)
+            {
+                case "T":
+                Console.WriteLine("Take Out ");
+                break;
+                case "D":
+                Console.WriteLine("Delivery \t\t\t" + CalculateDeliveryTotal());
+                break;
+            }
+            Console.WriteLine("Meats");
+            if (baconSelected)
+            { Console.WriteLine("\t Bacon\t\t\t$" + pricePerMeat); }
+            if (hamSelected)
+            { Console.WriteLine("\t Ham\t\t\t$" + pricePerMeat); }
+            if (pepperoniSelected)
+            { Console.WriteLine("\t Pepperoni\t\t$" + pricePerMeat); }
+            if (sausageSelected)
+            { Console.WriteLine("\t Sausage\t\t$" + pricePerMeat); }
+
         }
 
         private static void DisplaySelectedOption( string displayLabel, bool hasOption )
