@@ -380,6 +380,18 @@ namespace PizzaCreator
             if (sausageSelected)
             { Console.WriteLine("\t Sausage\t\t$" + pricePerMeat); }
 
+            Console.WriteLine("Vegetables");
+            if (oliveSelected)
+            { Console.WriteLine("\t Black Olives\t\t$" + pricePerVeggie); }
+            if (mushroomsSelected)
+            { Console.WriteLine("\t Mushrooms\t\t$" + pricePerVeggie); }
+            if (onionsSelected)
+            { Console.WriteLine("\t Onions\t\t\t$" + pricePerVeggie); }
+            if (peppersSelected)
+            { Console.WriteLine("\t Peppers\t\t$" + pricePerVeggie); }
+
+
+
         }
 
         private static void DisplaySelectedOption( string displayLabel, bool hasOption )
