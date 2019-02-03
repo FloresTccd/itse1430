@@ -425,7 +425,7 @@ namespace PizzaCreator
         {
             Console.WriteLine("Tccd Pizza");
 
-            string cartString = String.Format(" -----------------------------\t CART:{0:C}", total);
+            string cartString = String.Format(" -----------------------------\t |CART:{0:C}|", total);
             Console.WriteLine(cartString);
             Console.WriteLine("1.New Order");
             Console.WriteLine("2.Modify Order");
@@ -525,6 +525,4 @@ namespace PizzaCreator
         }
 
     }
-
-
 }
