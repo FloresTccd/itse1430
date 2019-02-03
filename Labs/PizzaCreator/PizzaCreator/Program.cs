@@ -51,6 +51,41 @@ namespace PizzaCreator
 
 
         }//end of main
+        private static void HandleMenuOneChoice()
+        {
+
+            bool userQuit = false;
+
+            while (!userQuit)
+            {
+                DisplayMenuOne();
+                var menuOneChoice = Console.ReadLine();
+                switch (menuOneChoice)
+                {
+                    case "1":
+                    NewOrder();
+                    break;
+                    case "2":
+                    ModifyOrder();
+                    break;
+                    case "3":
+                    DisplayOrder();
+                    break;
+                    case "4":
+                    userQuit = true;
+                    break;
+
+                    default:
+                        {
+                            Console.WriteLine("Invalid Entry");
+                            break;
+                        }
+                }
+
+
+
+            }// end of while loop
+        }
 
         private static void NewOrder()
         {
@@ -60,7 +95,8 @@ namespace PizzaCreator
                 string result = Console.ReadLine().ToUpper();
                 if (result == "Y")
                 {
-                    isOrderInProgress = false;
+
+                    ResetOrder();
 
                 }
             }
@@ -69,7 +105,32 @@ namespace PizzaCreator
             {
                 StartOrder();
             }
-            
+
+        }
+
+        private static void ResetOrder()
+        {
+            isOrderInProgress = false;
+
+
+
+            baconSelected = false;
+            hamSelected = false;
+            pepperoniSelected = false;
+            sausageSelected = false;
+
+
+            pizzaChoice = "";
+            sauceChoice = "";
+            deliveryChoice = "";
+            cheeseChoice = "";
+
+            oliveSelected = false;
+            mushroomsSelected = false;
+            onionsSelected = false;
+            peppersSelected = false;
+
+
         }
 
         private static void StartOrder()
@@ -81,7 +142,7 @@ namespace PizzaCreator
             Sauce();
             Cheese();
             Delivery();
-            
+
 
 
             total += CalculateTotal();
@@ -206,6 +267,7 @@ namespace PizzaCreator
             while (!selectedOne)
             {
                 Console.WriteLine("What type of Sauce? \n T= Traditional \n G = Garlic \n O= Oregano \n");
+                // TODO ADD UI FOR OLD CHOISE(lOOK AT SizeOfPizza
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
@@ -235,6 +297,7 @@ namespace PizzaCreator
             while (!selectedOne)
             {
                 Console.WriteLine("What type of Cheese?\n R = Regular \n E = Extra \n");
+                // TODO ADD UI FOR OLD CHOISE(lOOK AT SizeOfPizza
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
@@ -260,6 +323,7 @@ namespace PizzaCreator
             while (!selectedOne)
             {
                 Console.WriteLine("Is this Take out or Delivery?\n T = Take Out \n D = Delivery \n");
+                // TODO ADD UI FOR OLD CHOISE(lOOK AT SizeOfPizza
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
@@ -281,10 +345,10 @@ namespace PizzaCreator
 
         private static void ModifyOrder()
         {
-            if(isOrderInProgress)
+            if (isOrderInProgress)
             {
                 StartOrder();
-                
+
             } else
             {
                 Console.WriteLine("Err order not in progress");
@@ -305,49 +369,15 @@ namespace PizzaCreator
                 Console.WriteLine("Large Pizza \t\t\t 0.0.0");
                 break;
             }
-
+            //TODO REST OF DISPLAY
         }
 
-        private static void DisplaySelectedOption( string option, bool hasOption )
+        private static void DisplaySelectedOption( string displayLabel, bool hasOption )
         {
-            Console.WriteLine(option + (hasOption ? selectedItemUi : unselectedItemUi));
+            Console.WriteLine(displayLabel + (hasOption ? selectedItemUi : unselectedItemUi));
         }
 
-        private static void HandleMenuOneChoice()
-        {
 
-            bool userQuit = false;
-
-            while (!userQuit)
-            {
-                DisplayMenuOne();
-                var menuOneChoice = Console.ReadLine();
-                switch (menuOneChoice)
-                {
-                    case "1":
-                    NewOrder();
-                    break;
-                    case "2":
-                    ModifyOrder();
-                    break;
-                    case "3":
-                    DisplayOrder();
-                    break;
-                    case "4":
-                    userQuit = true;
-                    break;
-
-                    default:
-                        {
-                            Console.WriteLine("Invalid Entry");
-                            break;
-                        }
-                }
-
-
-
-            }// end of while loop
-        }
 
         private static void DisplayMenuOne()
         {
