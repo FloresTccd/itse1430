@@ -67,21 +67,25 @@ namespace PizzaCreator
 
             if (!isOrderInProgress)
             {
-                SizeOfPizza();
-                Meats();
-                Vegetables();
-                Sauce();
-                Cheese();
-                Delivery();
-
-
-                total += CalculateTotal();
+                StartOrder();
             }
+            
+        }
+
+        private static void StartOrder()
+        {
+            isOrderInProgress = true;
+            SizeOfPizza();
+            Meats();
+            Vegetables();
+            Sauce();
+            Cheese();
+            Delivery();
+            
 
 
-
-
-            //RedoOrder("Would you like to start a new Order?Y/N");
+            total += CalculateTotal();
+            DisplayOrder();
         }
 
 
@@ -90,8 +94,12 @@ namespace PizzaCreator
             bool selectedOne = false;
             while (!selectedOne)
             {
-                Console.WriteLine("What size Pizza?\n S=Small \n M=Medium \n L=Large");
+                Console.WriteLine("What size Pizza?\n");
+                DisplaySelectedOption("S = Small", pizzaChoice == "S");
+                DisplaySelectedOption("M = Medium", pizzaChoice == "M");
+                DisplaySelectedOption("L = Large", pizzaChoice == "L");
                 string result = Console.ReadLine().ToUpper();
+
                 switch (result)
                 {
                     case "S":
@@ -273,7 +281,14 @@ namespace PizzaCreator
 
         private static void ModifyOrder()
         {
-            throw new NotImplementedException();
+            if(isOrderInProgress)
+            {
+                StartOrder();
+                
+            } else
+            {
+                Console.WriteLine("Err order not in progress");
+            }
         }
 
         private static void DisplayOrder()
