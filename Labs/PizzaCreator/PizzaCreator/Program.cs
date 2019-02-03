@@ -19,6 +19,27 @@ namespace PizzaCreator
         private static string selectedItemUi = "[X]";
         private static string unselectedItemUi = "[ ]";
 
+        private static bool baconSelected = false;
+        private static bool hamSelected = false;
+        private static bool pepperoniSelected = false;
+        private static bool sausageSelected = false;
+
+
+        private static string pizzaChoice;
+        private static string sauceChoice;
+        private static string deliveryChoice;
+        private static string cheeseChoice;
+
+        private static bool oliveSelected = false;
+        private static bool mushroomsSelected = false;
+        private static bool onionsSelected = false;
+        private static bool peppersSelected = false;
+
+
+
+
+
+
         static void Main( string[] args )
         {
 
@@ -43,35 +64,45 @@ namespace PizzaCreator
 
             if (!isOrderInProgress)
             {
-                total += SizeOfPizza();
-                total += Meats();
-                total += Vegetables();
-                total += Sauce();
-                total += Cheese();
-                total += Delivery();
-            } 
-            
-        
+                SizeOfPizza();
+                Meats();
+                Vegetables();
+                Sauce();
+                Cheese();
+                Delivery();
+
+
+                total += CalculateTotal();
+            }
+
+
+
 
             //RedoOrder("Would you like to start a new Order?Y/N");
         }
 
-        private static decimal SizeOfPizza()
+
+        private static void SizeOfPizza()
         {
-
-
-            while (true)
+            bool selectedOne = false;
+            while (!selectedOne)
             {
                 Console.WriteLine("What size Pizza?\n S=Small \n M=Medium \n L=Large");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
                     case "S":
-                    return 5.00M;
+                    pizzaChoice = "S";
+                    selectedOne = true;
+                    break;
                     case "M":
-                    return 6.25M;
+                    pizzaChoice = "M";
+                    selectedOne = true;
+                    break;
                     case "L":
-                    return 8.75M;
+                    pizzaChoice = "L";
+                    selectedOne = true;
+                    break;
                     default:
                     Console.WriteLine("Please pick S,M,L.");
                     break;
@@ -79,14 +110,11 @@ namespace PizzaCreator
                 }
             }
         }
-        private static decimal Meats()
+
+
+        private static void Meats()
         {
-            decimal totalMeats = 0;
             bool meatDone = false;
-            bool baconSelected = false;
-            bool hamSelected = false;
-            bool pepperoniSelected = false;
-            bool sausageSelected = false;
 
             while (!meatDone)
             {
@@ -120,24 +148,11 @@ namespace PizzaCreator
 
                 }
             }
-            totalMeats += baconSelected ? .75M : 0;
-            totalMeats += hamSelected ? .75M : 0;
-            totalMeats += pepperoniSelected ? .75M : 0;
-            totalMeats += sausageSelected ? .75M : 0;
-
-
-
-            return totalMeats;
         }
 
-        private static decimal Vegetables()
+        private static void Vegetables()
         {
-            decimal totalVeggies = 0;
             bool veggieDone = false;
-            bool oliveSelected = false;
-            bool mushroomsSelected = false;
-            bool onionsSelected = false;
-            bool peppersSelected = false;
 
             while (!veggieDone)
             {
@@ -171,30 +186,30 @@ namespace PizzaCreator
 
                 }
             }
-            totalVeggies += oliveSelected ? .50M : 0;
-            totalVeggies += mushroomsSelected ? .50M : 0;
-            totalVeggies += onionsSelected ? .50M : 0;
-            totalVeggies += peppersSelected ? .50M : 0;
-
-
-
-            return totalVeggies;
         }
 
-        private static decimal Sauce()
+        private static void Sauce()
         {
-            while (true)
+
+            bool selectedOne = false;
+            while (!selectedOne)
             {
                 Console.WriteLine("What type of Sauce? \n T= Traditional \n G = Garlic \n O= Oregano \n");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
                     case "T":
-                    return 0;
+                    selectedOne = true;
+                    sauceChoice = "T";
+                    break;
                     case "G":
-                    return 1;
+                    sauceChoice = "G";
+                    selectedOne = true;
+                    break;
                     case "O":
-                    return 1;
+                    sauceChoice = "O";
+                    selectedOne = true;
+                    break;
                     default:
                     Console.WriteLine("Please pick from menu");
                     break;
@@ -203,18 +218,23 @@ namespace PizzaCreator
             }
         }
 
-        private static decimal Cheese()
+        private static void Cheese()
         {
-            while (true)
+            bool selectedOne = false;
+            while (!selectedOne)
             {
                 Console.WriteLine("What type of Cheese?\n R = Regular \n E = Extra \n");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
                     case "R":
-                    return 0;
+                    selectedOne = true;
+                    cheeseChoice = "R";
+                    break;
                     case "E":
-                    return 1.25M;
+                    selectedOne = true;
+                    cheeseChoice = "E";
+                    break;
                     default:
                     Console.WriteLine("Please pick from menu");
                     break;
@@ -223,18 +243,23 @@ namespace PizzaCreator
             }
         }
 
-        private static decimal Delivery()
+        private static void Delivery()
         {
-            while (true)
+            bool selectedOne = false;
+            while (!selectedOne)
             {
                 Console.WriteLine("Is this Take out or Delivery?\n T = Take Out \n D = Delivery \n");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
                     case "T":
-                    return 0;
+                    deliveryChoice = "T";
+                    selectedOne = true;
+                    break;
                     case "D":
-                    return 2.50M;
+                    deliveryChoice = "D";
+                    selectedOne = true;
+                    break;
                     default:
                     Console.WriteLine("Please pick from menu");
                     break;
@@ -250,7 +275,7 @@ namespace PizzaCreator
 
         private static void DisplayOrder()
         {
-            throw new NotImplementedException();
+
         }
 
         private static void DisplaySelectedOption( string option, bool hasOption )
@@ -306,28 +331,98 @@ namespace PizzaCreator
             Console.WriteLine("4.Quit");
 
         }
-        //private static void RedoOrder(string message)
-        //{
-        //    do
-        //    {
-        //        Console.WriteLine(message);
-        //        string result = Console.ReadLine().ToUpper();
 
-        //        //Validate it is a boolean
-        //        if (result == "Y")
-        //            DisplayMenuOne();
+        private static decimal CalculateTotal()
+        {
+            decimal total = 0;
+            total += CalculateSizeOfPizzaTotal();
+            total += CalculateMeatTotal();
+            total += CalculateVeggiesTotal();
+            total += CalculateSauceTotal();
+            total += CalculateCheeseTotal();
+            total += CalculateDeliveryTotal();
 
-        //        if (result == "N")
+            return total;
+        }
 
+        private static decimal CalculateSizeOfPizzaTotal()
+        {
+            switch (pizzaChoice)
+            {
+                case "S":
+                return 5.00M;
+                case "M":
+                return 6.25M;
+                case "L":
+                return 8.75M;
+                default:
+                return 0;
+            }
+        }
 
-        //        Console.WriteLine("Enter Y or N");
-        //    } while (true);
-        //}
+        private static decimal CalculateSauceTotal()
+        {
+            switch (sauceChoice)
+            {
+                case "T":
+                return 0;
+                case "G":
+                return 1;
+                case "O":
+                return 1;
+                default:
+                return 0;
+            }
+        }
 
+        private static decimal CalculateCheeseTotal()
+        {
+            switch (cheeseChoice)
+            {
+                case "R":
+                return 0;
+                case "E":
+                return 1.25M;
+                default:
+                return 0;
+            }
+        }
 
+        private static decimal CalculateDeliveryTotal()
+        {
+            switch (deliveryChoice)
+            {
+                case "T":
+                return 0;
+                case "D":
+                return 2.50M;
+                default:
+                return 0;
+            }
+        }
 
+        private static decimal CalculateMeatTotal()
+        {
+            decimal total = 0;
+            total += baconSelected ? .75M : 0;
+            total += hamSelected ? .75M : 0;
+            total += pepperoniSelected ? .75M : 0;
+            total += sausageSelected ? .75M : 0;
 
+            return total;
+        }
+
+        private static decimal CalculateVeggiesTotal()
+        {
+            decimal totalVeggies = 0;
+            totalVeggies += oliveSelected ? .50M : 0;
+            totalVeggies += mushroomsSelected ? .50M : 0;
+            totalVeggies += onionsSelected ? .50M : 0;
+            totalVeggies += peppersSelected ? .50M : 0;
+            return totalVeggies;
+        }
 
     }
+
 
 }
