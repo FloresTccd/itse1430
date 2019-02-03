@@ -24,7 +24,6 @@ namespace PizzaCreator
         private static bool pepperoniSelected = false;
         private static bool sausageSelected = false;
 
-
         private static string pizzaChoice;
         private static string sauceChoice;
         private static string deliveryChoice;
@@ -45,11 +44,7 @@ namespace PizzaCreator
 
         static void Main( string[] args )
         {
-
             HandleMenuOneChoice();
-
-
-
         }//end of main
         private static void HandleMenuOneChoice()
         {
@@ -111,26 +106,18 @@ namespace PizzaCreator
         private static void ResetOrder()
         {
             isOrderInProgress = false;
-
-
-
             baconSelected = false;
             hamSelected = false;
             pepperoniSelected = false;
             sausageSelected = false;
-
-
             pizzaChoice = "";
             sauceChoice = "";
             deliveryChoice = "";
             cheeseChoice = "";
-
             oliveSelected = false;
             mushroomsSelected = false;
             onionsSelected = false;
             peppersSelected = false;
-
-
         }
 
         private static void StartOrder()
@@ -148,7 +135,6 @@ namespace PizzaCreator
             total += CalculateTotal();
             DisplayOrder();
         }
-
 
         private static void SizeOfPizza()
         {
@@ -182,7 +168,6 @@ namespace PizzaCreator
                 }
             }
         }
-
 
         private static void Meats()
         {
@@ -266,14 +251,18 @@ namespace PizzaCreator
             bool selectedOne = false;
             while (!selectedOne)
             {
-                Console.WriteLine("What type of Sauce? \n T= Traditional \n G = Garlic \n O= Oregano \n");
-                // TODO ADD UI FOR OLD CHOISE(lOOK AT SizeOfPizza
-                string result = Console.ReadLine().ToUpper();
-                switch (result)
+                
+                Console.WriteLine("What type of Sauce?\n");
+                DisplaySelectedOption("T = Traditional", sauceChoice == "T");
+                DisplaySelectedOption("G = Garlic", sauceChoice == "G");
+                DisplaySelectedOption("O = Oregano", sauceChoice == "O");
+                string sauceResult = Console.ReadLine().ToUpper();
+
+                switch (sauceResult)
                 {
                     case "T":
-                    selectedOne = true;
                     sauceChoice = "T";
+                    selectedOne = true;
                     break;
                     case "G":
                     sauceChoice = "G";
@@ -296,8 +285,9 @@ namespace PizzaCreator
             bool selectedOne = false;
             while (!selectedOne)
             {
-                Console.WriteLine("What type of Cheese?\n R = Regular \n E = Extra \n");
-                // TODO ADD UI FOR OLD CHOISE(lOOK AT SizeOfPizza
+                Console.WriteLine("What type of Cheese?\n");
+                DisplaySelectedOption("R = Regular", cheeseChoice == "R");
+                DisplaySelectedOption("E = Extra", cheeseChoice == "E");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
@@ -323,8 +313,9 @@ namespace PizzaCreator
             bool selectedOne = false;
             while (!selectedOne)
             {
-                Console.WriteLine("Is this Take out or Delivery?\n T = Take Out \n D = Delivery \n");
-                // TODO ADD UI FOR OLD CHOISE(lOOK AT SizeOfPizza
+                Console.WriteLine("Is this Take Out or Delivery?\n");
+                DisplaySelectedOption("T = Take Out", deliveryChoice == "T");
+                DisplaySelectedOption("D = Delivery", deliveryChoice == "D");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
@@ -377,8 +368,6 @@ namespace PizzaCreator
         {
             Console.WriteLine(displayLabel + (hasOption ? selectedItemUi : unselectedItemUi));
         }
-
-
 
         private static void DisplayMenuOne()
         {
