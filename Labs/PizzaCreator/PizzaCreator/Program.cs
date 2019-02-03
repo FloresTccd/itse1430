@@ -37,15 +37,11 @@ namespace PizzaCreator
         private static decimal pricePerMeat = .75M;
         private static decimal pricePerVeggie = .50M;
 
-
-
-
-
-
         static void Main( string[] args )
         {
             HandleMenuOneChoice();
-        }//end of main
+        }
+
         private static void HandleMenuOneChoice()
         {
 
@@ -349,6 +345,8 @@ namespace PizzaCreator
 
         private static void DisplayOrder()
         {
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("\tCurrent Order");
             switch (pizzaChoice)
             {
                 case "S":
@@ -367,7 +365,7 @@ namespace PizzaCreator
                 Console.WriteLine("Take Out ");
                 break;
                 case "D":
-                Console.WriteLine("Delivery \t\t\t" + CalculateDeliveryTotal());
+                Console.WriteLine("Delivery \t\t\t$" + CalculateDeliveryTotal());
                 break;
             }
             Console.WriteLine("Meats");
@@ -390,7 +388,31 @@ namespace PizzaCreator
             if (peppersSelected)
             { Console.WriteLine("\t Peppers\t\t$" + pricePerVeggie); }
 
-
+            switch (cheeseChoice)
+            {
+                case "R":
+                Console.WriteLine("Regular Cheese \t\t\t");
+                break;
+                case "E":
+                Console.WriteLine("Extra Cheese \t\t\t$" + CalculateCheeseTotal());
+                break;
+            }
+            Console.WriteLine("Sauce");
+            switch (sauceChoice)
+            {
+                case "T":
+                Console.WriteLine("\t Traditional \t\t$" + CalculateSizeOfPizzaTotal());
+                break;
+                case "G":
+                Console.WriteLine("\t Garlic \t\t$" + CalculateSizeOfPizzaTotal());
+                break;
+                case "O":
+                Console.WriteLine("\t Oregano \t\t$" + CalculateSizeOfPizzaTotal());
+                break;
+            }
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Total \t\t\t\t$" + total);
+            Console.WriteLine("\n\n");
 
         }
 
@@ -403,7 +425,7 @@ namespace PizzaCreator
         {
             Console.WriteLine("Tccd Pizza");
 
-            string cartString = String.Format(" ---------- \t\t\t CART:{0:C}", total);
+            string cartString = String.Format(" -----------------------------\t CART:{0:C}", total);
             Console.WriteLine(cartString);
             Console.WriteLine("1.New Order");
             Console.WriteLine("2.Modify Order");
