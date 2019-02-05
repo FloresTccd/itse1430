@@ -371,23 +371,39 @@ namespace PizzaCreator
             }
             Console.WriteLine("Meats");
             if (baconSelected)
-            { Console.WriteLine("\t Bacon\t\t\t$" + pricePerMeat); }
+            {
+                Console.WriteLine("\t Bacon\t\t\t$" + pricePerMeat);
+            }
             if (hamSelected)
-            { Console.WriteLine("\t Ham\t\t\t$" + pricePerMeat); }
+            {
+                Console.WriteLine("\t Ham\t\t\t$" + pricePerMeat);
+            }
             if (pepperoniSelected)
-            { Console.WriteLine("\t Pepperoni\t\t$" + pricePerMeat); }
+            {
+                Console.WriteLine("\t Pepperoni\t\t$" + pricePerMeat);
+            }
             if (sausageSelected)
-            { Console.WriteLine("\t Sausage\t\t$" + pricePerMeat); }
+            {
+                Console.WriteLine("\t Sausage\t\t$" + pricePerMeat);
+            }
 
             Console.WriteLine("Vegetables");
             if (oliveSelected)
-            { Console.WriteLine("\t Black Olives\t\t$" + pricePerVeggie); }
+            {
+                Console.WriteLine("\t Black Olives\t\t$" + pricePerVeggie);
+            }
             if (mushroomsSelected)
-            { Console.WriteLine("\t Mushrooms\t\t$" + pricePerVeggie); }
+            {
+                Console.WriteLine("\t Mushrooms\t\t$" + pricePerVeggie);
+            }
             if (onionsSelected)
-            { Console.WriteLine("\t Onions\t\t\t$" + pricePerVeggie); }
+            {
+                Console.WriteLine("\t Onions\t\t\t$" + pricePerVeggie);
+            }
             if (peppersSelected)
-            { Console.WriteLine("\t Peppers\t\t$" + pricePerVeggie); }
+            {
+                Console.WriteLine("\t Peppers\t\t$" + pricePerVeggie);
+            }
 
             switch (cheeseChoice)
             {
