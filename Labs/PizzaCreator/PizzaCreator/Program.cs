@@ -172,7 +172,7 @@ namespace PizzaCreator
 
             while (!meatDone)
             {
-                Console.WriteLine("What kinda of Meats? $"+ pricePerMeat + " Pick one at a time \n");
+                Console.WriteLine("What kinda of Meats? $" + pricePerMeat + " Pick one at a time \n");
                 DisplaySelectedOption("B = Bacon", baconSelected);
                 DisplaySelectedOption("H = Ham", hamSelected);
                 DisplaySelectedOption("P = Pepperoni", pepperoniSelected);
@@ -210,7 +210,7 @@ namespace PizzaCreator
 
             while (!veggieDone)
             {
-                Console.WriteLine("What kinda of Vegetables? $"+ pricePerVeggie+" Pick one at a time \n");
+                Console.WriteLine("What kinda of Vegetables? $" + pricePerVeggie + " Pick one at a time \n");
                 DisplaySelectedOption("B = Black Olives", oliveSelected);
                 DisplaySelectedOption("M = Mushrooms", mushroomsSelected);
                 DisplaySelectedOption("O = Onions", onionsSelected);
