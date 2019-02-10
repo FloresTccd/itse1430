@@ -418,13 +418,13 @@ namespace PizzaCreator
             switch (sauceChoice)
             {
                 case "T":
-                Console.WriteLine("\t Traditional \t\t$" + CalculateSizeOfPizzaTotal());
+                Console.WriteLine("\t Traditional \t\t$" + CalculateSauceTotal());
                 break;
                 case "G":
-                Console.WriteLine("\t Garlic \t\t$" + CalculateSizeOfPizzaTotal());
+                Console.WriteLine("\t Garlic \t\t$" + CalculateSauceTotal());
                 break;
                 case "O":
-                Console.WriteLine("\t Oregano \t\t$" + CalculateSizeOfPizzaTotal());
+                Console.WriteLine("\t Oregano \t\t$" + CalculateSauceTotal());
                 break;
             }
             Console.WriteLine("-----------------------------------------");
