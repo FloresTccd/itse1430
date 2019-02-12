@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GameManager.Host.WinForms
+namespace GameManager.Host.Winforms
 {
     static class Program
     {

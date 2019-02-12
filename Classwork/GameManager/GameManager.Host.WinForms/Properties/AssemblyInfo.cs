@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GameManager.Host.WinForms")]
+[assembly: AssemblyTitle("GameManager.Host.Winforms")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GameManager.Host.WinForms")]
+[assembly: AssemblyProduct("GameManager.Host.Winforms")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8b63b00d-4775-4d3f-8f59-fe979ba47a2a")]
+[assembly: Guid("20d9555f-82be-46aa-886b-286d02ec7bf9")]
 
 // Version information for an assembly consists of the following four values:
 //

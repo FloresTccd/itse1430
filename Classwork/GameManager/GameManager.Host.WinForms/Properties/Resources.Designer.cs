@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameManager.Host.WinForms.Properties
+namespace GameManager.Host.Winforms.Properties
 {
 
 
@@ -43,7 +43,7 @@ namespace GameManager.Host.WinForms.Properties
             get {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GameManager.Host.WinForms.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GameManager.Host.Winforms.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameManager.Host.WinForms.Properties
+namespace GameManager.Host.Winforms.Properties
 {
 
 

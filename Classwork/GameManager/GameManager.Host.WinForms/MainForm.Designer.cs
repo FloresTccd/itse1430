@@ -1,4 +1,4 @@
-﻿namespace GameManager.Host.WinForms
+﻿namespace GameManager.Host.Winforms
 {
     partial class MainForm
     {
@@ -49,7 +49,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(852, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,7 +64,7 @@
             // _miFileExit
             // 
             this._miFileExit.Name = "_miFileExit";
-            this._miFileExit.Size = new System.Drawing.Size(180, 22);
+            this._miFileExit.Size = new System.Drawing.Size(92, 22);
             this._miFileExit.Text = "E&xit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -84,6 +84,7 @@
             this._miGameAdd.Name = "_miGameAdd";
             this._miGameAdd.Size = new System.Drawing.Size(180, 22);
             this._miGameAdd.Text = "&Add";
+            this._miGameAdd.Click += new System.EventHandler(this.OnGameAdd);
             // 
             // _miGameEdit
             // 
@@ -113,7 +114,7 @@
             // _miHelpAbout
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
-            this._miHelpAbout.Size = new System.Drawing.Size(180, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(107, 22);
             this._miHelpAbout.Text = "&About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
@@ -121,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 466);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
