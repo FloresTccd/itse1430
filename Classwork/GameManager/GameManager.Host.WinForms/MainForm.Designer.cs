@@ -89,18 +89,18 @@
             // _miGameEdit
             // 
             this._miGameEdit.Name = "_miGameEdit";
-            this._miGameEdit.Size = new System.Drawing.Size(107, 22);
+            this._miGameEdit.Size = new System.Drawing.Size(180, 22);
             this._miGameEdit.Text = "&Edit";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(104, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // _miGameDelete
             // 
             this._miGameDelete.Name = "_miGameDelete";
-            this._miGameDelete.Size = new System.Drawing.Size(107, 22);
+            this._miGameDelete.Size = new System.Drawing.Size(180, 22);
             this._miGameDelete.Text = "&Delete";
             // 
             // helpToolStripMenuItem
@@ -127,7 +127,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Game Manager";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
