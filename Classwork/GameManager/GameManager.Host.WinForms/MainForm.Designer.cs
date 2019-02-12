@@ -64,7 +64,7 @@
             // _miFileExit
             // 
             this._miFileExit.Name = "_miFileExit";
-            this._miFileExit.Size = new System.Drawing.Size(180, 22);
+            this._miFileExit.Size = new System.Drawing.Size(92, 22);
             this._miFileExit.Text = "E&xit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -84,22 +84,23 @@
             this._miGameAdd.Name = "_miGameAdd";
             this._miGameAdd.Size = new System.Drawing.Size(180, 22);
             this._miGameAdd.Text = "&Add";
+            this._miGameAdd.Click += new System.EventHandler(this.OnGameAdd);
             // 
             // _miGameEdit
             // 
             this._miGameEdit.Name = "_miGameEdit";
-            this._miGameEdit.Size = new System.Drawing.Size(180, 22);
+            this._miGameEdit.Size = new System.Drawing.Size(107, 22);
             this._miGameEdit.Text = "&Edit";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(104, 6);
             // 
             // _miGameDelete
             // 
             this._miGameDelete.Name = "_miGameDelete";
-            this._miGameDelete.Size = new System.Drawing.Size(180, 22);
+            this._miGameDelete.Size = new System.Drawing.Size(107, 22);
             this._miGameDelete.Text = "&Delete";
             // 
             // helpToolStripMenuItem
@@ -113,7 +114,7 @@
             // _miHelpAbout
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
-            this._miHelpAbout.Size = new System.Drawing.Size(180, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(107, 22);
             this._miHelpAbout.Text = "&About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
@@ -126,6 +127,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Game Manager";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

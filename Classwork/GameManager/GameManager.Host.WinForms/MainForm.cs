@@ -26,6 +26,8 @@ namespace GameManager.Host.WinForms
             game.Name = "DOOM";
             game.Price = 59.99M;
 
+            var name = game.Name;
+
             game.Validate();
 
 
@@ -46,6 +48,20 @@ namespace GameManager.Host.WinForms
         private void OnHelpAbout( object sender, EventArgs e )
         {
             MessageBox.Show("Help");
+        }
+
+        private void MainForm_Load( object sender, EventArgs e )
+        {
+
+        }
+
+        private void OnGameAdd( object sender, EventArgs e )
+        {
+            //Display Ui
+
+
+            //if OK then "Add" to system
+
         }
     }
 }
