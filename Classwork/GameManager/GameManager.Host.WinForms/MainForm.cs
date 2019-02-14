@@ -44,7 +44,13 @@ namespace GameManager.Host.Winforms
 
             //var str = game.Publisher;            
             //Decimal.TryParse("45.99", out game.Price);
-            
+
+
+            //event EventHandler Click;
+            //delegate EventHandler void ( Object, EventArgs )
+            _miGameAdd.Click += OnGameAdd;
+            //_miGameAdd.Click += new EventHandler(OnGameAdd); ^^ same
+
         }
 
         private void OnFileExit ( object sender, EventArgs e )
@@ -57,14 +63,61 @@ namespace GameManager.Host.Winforms
 
         private void OnHelpAbout ( object sender, EventArgs e )
         {
-            MessageBox.Show("Help");
+            var form = new AboutBox();
+            form.ShowDialog();
+
         }
 
         private void OnGameAdd( object sender, EventArgs e )
         {
             //Display UI
+            var form = new GameForm();
+
+            //Modeless
+            //form.Show();
+
+            //Modal
+            if (form.ShowDialog(this) != DialogResult.OK)
+                return;
 
             //If OK then "add" to system
+            _game = form.Game;
+        }
+        private Game _game;
+
+        private void OnGameEdit( object sender, EventArgs e )
+        {
+            
+            var form = new GameForm();
+
+            form.Game = _game;
+
+            if (form.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            _game = form.Game;
+        }
+
+        private void OnGameDelete( object sender, EventArgs e )
+        {
+            //get selected game, if any
+            var selected = GetSelectedGame();
+            if (selected == null)
+                return;
+
+            //display confimation
+            if (MessageBox.Show(this, $"Are you sure you want to delete {selected.Name}?",
+                               "Confirm Delete", MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            //TODO: dELETE
+            _game = null;
+        }
+
+        private Game GetSelectedGame()
+        {
+            return _game;
         }
     }
 }
