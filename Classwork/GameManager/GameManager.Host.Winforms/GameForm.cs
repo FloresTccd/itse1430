@@ -13,10 +13,12 @@ namespace GameManager.Host.Winforms
     /// <summary>Allows adding or editing a game.</summary>
     public partial class GameForm : Form
     {
-        public GameForm()
+        public GameForm() //: base()  <--Implicit  called but no need to show it
         {
             InitializeComponent();
         }
+
+
         /// <summary>Gets or sets the property being edited.</summary>
         public Game Game { get; set; }
         private void OnSave( object sender, EventArgs e )//Called when the user saves the game
@@ -57,14 +59,25 @@ namespace GameManager.Host.Winforms
             game.Owned = _cbOwned.Checked;
             game.Completed = _cbCompleted.Checked;
 
+            //Demoing ctor
+            var game2 = new Game(_txtName.Text, ReadDecimal(_txtPrice));
+
             return game;
         }
 
-        private void GameForm_Load( object sender, EventArgs e )
+        //Define in type
+        //derived type may override and change it
+        protected virtual void CanBeChanged() { }
+
+       
+        protected override void OnLoad( EventArgs e )
         {
+            base.OnLoad(e);
+
             //init UI if editing a game
             if (Game != null)
                 LoadData(Game);
         }
+
     }
 }
