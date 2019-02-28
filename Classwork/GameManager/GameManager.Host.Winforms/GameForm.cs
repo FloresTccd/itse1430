@@ -23,7 +23,22 @@ namespace GameManager.Host.Winforms
         public Game Game { get; set; }
         private void OnSave( object sender, EventArgs e )//Called when the user saves the game
         {
-            Game = SaveData();
+            if (!ValidateChildren())
+                return;
+
+           var game = SaveData();
+
+        
+            //validate - at business level
+            if (!game.Validate())
+            {
+                MessageBox.Show("Game not valid.", "Error", MessageBoxButtons.OK);
+                return;
+
+            }
+
+
+            Game = game;
             DialogResult = DialogResult.OK;
             Close();
 
@@ -35,6 +50,9 @@ namespace GameManager.Host.Winforms
         }
         private decimal ReadDecimal( TextBox control )
         {
+            if (control.Text.Length == 0)
+                return 0;
+
             if (Decimal.TryParse(control.Text, out var value))
                 return value;
 
@@ -45,7 +63,7 @@ namespace GameManager.Host.Winforms
         private void LoadData( Game game )  //loads UI with game
         {
             _txtName.Text = game.Name;
-            _txtPublisher.Text = game.Publisher;
+            _txtDescription.Text = game.Description;
             _txtPrice.Text = game.Price.ToString();
             _cbOwned.Checked = game.Owned;
             _cbCompleted.Checked = game.Completed;
@@ -54,7 +72,7 @@ namespace GameManager.Host.Winforms
         {
             var game = new Game();
             game.Name = _txtName.Text;
-            game.Publisher = _txtPublisher.Text;
+            game.Description = _txtDescription.Text;
             game.Price = ReadDecimal(_txtPrice);
             game.Owned = _cbOwned.Checked;
             game.Completed = _cbCompleted.Checked;
@@ -77,7 +95,42 @@ namespace GameManager.Host.Winforms
             //init UI if editing a game
             if (Game != null)
                 LoadData(Game);
+
+            ValidateChildren(); // to display icon on required items
         }
 
+        private void OnValidateName( object sender, CancelEventArgs e )
+        {
+            var tb = sender as TextBox; // casting as txbox
+
+            if (tb.Text.Length == 0)
+            {
+                _errors.SetError(tb, "Name is required.");
+                e.Cancel = true;
+            } else
+            {
+                _errors.SetError(tb, "");
+            }
+        }
+
+        private void OnValidatePrice( object sender, CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            var price = ReadDecimal(tb);
+            if (price < 0)
+            {
+                _errors.SetError(tb, "Price > = 0");
+                e.Cancel = true;
+            } else
+            {
+                _errors.SetError(tb, "");
+            }
+        }
+
+        private void label2_Click( object sender, EventArgs e )
+        {
+
+        }
     }
 }
