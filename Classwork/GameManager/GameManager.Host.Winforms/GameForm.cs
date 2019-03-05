@@ -91,10 +91,13 @@ namespace GameManager.Host.Winforms
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
+            
+          
 
             //init UI if editing a game
             if (Game != null)
                 LoadData(Game);
+           
 
             ValidateChildren(); // to display icon on required items
         }
