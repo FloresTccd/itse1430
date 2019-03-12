@@ -16,5 +16,12 @@ namespace CharacterCreator.Winforms
         {
             InitializeComponent();
         }
+
+        private void OnFileExit( object sender, EventArgs e )
+        {
+            Close();
+        }
     }
+
+   
 }
