@@ -15,11 +15,35 @@ namespace CharacterCreator.Winforms
         public MainForm()
         {
             InitializeComponent();
+            
         }
 
         private void OnFileExit( object sender, EventArgs e )
         {
             Close();
+        }
+
+        private void OnHelpAbout( object sender, EventArgs e )
+        {
+            var form = new AboutBox();
+            form.ShowDialog();
+        }
+
+        protected override void OnFormClosing( FormClosingEventArgs e )
+        {
+            if (MessageBox.Show(this, "Are you sure?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            };
+            base.OnFormClosing(e);
+        }
+
+        private void OnAddCharacter( object sender, EventArgs e )
+        {
+            var form = new CharacterForm();
+            form.ShowDialog();
+
         }
     }
 

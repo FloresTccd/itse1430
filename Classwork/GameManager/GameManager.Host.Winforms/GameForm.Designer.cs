@@ -63,7 +63,7 @@
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Description";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            
             // 
             // label3
             // 
@@ -104,6 +104,7 @@
             this._txtPrice.Name = "_txtPrice";
             this._txtPrice.Size = new System.Drawing.Size(82, 20);
             this._txtPrice.TabIndex = 2;
+           
             this._txtPrice.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatePrice);
             // 
             // _cbOwned
