@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._miFileExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,7 @@
             // 
             this._miFileExit.Name = "_miFileExit";
             this._miFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this._miFileExit.Size = new System.Drawing.Size(180, 22);
+            this._miFileExit.Size = new System.Drawing.Size(134, 22);
             this._miFileExit.Text = "E&xit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -82,7 +83,7 @@
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.OnAddCharacter);
             // 
@@ -90,14 +91,14 @@
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // helpToolStripMenuItem
@@ -112,7 +113,7 @@
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
             this._miHelpAbout.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this._miHelpAbout.Size = new System.Drawing.Size(180, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(147, 22);
             this._miHelpAbout.Text = "&About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
@@ -120,8 +121,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(284, 381);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(300, 450);
             this.MinimumSize = new System.Drawing.Size(260, 420);
