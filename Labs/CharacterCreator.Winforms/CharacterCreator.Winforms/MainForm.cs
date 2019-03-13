@@ -113,6 +113,7 @@ namespace CharacterCreator.Winforms
         private void OnGameEdit( object sender, EventArgs e )
         {
             var form = new CharacterForm();
+            form.Text = "Edit Character";
 
             var game = GetSelectedCharacter();
             if (game == null)

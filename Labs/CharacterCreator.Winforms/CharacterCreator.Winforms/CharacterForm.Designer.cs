@@ -185,16 +185,36 @@
             // _numStr
             // 
             this._numStr.Location = new System.Drawing.Point(6, 38);
+            this._numStr.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this._numStr.Name = "_numStr";
             this._numStr.Size = new System.Drawing.Size(51, 20);
             this._numStr.TabIndex = 11;
+            this._numStr.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
             // _numAgi
             // 
             this._numAgi.Location = new System.Drawing.Point(9, 38);
+            this._numAgi.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this._numAgi.Name = "_numAgi";
             this._numAgi.Size = new System.Drawing.Size(51, 20);
             this._numAgi.TabIndex = 11;
+            this._numAgi.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
             // groupBox1
             // 
@@ -229,9 +249,19 @@
             // _numInt
             // 
             this._numInt.Location = new System.Drawing.Point(9, 38);
+            this._numInt.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this._numInt.Name = "_numInt";
             this._numInt.Size = new System.Drawing.Size(51, 20);
             this._numInt.TabIndex = 11;
+            this._numInt.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
             // groupBox4
             // 
@@ -246,9 +276,19 @@
             // _numDex
             // 
             this._numDex.Location = new System.Drawing.Point(9, 38);
+            this._numDex.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this._numDex.Name = "_numDex";
             this._numDex.Size = new System.Drawing.Size(51, 20);
             this._numDex.TabIndex = 11;
+            this._numDex.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
             // groupBox5
             // 
@@ -263,9 +303,19 @@
             // _numEnd
             // 
             this._numEnd.Location = new System.Drawing.Point(9, 38);
+            this._numEnd.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this._numEnd.Name = "_numEnd";
             this._numEnd.Size = new System.Drawing.Size(51, 20);
             this._numEnd.TabIndex = 11;
+            this._numEnd.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
             // CharacterForm
             // 
