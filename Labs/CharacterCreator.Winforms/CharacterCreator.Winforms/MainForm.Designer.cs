@@ -87,7 +87,7 @@
             // 
             this._miCharacterNew.Name = "_miCharacterNew";
             this._miCharacterNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this._miCharacterNew.Size = new System.Drawing.Size(141, 22);
+            this._miCharacterNew.Size = new System.Drawing.Size(180, 22);
             this._miCharacterNew.Text = "&New";
             this._miCharacterNew.Click += new System.EventHandler(this.OnGameAdd);
             // 
@@ -95,20 +95,20 @@
             // 
             this._miCharacterEdit.Name = "_miCharacterEdit";
             this._miCharacterEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this._miCharacterEdit.Size = new System.Drawing.Size(141, 22);
+            this._miCharacterEdit.Size = new System.Drawing.Size(180, 22);
             this._miCharacterEdit.Text = "&Edit";
             this._miCharacterEdit.Click += new System.EventHandler(this.OnGameEdit);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // _miCharacterDelete
             // 
             this._miCharacterDelete.Name = "_miCharacterDelete";
             this._miCharacterDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miCharacterDelete.Size = new System.Drawing.Size(141, 22);
+            this._miCharacterDelete.Size = new System.Drawing.Size(180, 22);
             this._miCharacterDelete.Text = "&Delete";
             this._miCharacterDelete.Click += new System.EventHandler(this.OnGameDelete);
             // 
@@ -123,7 +123,7 @@
             // _miHelpAbout
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
-            this._miHelpAbout.Size = new System.Drawing.Size(107, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(180, 22);
             this._miHelpAbout.Text = "&About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 

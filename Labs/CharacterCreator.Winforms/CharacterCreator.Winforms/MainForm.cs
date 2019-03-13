@@ -27,6 +27,7 @@ namespace CharacterCreator.Winforms
 
         private void OnHelpAbout( object sender, EventArgs e )
         {
+            
             var form = new AboutBox();
             form.ShowDialog();
         }
@@ -194,6 +195,16 @@ namespace CharacterCreator.Winforms
         }
 
 
+        protected override bool ProcessCmdKey( ref Message msg, Keys keyData )
+        {
+            if (keyData == ( Keys.F))
+            {
+                var form = new AboutBox();
+                form.ShowDialog();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
 
 
 
