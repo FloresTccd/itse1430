@@ -104,7 +104,7 @@
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
             this._txtDescription.Size = new System.Drawing.Size(277, 84);
-            this._txtDescription.TabIndex = 1;
+            this._txtDescription.TabIndex = 8;
             // 
             // button1
             // 
@@ -112,7 +112,7 @@
             this.button1.Location = new System.Drawing.Point(122, 337);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 9;
             this.button1.Text = "&Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.OnSave);
@@ -124,7 +124,7 @@
             this.button2.Location = new System.Drawing.Point(213, 337);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 10;
             this.button2.Text = "&Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.OnCancel);
@@ -147,7 +147,7 @@
             this._cbRace.Location = new System.Drawing.Point(92, 58);
             this._cbRace.Name = "_cbRace";
             this._cbRace.Size = new System.Drawing.Size(196, 21);
-            this._cbRace.TabIndex = 7;
+            this._cbRace.TabIndex = 1;
             // 
             // labelRace
             // 
@@ -155,7 +155,7 @@
             this.labelRace.Location = new System.Drawing.Point(44, 61);
             this.labelRace.Name = "labelRace";
             this.labelRace.Size = new System.Drawing.Size(33, 13);
-            this.labelRace.TabIndex = 8;
+            this.labelRace.TabIndex = 0;
             this.labelRace.Text = "Race";
             // 
             // labelProfession
@@ -180,7 +180,7 @@
             this._cbProfession.Location = new System.Drawing.Point(91, 85);
             this._cbProfession.Name = "_cbProfession";
             this._cbProfession.Size = new System.Drawing.Size(196, 21);
-            this._cbProfession.TabIndex = 10;
+            this._cbProfession.TabIndex = 2;
             // 
             // _numStr
             // 
@@ -192,7 +192,7 @@
             0});
             this._numStr.Name = "_numStr";
             this._numStr.Size = new System.Drawing.Size(51, 20);
-            this._numStr.TabIndex = 11;
+            this._numStr.TabIndex = 0;
             this._numStr.Value = new decimal(new int[] {
             50,
             0,
@@ -209,7 +209,7 @@
             0});
             this._numAgi.Name = "_numAgi";
             this._numAgi.Size = new System.Drawing.Size(51, 20);
-            this._numAgi.TabIndex = 11;
+            this._numAgi.TabIndex = 0;
             this._numAgi.Value = new decimal(new int[] {
             50,
             0,
@@ -222,7 +222,7 @@
             this.groupBox1.Location = new System.Drawing.Point(11, 143);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(66, 86);
-            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "STR";
             // 
@@ -232,7 +232,7 @@
             this.groupBox2.Location = new System.Drawing.Point(155, 143);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(66, 86);
-            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "AGI";
             // 
@@ -242,7 +242,7 @@
             this.groupBox3.Location = new System.Drawing.Point(83, 143);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(66, 86);
-            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "INT";
             // 
@@ -256,7 +256,7 @@
             0});
             this._numInt.Name = "_numInt";
             this._numInt.Size = new System.Drawing.Size(51, 20);
-            this._numInt.TabIndex = 11;
+            this._numInt.TabIndex = 0;
             this._numInt.Value = new decimal(new int[] {
             50,
             0,
@@ -269,7 +269,7 @@
             this.groupBox4.Location = new System.Drawing.Point(227, 143);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(66, 86);
-            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "DEX";
             // 
@@ -283,7 +283,7 @@
             0});
             this._numDex.Name = "_numDex";
             this._numDex.Size = new System.Drawing.Size(51, 20);
-            this._numDex.TabIndex = 11;
+            this._numDex.TabIndex = 0;
             this._numDex.Value = new decimal(new int[] {
             50,
             0,
@@ -296,7 +296,7 @@
             this.groupBox5.Location = new System.Drawing.Point(299, 143);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(66, 86);
-            this.groupBox5.TabIndex = 20;
+            this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "END";
             // 
@@ -310,7 +310,7 @@
             0});
             this._numEnd.Name = "_numEnd";
             this._numEnd.Size = new System.Drawing.Size(51, 20);
-            this._numEnd.TabIndex = 11;
+            this._numEnd.TabIndex = 0;
             this._numEnd.Value = new decimal(new int[] {
             50,
             0,
