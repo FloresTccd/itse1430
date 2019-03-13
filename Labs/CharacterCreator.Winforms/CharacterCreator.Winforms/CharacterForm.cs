@@ -15,6 +15,7 @@ namespace CharacterCreator.Winforms
         public CharacterForm()
         {
             InitializeComponent();
+           _cbRace.DataSource = Enum.GetValues(typeof(CharacterRace)); 
         }
 
         public Character Character { get; set; }
@@ -29,6 +30,8 @@ namespace CharacterCreator.Winforms
         {
             _txtName.Text = character.Name;
             _txtDescription.Text = character.Description;
+           
+            
 
         }
 
@@ -37,7 +40,8 @@ namespace CharacterCreator.Winforms
             var character = new Character();
             character.Name = _txtName.Text;
             character.Description = _txtDescription.Text;
-
+            
+            
 
 
 
@@ -49,9 +53,12 @@ namespace CharacterCreator.Winforms
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
+           
+
 
             if (Character != null)
                 LoadData(Character);
+      
 
             ValidateChildren();
         }
@@ -93,10 +100,6 @@ namespace CharacterCreator.Winforms
 
         }
 
-
-
-
-
-
+       
     }
 }

@@ -130,6 +130,7 @@ namespace CharacterCreator
             target.Id = source.Id;
             target.Name = source.Name;
             target.Description = source.Description;
+            target.Race = source.Race;
             //target.Price = source.Price;
             //target.Owned = source.Owned;
             //target.Completed = source.Completed;

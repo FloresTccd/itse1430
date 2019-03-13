@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CharacterCreator
 {
-    public enum CharacterRace {Dwarf,Elf,Orc,Hobbit,Human,Unknown}
-    public enum CharacterProfession {Fighter,Archer,Rogue,Tank,Wizard,Unknown}
+    public enum CharacterRace { Unknown,Dwarf, Elf,Orc,Hobbit,Human}
+    public enum CharacterProfession {Unknown,Fighter,Archer,Rogue,Tank,Wizard}
 
     public class Character
     {
@@ -37,8 +37,8 @@ namespace CharacterCreator
         public int Strength { get => _strength; set => _strength = value; }
         public int Intelligence { get => _intelligence; set => _intelligence = value; }
         public int Agility { get => _agility; set => _agility = value; }
-        public int Constitution { get => _constitution; set => _constitution = value; }
-        public int Charisma { get => _charisma; set => _charisma = value; }
+        public int Dexterity { get => _dexterity; set => _dexterity = value; }
+        public int Endurance { get => _endurance; set => _endurance = value; }
 
 
         public override string ToString()
@@ -64,8 +64,8 @@ namespace CharacterCreator
             Strength = 50;
             Intelligence = 50;
             Agility = 50;
-            Constitution = 50;
-            Charisma = 50;
+            Dexterity = 50;
+            Endurance = 50;
         }
 
         public Character( string name, CharacterRace characterRace, CharacterProfession characterProfession )
@@ -76,7 +76,7 @@ namespace CharacterCreator
         }
 
         public Character( string name, CharacterRace characterRace, CharacterProfession characterProfession, int strength, int intelligence,
-            int agility, int constitution, int charisma )
+            int agility, int dexterity, int endurance )
         {
             Name = name;
             Race = characterRace;
@@ -84,8 +84,8 @@ namespace CharacterCreator
             Strength = strength;
             Intelligence = intelligence;
             Agility = agility;
-            Constitution = constitution;
-            Charisma = charisma;
+            Dexterity = dexterity;
+            Endurance = endurance;
 
         }
 
@@ -99,8 +99,8 @@ namespace CharacterCreator
         private int _strength;
         private int _intelligence;
         private int _agility;
-        private int _constitution;
-        private int _charisma;
+        private int _dexterity;
+        private int _endurance;
         #endregion
 
 

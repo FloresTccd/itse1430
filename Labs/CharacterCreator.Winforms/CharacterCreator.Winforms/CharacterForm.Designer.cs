@@ -36,17 +36,37 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this._errors = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this._cbRace = new System.Windows.Forms.ComboBox();
             this.labelRace = new System.Windows.Forms.Label();
             this.labelProfession = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this._cbProfession = new System.Windows.Forms.ComboBox();
+            this._numStr = new System.Windows.Forms.NumericUpDown();
+            this._numAgi = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this._numInt = new System.Windows.Forms.NumericUpDown();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this._numDex = new System.Windows.Forms.NumericUpDown();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this._numEnd = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numStr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numAgi)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numInt)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numDex)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numEnd)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 33);
+            this.label1.Location = new System.Drawing.Point(44, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -69,7 +89,7 @@
             this._txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtName.Location = new System.Drawing.Point(92, 30);
+            this._txtName.Location = new System.Drawing.Point(92, 34);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(196, 20);
             this._txtName.TabIndex = 0;
@@ -114,25 +134,25 @@
             this._errors.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this._errors.ContainerControl = this;
             // 
-            // comboBox1
+            // _cbRace
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this._cbRace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cbRace.FormattingEnabled = true;
+            this._cbRace.Items.AddRange(new object[] {
             "Dwarf",
             "Elf",
             "Orc",
             "Hobbit",
             "Human"});
-            this.comboBox1.Location = new System.Drawing.Point(92, 71);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 21);
-            this.comboBox1.TabIndex = 7;
+            this._cbRace.Location = new System.Drawing.Point(92, 58);
+            this._cbRace.Name = "_cbRace";
+            this._cbRace.Size = new System.Drawing.Size(196, 21);
+            this._cbRace.TabIndex = 7;
             // 
             // labelRace
             // 
             this.labelRace.AutoSize = true;
-            this.labelRace.Location = new System.Drawing.Point(35, 74);
+            this.labelRace.Location = new System.Drawing.Point(44, 61);
             this.labelRace.Name = "labelRace";
             this.labelRace.Size = new System.Drawing.Size(33, 13);
             this.labelRace.TabIndex = 8;
@@ -141,26 +161,111 @@
             // labelProfession
             // 
             this.labelProfession.AutoSize = true;
-            this.labelProfession.Location = new System.Drawing.Point(30, 119);
+            this.labelProfession.Location = new System.Drawing.Point(29, 88);
             this.labelProfession.Name = "labelProfession";
             this.labelProfession.Size = new System.Drawing.Size(56, 13);
             this.labelProfession.TabIndex = 9;
             this.labelProfession.Text = "Profession";
             // 
-            // comboBox2
+            // _cbProfession
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this._cbProfession.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cbProfession.FormattingEnabled = true;
+            this._cbProfession.Items.AddRange(new object[] {
             "Fighter",
             "Archer",
             "Rogue",
             "Tank",
             "Wizard"});
-            this.comboBox2.Location = new System.Drawing.Point(92, 116);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(196, 21);
-            this.comboBox2.TabIndex = 10;
+            this._cbProfession.Location = new System.Drawing.Point(91, 85);
+            this._cbProfession.Name = "_cbProfession";
+            this._cbProfession.Size = new System.Drawing.Size(196, 21);
+            this._cbProfession.TabIndex = 10;
+            // 
+            // _numStr
+            // 
+            this._numStr.Location = new System.Drawing.Point(6, 38);
+            this._numStr.Name = "_numStr";
+            this._numStr.Size = new System.Drawing.Size(51, 20);
+            this._numStr.TabIndex = 11;
+            // 
+            // _numAgi
+            // 
+            this._numAgi.Location = new System.Drawing.Point(9, 38);
+            this._numAgi.Name = "_numAgi";
+            this._numAgi.Size = new System.Drawing.Size(51, 20);
+            this._numAgi.TabIndex = 11;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this._numStr);
+            this.groupBox1.Location = new System.Drawing.Point(11, 143);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(66, 86);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "STR";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this._numAgi);
+            this.groupBox2.Location = new System.Drawing.Point(155, 143);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(66, 86);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "AGI";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this._numInt);
+            this.groupBox3.Location = new System.Drawing.Point(83, 143);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(66, 86);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "INT";
+            // 
+            // _numInt
+            // 
+            this._numInt.Location = new System.Drawing.Point(9, 38);
+            this._numInt.Name = "_numInt";
+            this._numInt.Size = new System.Drawing.Size(51, 20);
+            this._numInt.TabIndex = 11;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this._numDex);
+            this.groupBox4.Location = new System.Drawing.Point(227, 143);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(66, 86);
+            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "DEX";
+            // 
+            // _numDex
+            // 
+            this._numDex.Location = new System.Drawing.Point(9, 38);
+            this._numDex.Name = "_numDex";
+            this._numDex.Size = new System.Drawing.Size(51, 20);
+            this._numDex.TabIndex = 11;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this._numEnd);
+            this.groupBox5.Location = new System.Drawing.Point(299, 143);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(66, 86);
+            this.groupBox5.TabIndex = 20;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "END";
+            // 
+            // _numEnd
+            // 
+            this._numEnd.Location = new System.Drawing.Point(9, 38);
+            this._numEnd.Name = "_numEnd";
+            this._numEnd.Size = new System.Drawing.Size(51, 20);
+            this._numEnd.TabIndex = 11;
             // 
             // CharacterForm
             // 
@@ -168,10 +273,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(376, 381);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this._cbProfession);
             this.Controls.Add(this.labelProfession);
             this.Controls.Add(this.labelRace);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this._cbRace);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this._txtDescription);
@@ -188,6 +298,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create New Character";
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numStr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numAgi)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._numInt)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._numDex)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._numEnd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,9 +322,19 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ErrorProvider _errors;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox _cbProfession;
         private System.Windows.Forms.Label labelProfession;
         private System.Windows.Forms.Label labelRace;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox _cbRace;
+        private System.Windows.Forms.NumericUpDown _numStr;
+        private System.Windows.Forms.NumericUpDown _numAgi;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.NumericUpDown _numEnd;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.NumericUpDown _numDex;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.NumericUpDown _numInt;
     }
 }
