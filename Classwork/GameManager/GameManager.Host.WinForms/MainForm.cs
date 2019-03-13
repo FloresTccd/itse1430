@@ -200,6 +200,7 @@ namespace GameManager.Host.Winforms
             base.OnFormClosing(e);
         }
 
+
         #region Unused Code (Demo only)
 
         //void LoadUI ()
@@ -281,6 +282,9 @@ namespace GameManager.Host.Winforms
         //}
         #endregion
 
-       
+        private void fileToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+
+        }
     }
 }
