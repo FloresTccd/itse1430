@@ -11,8 +11,10 @@ namespace CharacterCreator
         public CharacterDB()
         {
             var character = new Character();
-            character.Name = "Hodor";
-            character.Description = "Half Giant";
+            character.Name = "Frodo";
+            character.Description = "Has a ring.";
+            character.Race = CharacterRace.Hobbit;
+            character.Profession = CharacterProfession.Rogue;
             Add(character);
         }
 
@@ -22,12 +24,12 @@ namespace CharacterCreator
             if (character == null)
                 throw new ArgumentNullException(nameof(character));
 
-            //Game must be valid
+            //character must be valid
             if (!character.Validate())
                 throw new Exception("Invalid");
 
 
-            //Game names must be unique
+            //Character names must be unique
             var existing = GetIndex(character.Name);
             if (existing >= 0)
                 throw new Exception("Name is already being used.");
@@ -71,8 +73,6 @@ namespace CharacterCreator
 
         public Character[] GetAll()
         {
-
-
 
             int count = 0;
             foreach (var item in _items)
@@ -131,9 +131,8 @@ namespace CharacterCreator
             target.Name = source.Name;
             target.Description = source.Description;
             target.Race = source.Race;
-            //target.Price = source.Price;
-            //target.Owned = source.Owned;
-            //target.Completed = source.Completed;
+            target.Profession = source.Profession;
+            
         }
 
         private int GetIndex( int id )

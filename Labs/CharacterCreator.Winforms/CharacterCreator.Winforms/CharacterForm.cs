@@ -15,7 +15,9 @@ namespace CharacterCreator.Winforms
         public CharacterForm()
         {
             InitializeComponent();
-           _cbRace.DataSource = Enum.GetValues(typeof(CharacterRace)); 
+            _cbRace.DataSource = Enum.GetValues(typeof(CharacterRace));
+            _cbProfession.DataSource = Enum.GetValues(typeof(CharacterProfession));
+           
         }
 
         public Character Character { get; set; }
@@ -30,8 +32,9 @@ namespace CharacterCreator.Winforms
         {
             _txtName.Text = character.Name;
             _txtDescription.Text = character.Description;
-           
-            
+            _cbRace.SelectedItem = character.Race;
+            _cbProfession.SelectedItem = character.Profession;
+
 
         }
 
@@ -40,9 +43,10 @@ namespace CharacterCreator.Winforms
             var character = new Character();
             character.Name = _txtName.Text;
             character.Description = _txtDescription.Text;
-            
-            
-
+            CharacterRace characterRace = (CharacterRace)_cbRace.SelectedItem;
+            character.Race = characterRace;
+            CharacterProfession characterProfession = (CharacterProfession)_cbProfession.SelectedItem;
+            character.Profession = characterProfession;
 
 
             return character;

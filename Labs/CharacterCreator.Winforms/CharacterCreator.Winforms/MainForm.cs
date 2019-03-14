@@ -15,8 +15,6 @@ namespace CharacterCreator.Winforms
         public MainForm()
         {
             InitializeComponent();
-
-            //LoadUI();
         }
 
         private void OnFileExit( object sender, EventArgs e )
@@ -45,7 +43,7 @@ namespace CharacterCreator.Winforms
             _listCharacters.Items.Clear();
             _listCharacters.DisplayMember = nameof(Character.Name);
 
-            //Can use AddRange now that we don't care about null items
+            //AddRange
             _listCharacters.Items.AddRange(_characters.GetAll());
 
         }
@@ -64,15 +62,11 @@ namespace CharacterCreator.Winforms
                 //Add
                 try
                 {
-                    //Anything in here that raises an exception will
-                    //be sent to the catch block
-
-                    //_games[GetNextEmptyGame()] = form.Game;
                     OnSafeAdd(form);
                     break;
                 } catch (InvalidOperationException)
                 {
-                    MessageBox.Show(this, "Choose a better game.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Pick Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } catch (Exception ex)
                 {
                     //Recover from errors
