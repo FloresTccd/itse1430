@@ -132,6 +132,7 @@ namespace CharacterCreator
             target.Description = source.Description;
             target.Race = source.Race;
             target.Profession = source.Profession;
+            target.Strength = source.Strength;
             
         }
 

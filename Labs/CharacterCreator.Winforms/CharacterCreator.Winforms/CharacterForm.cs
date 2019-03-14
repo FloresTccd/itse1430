@@ -34,7 +34,7 @@ namespace CharacterCreator.Winforms
             _txtDescription.Text = character.Description;
             _cbRace.SelectedItem = character.Race;
             _cbProfession.SelectedItem = character.Profession;
-
+            _numStr.Value= character.Strength;
 
         }
 
@@ -47,6 +47,7 @@ namespace CharacterCreator.Winforms
             character.Race = characterRace;
             CharacterProfession characterProfession = (CharacterProfession)_cbProfession.SelectedItem;
             character.Profession = characterProfession;
+            character.Strength = _numStr.Value;
 
 
             return character;

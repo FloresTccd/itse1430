@@ -34,7 +34,7 @@ namespace CharacterCreator
             get { return _profession; }
             set { _profession = value; }
         }
-        public int Strength { get => _strength; set => _strength = value; }
+        public decimal Strength { get => _strength; set => _strength = value; }
         public int Intelligence { get => _intelligence; set => _intelligence = value; }
         public int Agility { get => _agility; set => _agility = value; }
         public int Dexterity { get => _dexterity; set => _dexterity = value; }
@@ -61,7 +61,7 @@ namespace CharacterCreator
             Name = "";
             Race = CharacterRace.Unknown;
             Profession = CharacterProfession.Unknown;
-            Strength = 50;
+            Strength =50;
             Intelligence = 50;
             Agility = 50;
             Dexterity = 50;
@@ -96,7 +96,7 @@ namespace CharacterCreator
         private string _description = "";
         private CharacterRace _race;
         private CharacterProfession _profession;
-        private int _strength;
+        private decimal _strength;
         private int _intelligence;
         private int _agility;
         private int _dexterity;
