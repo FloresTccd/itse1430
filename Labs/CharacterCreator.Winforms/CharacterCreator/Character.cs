@@ -35,10 +35,10 @@ namespace CharacterCreator
             set { _profession = value; }
         }
         public decimal Strength { get => _strength; set => _strength = value; }
-        public int Intelligence { get => _intelligence; set => _intelligence = value; }
-        public int Agility { get => _agility; set => _agility = value; }
-        public int Dexterity { get => _dexterity; set => _dexterity = value; }
-        public int Endurance { get => _endurance; set => _endurance = value; }
+        public decimal Intelligence { get => _intelligence; set => _intelligence = value; }
+        public decimal Agility { get => _agility; set => _agility = value; }
+        public decimal Dexterity { get => _dexterity; set => _dexterity = value; }
+        public decimal Endurance { get => _endurance; set => _endurance = value; }
 
 
         public override string ToString()
@@ -75,8 +75,8 @@ namespace CharacterCreator
             Profession = characterProfession;
         }
 
-        public Character( string name, CharacterRace characterRace, CharacterProfession characterProfession, int strength, int intelligence,
-            int agility, int dexterity, int endurance )
+        public Character( string name, CharacterRace characterRace, CharacterProfession characterProfession, decimal strength, decimal intelligence,
+            decimal agility, decimal dexterity, decimal endurance )
         {
             Name = name;
             Race = characterRace;
@@ -97,10 +97,10 @@ namespace CharacterCreator
         private CharacterRace _race;
         private CharacterProfession _profession;
         private decimal _strength;
-        private int _intelligence;
-        private int _agility;
-        private int _dexterity;
-        private int _endurance;
+        private decimal _intelligence;
+        private decimal _agility;
+        private decimal _dexterity;
+        private decimal _endurance;
         #endregion
 
 
