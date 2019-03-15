@@ -15,6 +15,7 @@ namespace CharacterCreator
             character.Description = "Has a ring.";
             character.Race = CharacterRace.Hobbit;
             character.Profession = CharacterProfession.Rogue;
+            character.Male = true;
             Add(character);
         }
 

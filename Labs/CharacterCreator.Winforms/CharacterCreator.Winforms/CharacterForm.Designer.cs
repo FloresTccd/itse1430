@@ -361,7 +361,9 @@
             // 
             // _picBox
             // 
+            this._picBox.ErrorImage = global::CharacterCreator.Winforms.Properties.Resources.Blank;
             this._picBox.Image = global::CharacterCreator.Winforms.Properties.Resources.Wizard;
+            this._picBox.InitialImage = global::CharacterCreator.Winforms.Properties.Resources.Blank;
             this._picBox.Location = new System.Drawing.Point(11, 7);
             this._picBox.Name = "_picBox";
             this._picBox.Size = new System.Drawing.Size(90, 130);
