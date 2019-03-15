@@ -108,7 +108,7 @@
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
             this._txtDescription.Size = new System.Drawing.Size(277, 84);
-            this._txtDescription.TabIndex = 8;
+            this._txtDescription.TabIndex = 9;
             // 
             // button1
             // 
@@ -116,7 +116,7 @@
             this.button1.Location = new System.Drawing.Point(122, 337);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 10;
             this.button1.Text = "&Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.OnSave);
@@ -128,7 +128,7 @@
             this.button2.Location = new System.Drawing.Point(213, 337);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
+            this.button2.TabIndex = 11;
             this.button2.Text = "&Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.OnCancel);
@@ -228,7 +228,7 @@
             this.groupBoxStr.Location = new System.Drawing.Point(11, 143);
             this.groupBoxStr.Name = "groupBoxStr";
             this.groupBoxStr.Size = new System.Drawing.Size(66, 86);
-            this.groupBoxStr.TabIndex = 3;
+            this.groupBoxStr.TabIndex = 4;
             this.groupBoxStr.TabStop = false;
             this.groupBoxStr.Text = "STR";
             // 
@@ -238,7 +238,7 @@
             this.groupBoxAgi.Location = new System.Drawing.Point(155, 143);
             this.groupBoxAgi.Name = "groupBoxAgi";
             this.groupBoxAgi.Size = new System.Drawing.Size(66, 86);
-            this.groupBoxAgi.TabIndex = 5;
+            this.groupBoxAgi.TabIndex = 6;
             this.groupBoxAgi.TabStop = false;
             this.groupBoxAgi.Text = "AGI";
             // 
@@ -248,7 +248,7 @@
             this.groupBoxInt.Location = new System.Drawing.Point(83, 143);
             this.groupBoxInt.Name = "groupBoxInt";
             this.groupBoxInt.Size = new System.Drawing.Size(66, 86);
-            this.groupBoxInt.TabIndex = 4;
+            this.groupBoxInt.TabIndex = 5;
             this.groupBoxInt.TabStop = false;
             this.groupBoxInt.Text = "INT";
             // 
@@ -275,7 +275,7 @@
             this.groupBoxDex.Location = new System.Drawing.Point(227, 143);
             this.groupBoxDex.Name = "groupBoxDex";
             this.groupBoxDex.Size = new System.Drawing.Size(66, 86);
-            this.groupBoxDex.TabIndex = 6;
+            this.groupBoxDex.TabIndex = 7;
             this.groupBoxDex.TabStop = false;
             this.groupBoxDex.Text = "DEX";
             // 
@@ -302,7 +302,7 @@
             this.groupBoxEnd.Location = new System.Drawing.Point(299, 143);
             this.groupBoxEnd.Name = "groupBoxEnd";
             this.groupBoxEnd.Size = new System.Drawing.Size(66, 86);
-            this.groupBoxEnd.TabIndex = 7;
+            this.groupBoxEnd.TabIndex = 8;
             this.groupBoxEnd.TabStop = false;
             this.groupBoxEnd.Text = "END";
             // 
@@ -310,7 +310,7 @@
             // 
             this._numEnd.Location = new System.Drawing.Point(9, 38);
             this._numEnd.Minimum = new decimal(new int[] {
-            50,
+            1,
             0,
             0,
             0});
@@ -329,7 +329,7 @@
             this._rbMale.Location = new System.Drawing.Point(25, 19);
             this._rbMale.Name = "_rbMale";
             this._rbMale.Size = new System.Drawing.Size(48, 17);
-            this._rbMale.TabIndex = 11;
+            this._rbMale.TabIndex = 0;
             this._rbMale.TabStop = true;
             this._rbMale.Text = "Male";
             this._rbMale.UseVisualStyleBackColor = true;
@@ -340,7 +340,7 @@
             this._rbFemale.Location = new System.Drawing.Point(103, 19);
             this._rbFemale.Name = "_rbFemale";
             this._rbFemale.Size = new System.Drawing.Size(59, 17);
-            this._rbFemale.TabIndex = 12;
+            this._rbFemale.TabIndex = 1;
             this._rbFemale.TabStop = true;
             this._rbFemale.Text = "Female";
             this._rbFemale.UseVisualStyleBackColor = true;
@@ -352,7 +352,7 @@
             this.groupBox1.Location = new System.Drawing.Point(97, 92);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(196, 49);
-            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gender";
             // 
