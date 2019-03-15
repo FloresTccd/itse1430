@@ -18,6 +18,7 @@ namespace CharacterCreator.Winforms
 {
     public partial class CharacterForm : Form
     {
+       
         public CharacterForm()
         {
             InitializeComponent();
@@ -153,6 +154,20 @@ namespace CharacterCreator.Winforms
 
         }
 
-       
+        private void OnCbProffesion( object sender, EventArgs e )
+        {
+            
+            if (_cbProfession.Text == "Fighter")
+                pictureBox1.Image = Properties.Resources.Fighter;
+            if(_cbProfession.Text == "Archer")
+             pictureBox1.Image = Properties.Resources.Archer;
+            if (_cbProfession.Text == "Rogue")
+                pictureBox1.Image = Properties.Resources.Rogue;
+            if (_cbProfession.Text == "Tank")
+                pictureBox1.Image = Properties.Resources.Tank;
+            if (_cbProfession.Text == "Wizard")
+                pictureBox1.Image = Properties.Resources.Wizard;
+            
+        }
     }
 }
