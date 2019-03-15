@@ -17,6 +17,7 @@ namespace CharacterCreator.Winforms
             InitializeComponent();
             _cbRace.DataSource = Enum.GetValues(typeof(CharacterRace));
             _cbProfession.DataSource = Enum.GetValues(typeof(CharacterProfession));
+            
            
         }
 
@@ -39,6 +40,7 @@ namespace CharacterCreator.Winforms
             _numAgi.Value = character.Agility;
             _numDex.Value = character.Dexterity;
             _numEnd.Value = character.Endurance;
+            
 
         }
 
@@ -143,5 +145,6 @@ namespace CharacterCreator.Winforms
 
         }
 
+        
     }
 }

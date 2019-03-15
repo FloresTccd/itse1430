@@ -66,7 +66,7 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(44, 37);
+            this.labelName.Location = new System.Drawing.Point(44, 27);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 0;
@@ -89,7 +89,7 @@
             this._txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtName.Location = new System.Drawing.Point(92, 34);
+            this._txtName.Location = new System.Drawing.Point(97, 24);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(196, 20);
             this._txtName.TabIndex = 0;
@@ -144,7 +144,7 @@
             "Orc",
             "Hobbit",
             "Human"});
-            this._cbRace.Location = new System.Drawing.Point(92, 58);
+            this._cbRace.Location = new System.Drawing.Point(97, 60);
             this._cbRace.Name = "_cbRace";
             this._cbRace.Size = new System.Drawing.Size(196, 21);
             this._cbRace.TabIndex = 1;
@@ -153,7 +153,7 @@
             // labelRace
             // 
             this.labelRace.AutoSize = true;
-            this.labelRace.Location = new System.Drawing.Point(44, 61);
+            this.labelRace.Location = new System.Drawing.Point(44, 63);
             this.labelRace.Name = "labelRace";
             this.labelRace.Size = new System.Drawing.Size(33, 13);
             this.labelRace.TabIndex = 0;
@@ -162,7 +162,7 @@
             // labelProfession
             // 
             this.labelProfession.AutoSize = true;
-            this.labelProfession.Location = new System.Drawing.Point(29, 88);
+            this.labelProfession.Location = new System.Drawing.Point(35, 100);
             this.labelProfession.Name = "labelProfession";
             this.labelProfession.Size = new System.Drawing.Size(56, 13);
             this.labelProfession.TabIndex = 9;
@@ -178,7 +178,7 @@
             "Rogue",
             "Tank",
             "Wizard"});
-            this._cbProfession.Location = new System.Drawing.Point(91, 85);
+            this._cbProfession.Location = new System.Drawing.Point(97, 97);
             this._cbProfession.Name = "_cbProfession";
             this._cbProfession.Size = new System.Drawing.Size(196, 21);
             this._cbProfession.TabIndex = 2;

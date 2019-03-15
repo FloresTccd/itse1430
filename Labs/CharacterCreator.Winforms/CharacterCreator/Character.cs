@@ -8,12 +8,12 @@ namespace CharacterCreator
 {
     public enum CharacterRace { Unknown,Dwarf, Elf,Orc,Hobbit,Human}
     public enum CharacterProfession {Unknown,Fighter,Archer,Rogue,Tank,Wizard}
-
+    
     public class Character
     {
         public int Id { get; set; }
 
-        
+        #region Property
         public string Name
         {
             get { return _name ?? ""; }
@@ -39,23 +39,9 @@ namespace CharacterCreator
         public decimal Agility { get => _agility; set => _agility = value; }
         public decimal Dexterity { get => _dexterity; set => _dexterity = value; }
         public decimal Endurance { get => _endurance; set => _endurance = value; }
+        #endregion
 
-
-        public override string ToString()
-        {
-            return Name;
-        }
-
-        public bool Validate()
-        {
-
-            //Name is required
-            if (String.IsNullOrEmpty(Name))
-                return false;
-
-            return true;
-        }
-
+        #region Constructor
         public Character()
         {
             Name = "";
@@ -88,8 +74,7 @@ namespace CharacterCreator
             Endurance = endurance;
 
         }
-
-
+        #endregion
 
         #region Private Members
         private string _name = "";
@@ -103,6 +88,19 @@ namespace CharacterCreator
         private decimal _endurance;
         #endregion
 
+        public override string ToString()
+        {
+            return Name;
+        }
 
+        public bool Validate()
+        {
+
+            //Name is required
+            if (String.IsNullOrEmpty(Name))
+                return false;
+
+            return true;
+        }
     }
 }
