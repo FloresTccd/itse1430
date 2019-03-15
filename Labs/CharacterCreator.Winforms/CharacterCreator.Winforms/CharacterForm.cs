@@ -153,9 +153,6 @@ namespace CharacterCreator.Winforms
 
         }
 
-        private void OnProfessionComboSelect( object sender, EventArgs e )
-        {
-            _picBox.ImageLocation = "C:/Users/Raul/Source/Repos/itse1430/Labs/CharacterCreator.Winforms/CharacterCreator.Winforms/Resources/" + _cbProfession.Text + ".png";
-        }
+       
     }
 }
