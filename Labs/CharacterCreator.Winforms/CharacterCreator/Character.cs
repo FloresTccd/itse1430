@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    Lab 2 ITSE1430
+    Raul Flores
+    March 15, 2019
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
