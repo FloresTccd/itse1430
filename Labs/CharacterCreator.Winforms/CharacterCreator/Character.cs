@@ -8,7 +8,7 @@ namespace CharacterCreator
 {
     public enum CharacterRace { Unknown,Dwarf, Elf,Orc,Hobbit,Human}
     public enum CharacterProfession {Unknown,Fighter,Archer,Rogue,Tank,Wizard}
-    
+ 
     public class Character
     {
         public int Id { get; set; }
@@ -39,6 +39,9 @@ namespace CharacterCreator
         public decimal Agility { get => _agility; set => _agility = value; }
         public decimal Dexterity { get => _dexterity; set => _dexterity = value; }
         public decimal Endurance { get => _endurance; set => _endurance = value; }
+        public bool Male { get => _male; set => _male = value; }
+        public bool Female { get => _female; set => _female = value; }
+
         #endregion
 
         #region Constructor
@@ -52,6 +55,9 @@ namespace CharacterCreator
             Agility = 50;
             Dexterity = 50;
             Endurance = 50;
+            Male = false;
+            Female = false;
+
         }
 
         public Character( string name, CharacterRace characterRace, CharacterProfession characterProfession )
@@ -79,6 +85,8 @@ namespace CharacterCreator
         #region Private Members
         private string _name = "";
         private string _description = "";
+        private bool _male = false;
+        private bool _female = false;
         private CharacterRace _race;
         private CharacterProfession _profession;
         private decimal _strength;
@@ -86,6 +94,7 @@ namespace CharacterCreator
         private decimal _agility;
         private decimal _dexterity;
         private decimal _endurance;
+        
         #endregion
 
         public override string ToString()

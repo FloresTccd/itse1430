@@ -137,6 +137,8 @@ namespace CharacterCreator
             target.Agility = source.Agility;
             target.Dexterity = source.Dexterity;
             target.Endurance = source.Endurance;
+            target.Male = source.Male;
+            target.Female = source.Female;
             
         }
 

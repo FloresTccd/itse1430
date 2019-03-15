@@ -50,6 +50,9 @@
             this._numDex = new System.Windows.Forms.NumericUpDown();
             this.groupBoxEnd = new System.Windows.Forms.GroupBox();
             this._numEnd = new System.Windows.Forms.NumericUpDown();
+            this._rbMale = new System.Windows.Forms.RadioButton();
+            this._rbFemale = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numStr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numAgi)).BeginInit();
@@ -61,12 +64,13 @@
             ((System.ComponentModel.ISupportInitialize)(this._numDex)).BeginInit();
             this.groupBoxEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numEnd)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(44, 27);
+            this.labelName.Location = new System.Drawing.Point(56, 15);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 0;
@@ -89,7 +93,7 @@
             this._txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtName.Location = new System.Drawing.Point(97, 24);
+            this._txtName.Location = new System.Drawing.Point(97, 12);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(196, 20);
             this._txtName.TabIndex = 0;
@@ -144,7 +148,7 @@
             "Orc",
             "Hobbit",
             "Human"});
-            this._cbRace.Location = new System.Drawing.Point(97, 60);
+            this._cbRace.Location = new System.Drawing.Point(97, 38);
             this._cbRace.Name = "_cbRace";
             this._cbRace.Size = new System.Drawing.Size(196, 21);
             this._cbRace.TabIndex = 1;
@@ -153,7 +157,7 @@
             // labelRace
             // 
             this.labelRace.AutoSize = true;
-            this.labelRace.Location = new System.Drawing.Point(44, 63);
+            this.labelRace.Location = new System.Drawing.Point(56, 41);
             this.labelRace.Name = "labelRace";
             this.labelRace.Size = new System.Drawing.Size(33, 13);
             this.labelRace.TabIndex = 0;
@@ -162,7 +166,7 @@
             // labelProfession
             // 
             this.labelProfession.AutoSize = true;
-            this.labelProfession.Location = new System.Drawing.Point(35, 100);
+            this.labelProfession.Location = new System.Drawing.Point(35, 68);
             this.labelProfession.Name = "labelProfession";
             this.labelProfession.Size = new System.Drawing.Size(56, 13);
             this.labelProfession.TabIndex = 9;
@@ -178,7 +182,7 @@
             "Rogue",
             "Tank",
             "Wizard"});
-            this._cbProfession.Location = new System.Drawing.Point(97, 97);
+            this._cbProfession.Location = new System.Drawing.Point(97, 65);
             this._cbProfession.Name = "_cbProfession";
             this._cbProfession.Size = new System.Drawing.Size(196, 21);
             this._cbProfession.TabIndex = 2;
@@ -319,12 +323,46 @@
             0,
             0});
             // 
+            // _rbMale
+            // 
+            this._rbMale.AutoSize = true;
+            this._rbMale.Location = new System.Drawing.Point(25, 19);
+            this._rbMale.Name = "_rbMale";
+            this._rbMale.Size = new System.Drawing.Size(48, 17);
+            this._rbMale.TabIndex = 11;
+            this._rbMale.TabStop = true;
+            this._rbMale.Text = "Male";
+            this._rbMale.UseVisualStyleBackColor = true;
+            // 
+            // _rbFemale
+            // 
+            this._rbFemale.AutoSize = true;
+            this._rbFemale.Location = new System.Drawing.Point(103, 19);
+            this._rbFemale.Name = "_rbFemale";
+            this._rbFemale.Size = new System.Drawing.Size(59, 17);
+            this._rbFemale.TabIndex = 12;
+            this._rbFemale.TabStop = true;
+            this._rbFemale.Text = "Female";
+            this._rbFemale.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this._rbMale);
+            this.groupBox1.Controls.Add(this._rbFemale);
+            this.groupBox1.Location = new System.Drawing.Point(97, 92);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(196, 49);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Gender";
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(376, 381);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxEnd);
             this.Controls.Add(this.groupBoxDex);
             this.Controls.Add(this.groupBoxInt);
@@ -360,6 +398,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._numDex)).EndInit();
             this.groupBoxEnd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._numEnd)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,5 +428,8 @@
         private System.Windows.Forms.NumericUpDown _numDex;
         private System.Windows.Forms.GroupBox groupBoxInt;
         private System.Windows.Forms.NumericUpDown _numInt;
+        private System.Windows.Forms.RadioButton _rbFemale;
+        private System.Windows.Forms.RadioButton _rbMale;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

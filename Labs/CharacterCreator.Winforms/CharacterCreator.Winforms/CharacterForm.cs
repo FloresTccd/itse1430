@@ -18,7 +18,6 @@ namespace CharacterCreator.Winforms
             _cbRace.DataSource = Enum.GetValues(typeof(CharacterRace));
             _cbProfession.DataSource = Enum.GetValues(typeof(CharacterProfession));
             
-           
         }
 
         public Character Character { get; set; }
@@ -40,7 +39,8 @@ namespace CharacterCreator.Winforms
             _numAgi.Value = character.Agility;
             _numDex.Value = character.Dexterity;
             _numEnd.Value = character.Endurance;
-            
+            _rbMale.Checked = character.Male;
+            _rbFemale.Checked = character.Female;
 
         }
 
@@ -58,6 +58,8 @@ namespace CharacterCreator.Winforms
             character.Agility = _numAgi.Value;
             character.Dexterity = _numDex.Value;
             character.Endurance = _numEnd.Value;
+            character.Male = _rbMale.Checked;
+            character.Female = _rbFemale.Checked;
 
 
             return character;
