@@ -53,6 +53,7 @@
             this._rbMale = new System.Windows.Forms.RadioButton();
             this._rbFemale = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this._picBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numStr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numAgi)).BeginInit();
@@ -65,12 +66,13 @@
             this.groupBoxEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numEnd)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._picBox)).BeginInit();
             this.SuspendLayout();
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(56, 15);
+            this.labelName.Location = new System.Drawing.Point(119, 10);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 0;
@@ -93,7 +95,7 @@
             this._txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtName.Location = new System.Drawing.Point(97, 12);
+            this._txtName.Location = new System.Drawing.Point(164, 7);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(196, 20);
             this._txtName.TabIndex = 0;
@@ -148,7 +150,7 @@
             "Orc",
             "Hobbit",
             "Human"});
-            this._cbRace.Location = new System.Drawing.Point(97, 38);
+            this._cbRace.Location = new System.Drawing.Point(164, 33);
             this._cbRace.Name = "_cbRace";
             this._cbRace.Size = new System.Drawing.Size(196, 21);
             this._cbRace.TabIndex = 1;
@@ -157,7 +159,7 @@
             // labelRace
             // 
             this.labelRace.AutoSize = true;
-            this.labelRace.Location = new System.Drawing.Point(56, 41);
+            this.labelRace.Location = new System.Drawing.Point(119, 36);
             this.labelRace.Name = "labelRace";
             this.labelRace.Size = new System.Drawing.Size(33, 13);
             this.labelRace.TabIndex = 0;
@@ -166,7 +168,7 @@
             // labelProfession
             // 
             this.labelProfession.AutoSize = true;
-            this.labelProfession.Location = new System.Drawing.Point(35, 68);
+            this.labelProfession.Location = new System.Drawing.Point(107, 63);
             this.labelProfession.Name = "labelProfession";
             this.labelProfession.Size = new System.Drawing.Size(56, 13);
             this.labelProfession.TabIndex = 9;
@@ -182,10 +184,11 @@
             "Rogue",
             "Tank",
             "Wizard"});
-            this._cbProfession.Location = new System.Drawing.Point(97, 65);
+            this._cbProfession.Location = new System.Drawing.Point(164, 60);
             this._cbProfession.Name = "_cbProfession";
             this._cbProfession.Size = new System.Drawing.Size(196, 21);
             this._cbProfession.TabIndex = 2;
+            this._cbProfession.SelectedIndexChanged += new System.EventHandler(this.OnProfessionComboSelect);
             this._cbProfession.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateProfession);
             // 
             // _numStr
@@ -349,19 +352,31 @@
             // 
             this.groupBox1.Controls.Add(this._rbMale);
             this.groupBox1.Controls.Add(this._rbFemale);
-            this.groupBox1.Location = new System.Drawing.Point(97, 92);
+            this.groupBox1.Location = new System.Drawing.Point(164, 88);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(196, 49);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gender";
             // 
+            // _picBox
+            // 
+            this._picBox.Image = global::CharacterCreator.Winforms.Properties.Resources.Wizard;
+            this._picBox.Location = new System.Drawing.Point(11, 7);
+            this._picBox.Name = "_picBox";
+            this._picBox.Size = new System.Drawing.Size(90, 130);
+            this._picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this._picBox.TabIndex = 12;
+            this._picBox.TabStop = false;
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(376, 381);
+            this.Controls.Add(this._picBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxEnd);
             this.Controls.Add(this.groupBoxDex);
@@ -400,6 +415,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._numEnd)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._picBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,5 +447,6 @@
         private System.Windows.Forms.RadioButton _rbFemale;
         private System.Windows.Forms.RadioButton _rbMale;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox _picBox;
     }
 }
