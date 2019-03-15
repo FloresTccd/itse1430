@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelDescription = new System.Windows.Forms.Label();
             this._txtName = new System.Windows.Forms.TextBox();
             this._txtDescription = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,47 +42,47 @@
             this._cbProfession = new System.Windows.Forms.ComboBox();
             this._numStr = new System.Windows.Forms.NumericUpDown();
             this._numAgi = new System.Windows.Forms.NumericUpDown();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxStr = new System.Windows.Forms.GroupBox();
+            this.groupBoxAgi = new System.Windows.Forms.GroupBox();
+            this.groupBoxInt = new System.Windows.Forms.GroupBox();
             this._numInt = new System.Windows.Forms.NumericUpDown();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBoxDex = new System.Windows.Forms.GroupBox();
             this._numDex = new System.Windows.Forms.NumericUpDown();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBoxEnd = new System.Windows.Forms.GroupBox();
             this._numEnd = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numStr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numAgi)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxStr.SuspendLayout();
+            this.groupBoxAgi.SuspendLayout();
+            this.groupBoxInt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numInt)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.groupBoxDex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numDex)).BeginInit();
-            this.groupBox5.SuspendLayout();
+            this.groupBoxEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numEnd)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(44, 37);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(35, 13);
+            this.labelName.TabIndex = 0;
+            this.labelName.Text = "Name";
             // 
-            // label2
+            // labelDescription
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 278);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Description";
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(8, 278);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelDescription.TabIndex = 1;
+            this.labelDescription.Text = "Description";
             // 
             // _txtName
             // 
@@ -148,6 +148,7 @@
             this._cbRace.Name = "_cbRace";
             this._cbRace.Size = new System.Drawing.Size(196, 21);
             this._cbRace.TabIndex = 1;
+            this._cbRace.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateRace);
             // 
             // labelRace
             // 
@@ -181,6 +182,7 @@
             this._cbProfession.Name = "_cbProfession";
             this._cbProfession.Size = new System.Drawing.Size(196, 21);
             this._cbProfession.TabIndex = 2;
+            this._cbProfession.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateProfession);
             // 
             // _numStr
             // 
@@ -216,35 +218,35 @@
             0,
             0});
             // 
-            // groupBox1
+            // groupBoxStr
             // 
-            this.groupBox1.Controls.Add(this._numStr);
-            this.groupBox1.Location = new System.Drawing.Point(11, 143);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(66, 86);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "STR";
+            this.groupBoxStr.Controls.Add(this._numStr);
+            this.groupBoxStr.Location = new System.Drawing.Point(11, 143);
+            this.groupBoxStr.Name = "groupBoxStr";
+            this.groupBoxStr.Size = new System.Drawing.Size(66, 86);
+            this.groupBoxStr.TabIndex = 3;
+            this.groupBoxStr.TabStop = false;
+            this.groupBoxStr.Text = "STR";
             // 
-            // groupBox2
+            // groupBoxAgi
             // 
-            this.groupBox2.Controls.Add(this._numAgi);
-            this.groupBox2.Location = new System.Drawing.Point(155, 143);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(66, 86);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "AGI";
+            this.groupBoxAgi.Controls.Add(this._numAgi);
+            this.groupBoxAgi.Location = new System.Drawing.Point(155, 143);
+            this.groupBoxAgi.Name = "groupBoxAgi";
+            this.groupBoxAgi.Size = new System.Drawing.Size(66, 86);
+            this.groupBoxAgi.TabIndex = 5;
+            this.groupBoxAgi.TabStop = false;
+            this.groupBoxAgi.Text = "AGI";
             // 
-            // groupBox3
+            // groupBoxInt
             // 
-            this.groupBox3.Controls.Add(this._numInt);
-            this.groupBox3.Location = new System.Drawing.Point(83, 143);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(66, 86);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "INT";
+            this.groupBoxInt.Controls.Add(this._numInt);
+            this.groupBoxInt.Location = new System.Drawing.Point(83, 143);
+            this.groupBoxInt.Name = "groupBoxInt";
+            this.groupBoxInt.Size = new System.Drawing.Size(66, 86);
+            this.groupBoxInt.TabIndex = 4;
+            this.groupBoxInt.TabStop = false;
+            this.groupBoxInt.Text = "INT";
             // 
             // _numInt
             // 
@@ -263,15 +265,15 @@
             0,
             0});
             // 
-            // groupBox4
+            // groupBoxDex
             // 
-            this.groupBox4.Controls.Add(this._numDex);
-            this.groupBox4.Location = new System.Drawing.Point(227, 143);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(66, 86);
-            this.groupBox4.TabIndex = 6;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "DEX";
+            this.groupBoxDex.Controls.Add(this._numDex);
+            this.groupBoxDex.Location = new System.Drawing.Point(227, 143);
+            this.groupBoxDex.Name = "groupBoxDex";
+            this.groupBoxDex.Size = new System.Drawing.Size(66, 86);
+            this.groupBoxDex.TabIndex = 6;
+            this.groupBoxDex.TabStop = false;
+            this.groupBoxDex.Text = "DEX";
             // 
             // _numDex
             // 
@@ -290,15 +292,15 @@
             0,
             0});
             // 
-            // groupBox5
+            // groupBoxEnd
             // 
-            this.groupBox5.Controls.Add(this._numEnd);
-            this.groupBox5.Location = new System.Drawing.Point(299, 143);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(66, 86);
-            this.groupBox5.TabIndex = 7;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "END";
+            this.groupBoxEnd.Controls.Add(this._numEnd);
+            this.groupBoxEnd.Location = new System.Drawing.Point(299, 143);
+            this.groupBoxEnd.Name = "groupBoxEnd";
+            this.groupBoxEnd.Size = new System.Drawing.Size(66, 86);
+            this.groupBoxEnd.TabIndex = 7;
+            this.groupBoxEnd.TabStop = false;
+            this.groupBoxEnd.Text = "END";
             // 
             // _numEnd
             // 
@@ -323,11 +325,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(376, 381);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxEnd);
+            this.Controls.Add(this.groupBoxDex);
+            this.Controls.Add(this.groupBoxInt);
+            this.Controls.Add(this.groupBoxAgi);
+            this.Controls.Add(this.groupBoxStr);
             this.Controls.Add(this._cbProfession);
             this.Controls.Add(this.labelProfession);
             this.Controls.Add(this.labelRace);
@@ -336,8 +338,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this._txtDescription);
             this.Controls.Add(this._txtName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelDescription);
+            this.Controls.Add(this.labelName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -350,13 +352,13 @@
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numStr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numAgi)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.groupBoxStr.ResumeLayout(false);
+            this.groupBoxAgi.ResumeLayout(false);
+            this.groupBoxInt.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._numInt)).EndInit();
-            this.groupBox4.ResumeLayout(false);
+            this.groupBoxDex.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._numDex)).EndInit();
-            this.groupBox5.ResumeLayout(false);
+            this.groupBoxEnd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._numEnd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -365,8 +367,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.TextBox _txtName;
         private System.Windows.Forms.TextBox _txtDescription;
         private System.Windows.Forms.Button button1;
@@ -378,13 +380,13 @@
         private System.Windows.Forms.ComboBox _cbRace;
         private System.Windows.Forms.NumericUpDown _numStr;
         private System.Windows.Forms.NumericUpDown _numAgi;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBoxStr;
+        private System.Windows.Forms.GroupBox groupBoxAgi;
+        private System.Windows.Forms.GroupBox groupBoxEnd;
         private System.Windows.Forms.NumericUpDown _numEnd;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBoxDex;
         private System.Windows.Forms.NumericUpDown _numDex;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxInt;
         private System.Windows.Forms.NumericUpDown _numInt;
     }
 }

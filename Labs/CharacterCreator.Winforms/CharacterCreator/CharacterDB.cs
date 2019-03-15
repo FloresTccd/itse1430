@@ -133,6 +133,10 @@ namespace CharacterCreator
             target.Race = source.Race;
             target.Profession = source.Profession;
             target.Strength = source.Strength;
+            target.Intelligence = source.Intelligence;
+            target.Agility = source.Agility;
+            target.Dexterity = source.Dexterity;
+            target.Endurance = source.Endurance;
             
         }
 
@@ -144,7 +148,6 @@ namespace CharacterCreator
 
             return -1;
         }
-
 
         private int GetIndex( string name )
         {

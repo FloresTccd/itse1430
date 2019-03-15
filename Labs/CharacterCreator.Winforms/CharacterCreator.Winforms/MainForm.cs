@@ -19,13 +19,11 @@ namespace CharacterCreator.Winforms
 
         private void OnFileExit( object sender, EventArgs e )
         {
-
             Close();
         }
 
         private void OnHelpAbout( object sender, EventArgs e )
         {
-            
             var form = new AboutBox();
             form.ShowDialog();
         }
@@ -39,7 +37,7 @@ namespace CharacterCreator.Winforms
 
         private void BindList()
         {
-            //Bind games to listbox
+            //Bind characters to listbox
             _listCharacters.Items.Clear();
             _listCharacters.DisplayMember = nameof(Character.Name);
 
@@ -48,7 +46,7 @@ namespace CharacterCreator.Winforms
 
         }
 
-        private void OnGameAdd( object sender, EventArgs e )
+        private void OnCharacterAdd( object sender, EventArgs e )
         {
             //Display UI
             var form = new CharacterForm();
@@ -87,7 +85,6 @@ namespace CharacterCreator.Winforms
         {
             try
             {
-                //_games[GetNextEmptyGame()] = form.Game;
                 _characters.Add(form.Character);
             } catch (NotImplementedException e)
             {
@@ -95,27 +92,21 @@ namespace CharacterCreator.Winforms
                 throw new Exception("Not implemented yet", e);
             } catch (Exception e)
             {
-                //Log a message 
-
-                //Rethrow exception - wrong way
-                //throw e;
                 throw;
             };
         }
 
-        private CharacterDB _characters = new CharacterDB();
-
-        private void OnGameEdit( object sender, EventArgs e )
+        private void OnCharacter( object sender, EventArgs e )
         {
             var form = new CharacterForm();
             form.Text = "Edit Character";
 
-            var game = GetSelectedCharacter();
-            if (game == null)
+            var character = GetSelectedCharacter();
+            if (character == null)
                 return;
 
-            //Game to edit
-            form.Character = game;
+            //Character edit
+            form.Character = character;
 
             while (true)
             {
@@ -124,8 +115,7 @@ namespace CharacterCreator.Winforms
 
                 try
                 {
-                    //UpdateGame(game, form.Game);            
-                    _characters.Update(game.Id, form.Character);
+                    _characters.Update(character.Id, form.Character);
                     break;
                 } catch (Exception ex)
                 {
@@ -138,7 +128,7 @@ namespace CharacterCreator.Winforms
 
         private void OnGameDelete( object sender, EventArgs e )
         {
-            //Get selected game, if any
+         
             var selected = GetSelectedCharacter();
             if (selected == null)
                 return;
@@ -151,7 +141,6 @@ namespace CharacterCreator.Winforms
 
             try
             {
-                //DeleteGame(selected);
                 _characters.Delete(selected.Id);
             } catch (Exception ex)
             {
@@ -166,10 +155,10 @@ namespace CharacterCreator.Winforms
 
 
             //Preferred - null if not valid
-            var game = value as Character;
+            var character = value as Character;
 
             //Type check
-            var game2 = (value is Character) ? (Character)value : null;
+            var character2 = (value is Character) ? (Character)value : null;
 
             return _listCharacters.SelectedItem as Character;
         }
@@ -188,7 +177,6 @@ namespace CharacterCreator.Winforms
             base.OnFormClosing(e);
         }
 
-
         protected override bool ProcessCmdKey( ref Message msg, Keys keyData )
         {
             if (keyData == ( Keys.F))
@@ -200,7 +188,7 @@ namespace CharacterCreator.Winforms
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
+        private CharacterDB _characters = new CharacterDB();
 
     }
 }

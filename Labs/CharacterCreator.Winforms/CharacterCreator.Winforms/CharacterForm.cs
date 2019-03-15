@@ -35,6 +35,10 @@ namespace CharacterCreator.Winforms
             _cbRace.SelectedItem = character.Race;
             _cbProfession.SelectedItem = character.Profession;
             _numStr.Value= character.Strength;
+            _numInt.Value = character.Intelligence;
+            _numAgi.Value = character.Agility;
+            _numDex.Value = character.Dexterity;
+            _numEnd.Value = character.Endurance;
 
         }
 
@@ -48,6 +52,10 @@ namespace CharacterCreator.Winforms
             CharacterProfession characterProfession = (CharacterProfession)_cbProfession.SelectedItem;
             character.Profession = characterProfession;
             character.Strength = _numStr.Value;
+            character.Intelligence = _numInt.Value;
+            character.Agility = _numAgi.Value;
+            character.Dexterity = _numDex.Value;
+            character.Endurance = _numEnd.Value;
 
 
             return character;
@@ -66,20 +74,6 @@ namespace CharacterCreator.Winforms
       
 
             ValidateChildren();
-        }
-
-        private void OnValidateName( object sender, CancelEventArgs e )
-        {
-            var tb = sender as TextBox;
-
-            if (tb.Text.Length == 0)
-            {
-                _errors.SetError(tb, "Name is required.");
-                e.Cancel = true;
-            } else
-            {
-                _errors.SetError(tb, "");
-            }
         }
 
         private void OnSave( object sender, EventArgs e )
@@ -105,6 +99,49 @@ namespace CharacterCreator.Winforms
 
         }
 
-       
+        private void OnValidateName( object sender, CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            if (tb.Text.Length == 0)
+            {
+                _errors.SetError(tb, "Name is required.");
+                e.Cancel = true;
+            } else
+            {
+                _errors.SetError(tb, "");
+            }
+        }
+
+        private void OnValidateRace( object sender, CancelEventArgs e )
+        {
+            var cb = sender as ComboBox;
+
+            if (cb.SelectedIndex == 0)
+            {
+                _errors.SetError(cb, "Race is required.");
+                e.Cancel = true;
+            } else
+            {
+                _errors.SetError(cb, "");
+            }
+
+        }
+
+        private void OnValidateProfession( object sender, CancelEventArgs e )
+        {
+            var cb = sender as ComboBox;
+
+            if (cb.SelectedIndex == 0)
+            {
+                _errors.SetError(cb, "Profession is required.");
+                e.Cancel = true;
+            } else
+            {
+                _errors.SetError(cb, "");
+            }
+
+        }
+
     }
 }

@@ -67,8 +67,8 @@
             // 
             this._miFileExit.Name = "_miFileExit";
             this._miFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this._miFileExit.Size = new System.Drawing.Size(134, 22);
-            this._miFileExit.Text = "E&xit";
+            this._miFileExit.Size = new System.Drawing.Size(180, 22);
+            this._miFileExit.Text = "&Exit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
             // characterToolStripMenuItem
@@ -89,7 +89,7 @@
             this._miCharacterNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this._miCharacterNew.Size = new System.Drawing.Size(180, 22);
             this._miCharacterNew.Text = "&New";
-            this._miCharacterNew.Click += new System.EventHandler(this.OnGameAdd);
+            this._miCharacterNew.Click += new System.EventHandler(this.OnCharacterAdd);
             // 
             // _miCharacterEdit
             // 
@@ -97,7 +97,7 @@
             this._miCharacterEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this._miCharacterEdit.Size = new System.Drawing.Size(180, 22);
             this._miCharacterEdit.Text = "&Edit";
-            this._miCharacterEdit.Click += new System.EventHandler(this.OnGameEdit);
+            this._miCharacterEdit.Click += new System.EventHandler(this.OnCharacter);
             // 
             // toolStripSeparator1
             // 
@@ -137,7 +137,7 @@
             this._listCharacters.Size = new System.Drawing.Size(284, 387);
             this._listCharacters.TabIndex = 1;
             this._listCharacters.SelectedIndexChanged += new System.EventHandler(this.OnGameSelected);
-            this._listCharacters.DoubleClick += new System.EventHandler(this.OnGameEdit);
+            this._listCharacters.DoubleClick += new System.EventHandler(this.OnCharacter);
             // 
             // MainForm
             // 
