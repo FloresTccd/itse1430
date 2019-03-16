@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._miFile = new System.Windows.Forms.ToolStripMenuItem();
             this._miFileExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.characterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._miCharacter = new System.Windows.Forms.ToolStripMenuItem();
             this._miCharacterNew = new System.Windows.Forms.ToolStripMenuItem();
             this._miCharacterEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._miCharacterDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._miHelp = new System.Windows.Forms.ToolStripMenuItem();
             this._miHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this._listCharacters = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
@@ -46,22 +46,22 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.characterToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this._miFile,
+            this._miCharacter,
+            this._miHelp});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(284, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // _miFile
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._miFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._miFileExit});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
+            this._miFile.Name = "_miFile";
+            this._miFile.Size = new System.Drawing.Size(37, 20);
+            this._miFile.Text = "&File";
             // 
             // _miFileExit
             // 
@@ -71,17 +71,17 @@
             this._miFileExit.Text = "&Exit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
-            // characterToolStripMenuItem
+            // _miCharacter
             // 
-            this.characterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._miCharacter.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._miCharacterNew,
             this._miCharacterEdit,
             this.toolStripSeparator1,
             this._miCharacterDelete});
-            this.characterToolStripMenuItem.Name = "characterToolStripMenuItem";
-            this.characterToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.characterToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.characterToolStripMenuItem.Text = "&Character";
+            this._miCharacter.Name = "_miCharacter";
+            this._miCharacter.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this._miCharacter.Size = new System.Drawing.Size(70, 20);
+            this._miCharacter.Text = "&Character";
             // 
             // _miCharacterNew
             // 
@@ -112,13 +112,13 @@
             this._miCharacterDelete.Text = "&Delete";
             this._miCharacterDelete.Click += new System.EventHandler(this.OnGameDelete);
             // 
-            // helpToolStripMenuItem
+            // _miHelp
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._miHelpAbout});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
+            this._miHelp.Name = "_miHelp";
+            this._miHelp.Size = new System.Drawing.Size(44, 20);
+            this._miHelp.Text = "&Help";
             // 
             // _miHelpAbout
             // 
@@ -162,10 +162,10 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem _miFile;
         private System.Windows.Forms.ToolStripMenuItem _miFileExit;
-        private System.Windows.Forms.ToolStripMenuItem characterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem _miCharacter;
+        private System.Windows.Forms.ToolStripMenuItem _miHelp;
         private System.Windows.Forms.ToolStripMenuItem _miCharacterNew;
         private System.Windows.Forms.ToolStripMenuItem _miCharacterEdit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

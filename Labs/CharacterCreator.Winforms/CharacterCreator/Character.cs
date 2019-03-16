@@ -17,9 +17,8 @@ namespace CharacterCreator
  
     public class Character
     {
-        public int Id { get; set; }
-
         #region Property
+        public int Id { get; set; }
         public string Name
         {
             get { return _name ?? ""; }

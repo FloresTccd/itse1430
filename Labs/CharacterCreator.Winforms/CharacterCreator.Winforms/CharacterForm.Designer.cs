@@ -53,7 +53,7 @@
             this._rbMale = new System.Windows.Forms.RadioButton();
             this._rbFemale = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this._pbProfessionPic = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numStr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numAgi)).BeginInit();
@@ -66,7 +66,7 @@
             this.groupBoxEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numEnd)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._pbProfessionPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelName
@@ -352,21 +352,21 @@
             // 
             this.groupBox1.Controls.Add(this._rbMale);
             this.groupBox1.Controls.Add(this._rbFemale);
-            this.groupBox1.Location = new System.Drawing.Point(155, 87);
+            this.groupBox1.Location = new System.Drawing.Point(155, 88);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(196, 49);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gender";
             // 
-            // _pbProfessionPic
+            // pictureBox1
             // 
-            this._pbProfessionPic.Location = new System.Drawing.Point(11, 10);
-            this._pbProfessionPic.Name = "_pbProfessionPic";
-            this._pbProfessionPic.Size = new System.Drawing.Size(76, 104);
-            this._pbProfessionPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this._pbProfessionPic.TabIndex = 12;
-            this._pbProfessionPic.TabStop = false;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(76, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // CharacterForm
             // 
@@ -375,7 +375,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(376, 381);
-            this.Controls.Add(this._pbProfessionPic);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxEnd);
             this.Controls.Add(this.groupBoxDex);
@@ -414,7 +414,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._numEnd)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._pbProfessionPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,6 +446,6 @@
         private System.Windows.Forms.RadioButton _rbFemale;
         private System.Windows.Forms.RadioButton _rbMale;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox _pbProfessionPic;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

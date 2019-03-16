@@ -77,13 +77,10 @@ namespace CharacterCreator.Winforms
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
-           
-
 
             if (Character != null)
                 LoadData(Character);
       
-
             ValidateChildren();
         }
 
@@ -93,16 +90,6 @@ namespace CharacterCreator.Winforms
                 return;
 
             var character = SaveData();
-
-
-            //validate - at business level
-            if (!character.Validate())
-            {
-                MessageBox.Show("Character not valid.", "Error", MessageBoxButtons.OK);
-                return;
-
-            }
-
 
             Character = character;
             DialogResult = DialogResult.OK;
@@ -158,16 +145,18 @@ namespace CharacterCreator.Winforms
         {
             
             if (_cbProfession.Text == "Fighter")
-                _pbProfessionPic.Image = Properties.Resources.Fighter;
+                pictureBox1.Image = Properties.Resources.Fighter;
             if(_cbProfession.Text == "Archer")
-             _pbProfessionPic.Image = Properties.Resources.Archer;
+             pictureBox1.Image = Properties.Resources.Archer;
             if (_cbProfession.Text == "Rogue")
-                _pbProfessionPic.Image = Properties.Resources.Rogue;
+                pictureBox1.Image = Properties.Resources.Rogue;
             if (_cbProfession.Text == "Tank")
-                _pbProfessionPic.Image = Properties.Resources.Tank;
+                pictureBox1.Image = Properties.Resources.Tank;
             if (_cbProfession.Text == "Wizard")
-                _pbProfessionPic.Image = Properties.Resources.Wizard;
+                pictureBox1.Image = Properties.Resources.Wizard;
             
         }
+
+       
     }
 }
