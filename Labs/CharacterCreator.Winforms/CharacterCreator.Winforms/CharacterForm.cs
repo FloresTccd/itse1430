@@ -158,15 +158,15 @@ namespace CharacterCreator.Winforms
         {
             
             if (_cbProfession.Text == "Fighter")
-                pictureBox1.Image = Properties.Resources.Fighter;
+                _pbProfessionPic.Image = Properties.Resources.Fighter;
             if(_cbProfession.Text == "Archer")
-             pictureBox1.Image = Properties.Resources.Archer;
+             _pbProfessionPic.Image = Properties.Resources.Archer;
             if (_cbProfession.Text == "Rogue")
-                pictureBox1.Image = Properties.Resources.Rogue;
+                _pbProfessionPic.Image = Properties.Resources.Rogue;
             if (_cbProfession.Text == "Tank")
-                pictureBox1.Image = Properties.Resources.Tank;
+                _pbProfessionPic.Image = Properties.Resources.Tank;
             if (_cbProfession.Text == "Wizard")
-                pictureBox1.Image = Properties.Resources.Wizard;
+                _pbProfessionPic.Image = Properties.Resources.Wizard;
             
         }
     }
