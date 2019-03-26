@@ -85,7 +85,7 @@
             // 
             this._miContactAdd.Name = "_miContactAdd";
             this._miContactAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miContactAdd.Size = new System.Drawing.Size(180, 22);
+            this._miContactAdd.Size = new System.Drawing.Size(162, 22);
             this._miContactAdd.Text = "&Add";
             this._miContactAdd.Click += new System.EventHandler(this.OnContactAdd);
             // 
@@ -93,7 +93,7 @@
             // 
             this._miContactSend.Name = "_miContactSend";
             this._miContactSend.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-            this._miContactSend.Size = new System.Drawing.Size(180, 22);
+            this._miContactSend.Size = new System.Drawing.Size(162, 22);
             this._miContactSend.Text = "&Send Msg";
             this._miContactSend.Click += new System.EventHandler(this.OnSendMsg);
             // 
@@ -101,7 +101,7 @@
             // 
             this._miContactEdit.Name = "_miContactEdit";
             this._miContactEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Insert)));
-            this._miContactEdit.Size = new System.Drawing.Size(180, 22);
+            this._miContactEdit.Size = new System.Drawing.Size(162, 22);
             this._miContactEdit.Text = "&Edit";
             this._miContactEdit.Click += new System.EventHandler(this.OnContactEdit);
             // 
@@ -109,7 +109,7 @@
             // 
             this._miContactDel.Name = "_miContactDel";
             this._miContactDel.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miContactDel.Size = new System.Drawing.Size(180, 22);
+            this._miContactDel.Size = new System.Drawing.Size(162, 22);
             this._miContactDel.Text = "&Delete";
             this._miContactDel.Click += new System.EventHandler(this.OnContactDelete);
             // 
@@ -125,7 +125,7 @@
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
             this._miHelpAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this._miHelpAbout.Size = new System.Drawing.Size(180, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(126, 22);
             this._miHelpAbout.Text = "&About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
@@ -137,6 +137,7 @@
             this._listContacts.Location = new System.Drawing.Point(0, 24);
             this._listContacts.Name = "_listContacts";
             this._listContacts.Size = new System.Drawing.Size(174, 426);
+            this._listContacts.Sorted = true;
             this._listContacts.TabIndex = 1;
             this._listContacts.SelectedIndexChanged += new System.EventHandler(this.OnContactSelected);
             this._listContacts.DoubleClick += new System.EventHandler(this.OnContactEdit);

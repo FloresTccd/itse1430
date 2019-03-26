@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,7 +32,7 @@ namespace ContactManager.UI
             
             if (!contact.Validate())
             {
-                MessageBox.Show(this, "Name and Email Required.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this, "Name and Valid Email Required.", "Error", MessageBoxButtons.OK);
                 return;
             };
 
@@ -86,14 +87,33 @@ namespace ContactManager.UI
 
         private void OnValidateEmail( object sender, System.ComponentModel.CancelEventArgs e )
         {
+            
             var tb = sender as TextBox;
 
-            if (tb.Text.Length == 0)
+            if (!IsValidEmail(_txtEmail.Text))
             {
-                _errors.SetError(tb, "Email is required.");
+                _errors.SetError(tb, "Please provide valid Email Address");
                 e.Cancel = false;
+                
+
             } else
                 _errors.SetError(tb, "");
+
+
+
+        }
+
+        public bool IsValidEmail (string source)
+        {
+            try
+            {
+                new System.Net.Mail.MailAddress(source);
+                return true;
+            } catch
+            { };
+
+            return false;
+
         }
 
 

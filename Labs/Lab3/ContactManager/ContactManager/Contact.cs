@@ -48,10 +48,23 @@ namespace ContactManager
             //Name is required
             if (String.IsNullOrEmpty(Name))
                 return false;
-            if (String.IsNullOrEmpty(Email))
+            if (!IsValidEmail(Email))
                 return false;
             
             return true;
+        }
+
+        public bool IsValidEmail( string source )
+        {
+            try
+            {
+                new System.Net.Mail.MailAddress(source);
+                return true;
+            } catch
+            { };
+
+            return false;
+
         }
 
     }
