@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ContactCreator;
 
 namespace ContactManager.UI
 {
@@ -19,91 +18,84 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        /// <summary>Gets or sets the property being edited.</summary>
         public Contact Contact { get; set; }
-        private void OnSave( object sender, EventArgs e )//Called when the user saves the game
+
+        //Called when the user saves the game
+        private void OnSave( object sender, EventArgs e )
         {
             if (!ValidateChildren())
                 return;
 
             var contact = SaveData();
 
-
-            //validate - at business level
-            try
+            
+            if (!contact.Validate())
             {
-                //new ObjectValidator().Validate();
-            } catch (ValidationException)
-            {
-                MessageBox.Show(this, "Contact not valid.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this, "Name and Email Required.", "Error", MessageBoxButtons.OK);
                 return;
             };
-            
-
 
             Contact = contact;
             DialogResult = DialogResult.OK;
             Close();
-
         }
-        private void OnCancel( object sender, EventArgs e )//Called when the user cancels the add/edit
+
+        private void OnCancel( object sender, EventArgs e )
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
-        
 
-
-        private void LoadData( Contact contact )  //loads UI with game
+        private void LoadData(Contact contact)
         {
             _txtName.Text = contact.Name;
             _txtEmail.Text = contact.Email;
-            
+
         }
-        private Contact SaveData() //Saves UI into new game
+
+        private Contact SaveData()
         {
-            var contact = new Contact() {
-                Name = _txtName.Text,
-                Email = _txtEmail.Text
-            };
-
-
-
+            var contact = new Contact();
+            contact.Name = _txtName.Text;
+            contact.Email = _txtEmail.Text;
 
             return contact;
         }
-
-       
-
 
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
 
-
-
-            //init UI if editing a game
             if (Contact != null)
                 LoadData(Contact);
 
-
-            ValidateChildren(); // to display icon on required items
+            ValidateChildren();
         }
 
-        private void OnValidateName( object sender, CancelEventArgs e )
+        private void OnValidateName( object sender, System.ComponentModel.CancelEventArgs e )
         {
-            var tb = sender as TextBox; // casting as txbox
+            var tb = sender as TextBox;
 
             if (tb.Text.Length == 0)
             {
                 _errors.SetError(tb, "Name is required.");
-                e.Cancel = true;
+                e.Cancel = false;
             } else
-            {
                 _errors.SetError(tb, "");
-            }
         }
 
-        
+        private void OnValidateEmail( object sender, System.ComponentModel.CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            if (tb.Text.Length == 0)
+            {
+                _errors.SetError(tb, "Email is required.");
+                e.Cancel = false;
+            } else
+                _errors.SetError(tb, "");
+        }
+
+
     }
 }

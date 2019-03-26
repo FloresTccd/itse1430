@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ContactCreator;
 
 namespace ContactManager.UI
 {
@@ -18,38 +17,19 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        private void OnFileExit( object sender, EventArgs e )
-        {
-            Close();
-        }
-
         private void OnHelpAbout( object sender, EventArgs e )
         {
             var form = new AboutBox();
             form.ShowDialog();
         }
 
-        protected override void OnLoad( EventArgs e )
+        private void OnFileExit( object sender, EventArgs e )
         {
-            base.OnLoad(e);
-
-            BindList();
-        }
-
-        private void BindList()
-        {
-            //Bind characters to listbox
-            _listContacts.Items.Clear();
-            _listContacts.DisplayMember = nameof(Contact.Name);
-
-            //AddRange
-            _listContacts.Items.AddRange(_contact.GetAll().ToArray());
-
+            Close();
         }
 
         private void OnContactAdd( object sender, EventArgs e )
         {
-            //Display UI
             var form = new ContactForm();
 
             while (true)
@@ -61,20 +41,44 @@ namespace ContactManager.UI
                 //Add
                 try
                 {
+                    //Anything in here that raises an exception will
+                    //be sent to the catch block
+
                     OnSafeAdd(form);
                     break;
                 } catch (InvalidOperationException)
                 {
-                    MessageBox.Show(this, "Pick Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } catch (Exception ex)
                 {
                     //Recover from errors
                     DisplayError(ex);
                 };
-
             };
 
             BindList();
+
+        }
+
+        protected override void OnLoad( EventArgs e )
+        {
+            base.OnLoad(e);
+
+            BindList();
+
+        }
+
+        private void BindList()
+        {
+            //Bind contacts to listbox
+            
+            _listContacts.Items.Clear();
+            _listContacts.DisplayMember = nameof(Contact.Name);
+
+
+
+            _listContacts.Items.AddRange(_contacts.GetAll().ToArray());
+
         }
 
         private void DisplayError( Exception ex )
@@ -86,30 +90,30 @@ namespace ContactManager.UI
         {
             try
             {
-                _contact.Add(form.Contact);
+                //_games[GetNextEmptyGame()] = form.Game;
+                _contacts.Add(form.Contact);
             } catch (NotImplementedException e)
             {
                 //Rewriting an exception
                 throw new Exception("Not implemented yet", e);
             } catch (Exception e)
             {
+                
                 throw;
             };
         }
 
-        private IContactDatabase _contact = new ContactDatabase();
+        private IContactDatabase _contacts = new ContactDatabase();
 
         private void OnContactEdit( object sender, EventArgs e )
         {
-            var form = new ContactForm {
-                Text = "Edit Contact"
-            };
+            var form = new ContactForm();
 
             var contact = GetSelectedContact();
             if (contact == null)
                 return;
 
-            //Character edit
+            //Game to edit
             form.Contact = contact;
 
             while (true)
@@ -119,7 +123,8 @@ namespace ContactManager.UI
 
                 try
                 {
-                    _contact.Update(contact.Id, form.Contact);
+                              
+                    _contacts.Update(contact.Id, form.Contact);
                     break;
                 } catch (Exception ex)
                 {
@@ -130,7 +135,7 @@ namespace ContactManager.UI
             BindList();
         }
 
-        private void OnGameDelete( object sender, EventArgs e )
+        private void OnContactDelete( object sender, EventArgs e )
         {
 
             var selected = GetSelectedContact();
@@ -145,7 +150,8 @@ namespace ContactManager.UI
 
             try
             {
-                _contact.Delete(selected.Id);
+                
+                _contacts.Delete(selected.Id);
             } catch (Exception ex)
             {
                 DisplayError(ex);
@@ -157,18 +163,20 @@ namespace ContactManager.UI
         {
             var value = _listContacts.SelectedItem;
 
+            
 
             //Preferred - null if not valid
             var contact = value as Contact;
 
             //Type check
-            var contact2 = (value is Contact) ? (Contact)value : null;
+            var game2 = (value is Contact) ? (Contact)value : null;
 
             return _listContacts.SelectedItem as Contact;
         }
 
         private void OnContactSelected( object sender, EventArgs e )
         {
+
         }
 
         protected override void OnFormClosing( FormClosingEventArgs e )
@@ -180,19 +188,5 @@ namespace ContactManager.UI
             };
             base.OnFormClosing(e);
         }
-
-        protected override bool ProcessCmdKey( ref Message msg, Keys keyData )
-        {
-            if (keyData == (Keys.F1))
-            {
-                var form = new AboutBox();
-                form.ShowDialog();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        
     }
 }
-

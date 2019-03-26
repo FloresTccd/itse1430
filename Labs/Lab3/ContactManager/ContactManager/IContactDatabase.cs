@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
-using ContactCreator;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ContactCreator
+namespace ContactManager
 {
     public interface IContactDatabase
     {
@@ -10,5 +13,7 @@ namespace ContactCreator
         Contact Get( int id );
         IEnumerable<Contact> GetAll();
         Contact Update( int id, Contact contact );
+
+
     }
 }

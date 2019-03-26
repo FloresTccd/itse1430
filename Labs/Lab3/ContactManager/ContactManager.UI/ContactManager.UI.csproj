@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F3264F22-69DC-4D3C-B214-ADA8488A0755}</ProjectGuid>
+    <ProjectGuid>{67B5A81C-74D5-4F05-95C9-BAF5C174C1EC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ContactManager.UI</RootNamespace>
     <AssemblyName>ContactManager.UI</AssemblyName>
@@ -99,9 +99,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ContactCreator\ContactCreator.csproj">
-      <Project>{21253149-afcc-487b-8251-708dbfd40e42}</Project>
-      <Name>ContactCreator</Name>
+    <ProjectReference Include="..\ContactManager\ContactManager.csproj">
+      <Project>{8345d40b-6c28-4841-804d-d2236dcad788}</Project>
+      <Name>ContactManager</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

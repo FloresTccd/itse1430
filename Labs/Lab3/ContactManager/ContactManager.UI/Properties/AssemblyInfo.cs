@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Raul Flores")]
-[assembly: AssemblyProduct("ContactManager.UI")]
+[assembly: AssemblyProduct("ContactManager")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f3264f22-69dc-4d3c-b214-ada8488a0755")]
+[assembly: Guid("67b5a81c-74d5-4f05-95c9-baf5c174c1ec")]
 
 // Version information for an assembly consists of the following four values:
 //

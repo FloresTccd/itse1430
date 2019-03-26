@@ -4,35 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace ContactCreator
+namespace ContactManager
 {
     public class ContactDatabase : IContactDatabase
     {
-        public ContactDatabase()
+        public Contact Add(Contact contact)
         {
-            
-        }
-        public Contact Add( Contact contact )
-        {
-            //Validate input
             if (contact == null)
                 throw new ArgumentNullException(nameof(contact));
 
-            //Game must be valid            
-            new ObjectValidator().Validate(contact);
+                     
             
+            if (!contact.Validate())
+              throw new Exception("Contact is invalid.");
 
             //Game names must be unique
             var existing = GetIndex(contact.Name);
             if (existing >= 0)
                 throw new Exception("Contact must be unique.");
 
-            
+
             contact.Id = ++_nextId;
             _items.Add(Clone(contact));
 
             return contact;
+
+
         }
 
         public void Delete( int id )
@@ -43,7 +40,7 @@ namespace ContactCreator
             var index = GetIndex(id);
             if (index >= 0)
                 _items.RemoveAt(index);
-           
+            
         }
 
         public Contact Get( int id )
@@ -58,10 +55,9 @@ namespace ContactCreator
             return null;
         }
 
-        //public Game[] GetAll()
         public IEnumerable<Contact> GetAll()
         {
-          
+
             var temp = new List<Contact>();
             foreach (var item in _items)
                 temp.Add(Clone(item));
@@ -77,18 +73,19 @@ namespace ContactCreator
             if (contact == null)
                 throw new ArgumentNullException(nameof(contact));
 
-            new ObjectValidator().Validate(contact);
-            //if (!game.Validate())
-            //    throw new Exception("Game is invalid.");
+            
+            if (!contact.Validate())
+                throw new Exception("Contact is invalid");
+           
 
             var index = GetIndex(id);
             if (index < 0)
-                throw new Exception("Contact does not exist.");
+                throw new Exception("Game does not exist.");
 
-            //Game names must be unique            
+            //contact names must be unique            
             var existingIndex = GetIndex(contact.Name);
             if (existingIndex >= 0 && existingIndex != index)
-                throw new Exception("Contact must be unique.");
+                throw new Exception("contact must be unique.");
 
             contact.Id = id;
             var existing = _items[index];
@@ -97,10 +94,10 @@ namespace ContactCreator
             return contact;
         }
 
-        private Contact Clone( Contact game )
+        private Contact Clone( Contact contact )
         {
             var newGame = new Contact();
-            Clone(newGame, game);
+            Clone(newGame, contact);
 
             return newGame;
         }
@@ -110,7 +107,7 @@ namespace ContactCreator
             target.Id = source.Id;
             target.Name = source.Name;
             target.Email = source.Email;
-           
+            
         }
 
         private int GetIndex( int id )
@@ -131,12 +128,10 @@ namespace ContactCreator
             return -1;
         }
 
-        
+
+
 
         private readonly List<Contact> _items = new List<Contact>();
-        
         private int _nextId = 0;
     }
-
 }
-
