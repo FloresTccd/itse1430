@@ -46,10 +46,14 @@ namespace GameManager.Host.Winforms
             _listGames.Items.Clear();
             _listGames.DisplayMember = nameof(Game.Name);
 
-            
             //Can use AddRange now that we don't care about null items
             //var enumor = _games.GetAll();
-            //foreach (var item in enumor)
+            //var enumoror = enumor.GetEnumerator();
+            //while (enumoror.MoveNext())
+            //{
+            //    var item = enumoror.Current;
+            //};
+            ////foreach (var item in enumor)
             //{
             //};
 
@@ -78,7 +82,6 @@ namespace GameManager.Host.Winforms
                     //Anything in here that raises an exception will
                     //be sent to the catch block
 
-                    //_games[GetNextEmptyGame()] = form.Game;
                     OnSafeAdd(form);
                     break;
                 } catch (InvalidOperationException)
@@ -89,7 +92,6 @@ namespace GameManager.Host.Winforms
                     //Recover from errors
                     DisplayError(ex);
                 };
-
             };
 
             BindList();
@@ -120,7 +122,7 @@ namespace GameManager.Host.Winforms
             };
         }
 
-        private IGameDatabase _games = new GameDatabase();
+        private IGameDatabase _games = new MemoryGameDatabase();
 
         private void OnGameEdit( object sender, EventArgs e )
         {
@@ -206,7 +208,6 @@ namespace GameManager.Host.Winforms
             base.OnFormClosing(e);
         }
 
-
         #region Unused Code (Demo only)
 
         //void LoadUI ()
@@ -287,10 +288,5 @@ namespace GameManager.Host.Winforms
         //    };
         //}
         #endregion
-
-        private void fileToolStripMenuItem_Click( object sender, EventArgs e )
-        {
-
-        }
     }
 }

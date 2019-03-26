@@ -45,6 +45,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="GameDatabase.cs" />
     <Compile Include="IGameDatabase.cs" />
+    <Compile Include="MemoryGameDatabase.cs" />
     <Compile Include="ObjectValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
