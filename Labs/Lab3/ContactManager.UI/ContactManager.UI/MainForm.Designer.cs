@@ -66,7 +66,7 @@
             // 
             this._miFileExit.Name = "_miFileExit";
             this._miFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this._miFileExit.Size = new System.Drawing.Size(180, 22);
+            this._miFileExit.Size = new System.Drawing.Size(134, 22);
             this._miFileExit.Text = "&Exit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -88,6 +88,7 @@
             this._miContactNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this._miContactNew.Size = new System.Drawing.Size(180, 22);
             this._miContactNew.Text = "&New";
+            this._miContactNew.Click += new System.EventHandler(this.OnContactAdd);
             // 
             // _miContactEdit
             // 
@@ -119,7 +120,7 @@
             // _miHelpAbout
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
-            this._miHelpAbout.Size = new System.Drawing.Size(180, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(107, 22);
             this._miHelpAbout.Text = "&About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
@@ -132,7 +133,7 @@
             this._listContacts.Name = "_listContacts";
             this._listContacts.Size = new System.Drawing.Size(194, 421);
             this._listContacts.TabIndex = 1;
-            this._listContacts.SelectedIndexChanged += new System.EventHandler(this.OnGameSelected);
+            this._listContacts.SelectedIndexChanged += new System.EventHandler(this.OnContactSelected);
             // 
             // MainForm
             // 

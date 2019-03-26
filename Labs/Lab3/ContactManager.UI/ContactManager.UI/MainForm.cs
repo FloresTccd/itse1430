@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactCreator;
 
 namespace ContactManager.UI
 {
@@ -28,142 +29,145 @@ namespace ContactManager.UI
             form.ShowDialog();
         }
 
-        //protected override void OnLoad( EventArgs e )
-        //{
-        //    base.OnLoad(e);
+        protected override void OnLoad( EventArgs e )
+        {
+            base.OnLoad(e);
 
-        //    BindList();
-        //}
+            BindList();
+        }
 
-        //private void BindList()
-        //{
-        //    //Bind characters to listbox
-        //    _listContacts.Items.Clear();
-        //    _listContacts.DisplayMember = nameof(Character.Name);
+        private void BindList()
+        {
+            //Bind characters to listbox
+            _listContacts.Items.Clear();
+            _listContacts.DisplayMember = nameof(Contact.Name);
 
-        //    //AddRange
-        //    _listContacts.Items.AddRange(_characters.GetAll());
+            //AddRange
+            _listContacts.Items.AddRange(_contact.GetAll().ToArray());
 
-        //}
+        }
 
-        //private void OnCharacterAdd( object sender, EventArgs e )
-        //{
-        //    //Display UI
-        //    var form = new CharacterForm();
+        private void OnContactAdd( object sender, EventArgs e )
+        {
+            //Display UI
+            var form = new ContactForm();
 
-        //    while (true)
-        //    {
-        //        //Modal
-        //        if (form.ShowDialog(this) != DialogResult.OK)
-        //            return;
+            while (true)
+            {
+                //Modal
+                if (form.ShowDialog(this) != DialogResult.OK)
+                    return;
 
-        //        //Add
-        //        try
-        //        {
-        //            OnSafeAdd(form);
-        //            break;
-        //        } catch (InvalidOperationException)
-        //        {
-        //            MessageBox.Show(this, "Pick Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        } catch (Exception ex)
-        //        {
-        //            //Recover from errors
-        //            DisplayError(ex);
-        //        };
+                //Add
+                try
+                {
+                    OnSafeAdd(form);
+                    break;
+                } catch (InvalidOperationException)
+                {
+                    MessageBox.Show(this, "Pick Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } catch (Exception ex)
+                {
+                    //Recover from errors
+                    DisplayError(ex);
+                };
 
-        //    };
+            };
 
-        //    BindList();
-        //}
+            BindList();
+        }
 
         private void DisplayError( Exception ex )
         {
             MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        //private void OnSafeAdd( CharacterForm form )
-        //{
-        //    try
-        //    {
-        //        _characters.Add(form.Character);
-        //    } catch (NotImplementedException e)
-        //    {
-        //        //Rewriting an exception
-        //        throw new Exception("Not implemented yet", e);
-        //    } catch (Exception e)
-        //    {
-        //        throw;
-        //    };
-        //}
+        private void OnSafeAdd( ContactForm form )
+        {
+            try
+            {
+                _contact.Add(form.Contact);
+            } catch (NotImplementedException e)
+            {
+                //Rewriting an exception
+                throw new Exception("Not implemented yet", e);
+            } catch (Exception e)
+            {
+                throw;
+            };
+        }
 
-        //private void OnCharacter( object sender, EventArgs e )
-        //{
-        //    var form = new CharacterForm();
-        //    form.Text = "Edit Character";
+        private IContactDatabase _contact = new ContactDatabase();
 
-        //    var character = GetSelectedCharacter();
-        //    if (character == null)
-        //        return;
+        private void OnContactEdit( object sender, EventArgs e )
+        {
+            var form = new ContactForm {
+                Text = "Edit Contact"
+            };
 
-        //    //Character edit
-        //    form.Character = character;
+            var contact = GetSelectedContact();
+            if (contact == null)
+                return;
 
-        //    while (true)
-        //    {
-        //        if (form.ShowDialog(this) != DialogResult.OK)
-        //            return;
+            //Character edit
+            form.Contact = contact;
 
-        //        try
-        //        {
-        //            _characters.Update(character.Id, form.Character);
-        //            break;
-        //        } catch (Exception ex)
-        //        {
-        //            DisplayError(ex);
-        //        };
-        //    };
+            while (true)
+            {
+                if (form.ShowDialog(this) != DialogResult.OK)
+                    return;
 
-        //    BindList();
-        //}
+                try
+                {
+                    _contact.Update(contact.Id, form.Contact);
+                    break;
+                } catch (Exception ex)
+                {
+                    DisplayError(ex);
+                };
+            };
 
-        //private void OnGameDelete( object sender, EventArgs e )
-        //{
+            BindList();
+        }
 
-        //    var selected = GetSelectedCharacter();
-        //    if (selected == null)
-        //        return;
+        private void OnGameDelete( object sender, EventArgs e )
+        {
 
-        //    //Display confirmation
-        //    if (MessageBox.Show(this, $"Are you sure you want to delete {selected.Name}?",
-        //                       "Confirm Delete", MessageBoxButtons.YesNo,
-        //                       MessageBoxIcon.Question) != DialogResult.Yes)
-        //        return;
+            var selected = GetSelectedContact();
+            if (selected == null)
+                return;
 
-        //    try
-        //    {
-        //        _characters.Delete(selected.Id);
-        //    } catch (Exception ex)
-        //    {
-        //        DisplayError(ex);
-        //    };
-        //    BindList();
-        //}
+            //Display confirmation
+            if (MessageBox.Show(this, $"Are you sure you want to delete {selected.Name}?",
+                               "Confirm Delete", MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
 
-        //private Character GetSelectedCharacter()
-        //{
-        //    var value = _listContacts.SelectedItem;
+            try
+            {
+                _contact.Delete(selected.Id);
+            } catch (Exception ex)
+            {
+                DisplayError(ex);
+            };
+            BindList();
+        }
+
+        private Contact GetSelectedContact()
+        {
+            var value = _listContacts.SelectedItem;
 
 
-        //    //Preferred - null if not valid
-        //    var character = value as Character;
+            //Preferred - null if not valid
+            var contact = value as Contact;
 
-        //    //Type check
-        //    var character2 = (value is Character) ? (Character)value : null;
+            //Type check
+            var contact2 = (value is Contact) ? (Contact)value : null;
 
-        //    return _listContacts.SelectedItem as Character;
-        //}
+            return _listContacts.SelectedItem as Contact;
+        }
 
-        private void OnGameSelected( object sender, EventArgs e )
+        private void OnContactSelected( object sender, EventArgs e )
         {
         }
 
@@ -188,9 +192,7 @@ namespace ContactManager.UI
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        //private CharacterDB _characters = new CharacterDB();
-
-      
+        
     }
 }
 
