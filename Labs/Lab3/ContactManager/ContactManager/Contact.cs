@@ -41,19 +41,7 @@ namespace ContactManager
             return Name;
         }
 
-        //public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
-        //{
-        //    var items = new List<ValidationResult>();
-
-        //    //Name is required
-        //    if (String.IsNullOrEmpty(Name))
-        //        items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
-
-        //    if (String.IsNullOrEmpty(Email))
-        //        items.Add(new ValidationResult("Name is required.", new[] { nameof(Email) }));
-
-        //    return items;
-        //}
+        
         public bool Validate( )
         {
            

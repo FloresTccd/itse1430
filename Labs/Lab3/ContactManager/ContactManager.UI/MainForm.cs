@@ -113,7 +113,8 @@ namespace ContactManager.UI
             if (contact == null)
                 return;
 
-            //Game to edit
+            //contact to edit
+
             form.Contact = contact;
 
             while (true)
@@ -187,6 +188,23 @@ namespace ContactManager.UI
                 return;
             };
             base.OnFormClosing(e);
+        }
+
+        private void OnSendMsg( object sender, EventArgs e )
+        {
+            var form = new SendMsgForm();
+
+            var contact = GetSelectedContact();
+            if (contact == null)
+                return;
+            //Modal
+            if (form.ShowDialog(this) != DialogResult.OK)
+                return;
+
+
+
+
+
         }
     }
 }

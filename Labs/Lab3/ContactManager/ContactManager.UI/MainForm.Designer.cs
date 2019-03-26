@@ -33,6 +33,7 @@
             this._miFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._miContactAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this._miContactSend = new System.Windows.Forms.ToolStripMenuItem();
             this._miContactEdit = new System.Windows.Forms.ToolStripMenuItem();
             this._miContactDel = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,7 @@
             // 
             this.contactsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._miContactAdd,
+            this._miContactSend,
             this._miContactEdit,
             this._miContactDel});
             this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
@@ -83,15 +85,23 @@
             // 
             this._miContactAdd.Name = "_miContactAdd";
             this._miContactAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miContactAdd.Size = new System.Drawing.Size(139, 22);
+            this._miContactAdd.Size = new System.Drawing.Size(180, 22);
             this._miContactAdd.Text = "&Add";
             this._miContactAdd.Click += new System.EventHandler(this.OnContactAdd);
+            // 
+            // _miContactSend
+            // 
+            this._miContactSend.Name = "_miContactSend";
+            this._miContactSend.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
+            this._miContactSend.Size = new System.Drawing.Size(180, 22);
+            this._miContactSend.Text = "&Send Msg";
+            this._miContactSend.Click += new System.EventHandler(this.OnSendMsg);
             // 
             // _miContactEdit
             // 
             this._miContactEdit.Name = "_miContactEdit";
             this._miContactEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Insert)));
-            this._miContactEdit.Size = new System.Drawing.Size(139, 22);
+            this._miContactEdit.Size = new System.Drawing.Size(180, 22);
             this._miContactEdit.Text = "&Edit";
             this._miContactEdit.Click += new System.EventHandler(this.OnContactEdit);
             // 
@@ -99,7 +109,7 @@
             // 
             this._miContactDel.Name = "_miContactDel";
             this._miContactDel.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miContactDel.Size = new System.Drawing.Size(139, 22);
+            this._miContactDel.Size = new System.Drawing.Size(180, 22);
             this._miContactDel.Text = "&Delete";
             this._miContactDel.Click += new System.EventHandler(this.OnContactDelete);
             // 
@@ -115,12 +125,13 @@
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
             this._miHelpAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this._miHelpAbout.Size = new System.Drawing.Size(126, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(180, 22);
             this._miHelpAbout.Text = "&About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
             // _listContacts
             // 
+            this._listContacts.BackColor = System.Drawing.SystemColors.ScrollBar;
             this._listContacts.Dock = System.Windows.Forms.DockStyle.Left;
             this._listContacts.FormattingEnabled = true;
             this._listContacts.Location = new System.Drawing.Point(0, 24);
@@ -171,6 +182,7 @@
         private System.Windows.Forms.ToolStripMenuItem _miHelpAbout;
         private System.Windows.Forms.ListBox _listContacts;
         private System.Windows.Forms.ListBox _listMessages;
+        private System.Windows.Forms.ToolStripMenuItem _miContactSend;
     }
 }
 
