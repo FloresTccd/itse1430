@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace ContactManager.UI
 {
+   
+
     public partial class SendMsgForm : Form
     {
+        private MainForm mainform;
         public SendMsgForm()
         {
             InitializeComponent();
+            
         }
 
         private void OnMsgFormCancel( object sender, EventArgs e )
@@ -22,5 +26,26 @@ namespace ContactManager.UI
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        public TextBox TextBoxSubject
+        {
+            get { return _txtboxSubject; }
+
+
+        }
+       
+
+        private void OnMsgFormSave( object sender, EventArgs e )
+        {
+
+            
+
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+       
+
+        
     }
 }

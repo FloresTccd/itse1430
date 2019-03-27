@@ -12,10 +12,13 @@ namespace ContactManager.UI
 {
     public partial class MainForm : Form
     {
+        
+
         public MainForm()
         {
             InitializeComponent();
         }
+        SendMsgForm form = new SendMsgForm();
 
         private void OnHelpAbout( object sender, EventArgs e )
         {
@@ -90,7 +93,7 @@ namespace ContactManager.UI
         {
             try
             {
-                //_games[GetNextEmptyGame()] = form.Game;
+                
                 _contacts.Add(form.Contact);
             } catch (NotImplementedException e)
             {
@@ -160,7 +163,7 @@ namespace ContactManager.UI
             BindList();
         }
 
-        private Contact GetSelectedContact()
+        public Contact GetSelectedContact()
         {
             var value = _listContacts.SelectedItem;
 
@@ -177,6 +180,10 @@ namespace ContactManager.UI
 
         private void OnContactSelected( object sender, EventArgs e )
         {
+            
+
+           
+
 
         }
 
@@ -192,19 +199,27 @@ namespace ContactManager.UI
 
         private void OnSendMsg( object sender, EventArgs e )
         {
-            var form = new SendMsgForm();
+            
+
+            
+           
+
 
             var contact = GetSelectedContact();
             if (contact == null)
                 return;
+            form._txtboxtTo.Text = contact.Name;
+            form._txtboxEmail.Text = contact.Email;
+                               
+
             //Modal
             if (form.ShowDialog(this) != DialogResult.OK)
                 return;
 
 
 
-
-
         }
+
+       
     }
 }

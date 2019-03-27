@@ -46,6 +46,7 @@
             this._txtboxSubject.Name = "_txtboxSubject";
             this._txtboxSubject.Size = new System.Drawing.Size(434, 20);
             this._txtboxSubject.TabIndex = 0;
+           
             // 
             // _labelSubject
             // 
@@ -81,6 +82,7 @@
             this._btnMsgSave.TabIndex = 4;
             this._btnMsgSave.Text = "&Save";
             this._btnMsgSave.UseVisualStyleBackColor = true;
+            this._btnMsgSave.Click += new System.EventHandler(this.OnMsgFormSave);
             // 
             // _btnMsgCancel
             // 
@@ -150,16 +152,15 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox _txtboxSubject;
         private System.Windows.Forms.Label _labelSubject;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox _txtboxMessage;
         private System.Windows.Forms.Button _btnMsgSave;
         private System.Windows.Forms.Button _btnMsgCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox _txtboxEmail;
-        private System.Windows.Forms.TextBox _txtboxtTo;
+        public System.Windows.Forms.TextBox _txtboxSubject;
+        public System.Windows.Forms.TextBox _txtboxMessage;
+        public System.Windows.Forms.TextBox _txtboxEmail;
+        public System.Windows.Forms.TextBox _txtboxtTo;
     }
 }
