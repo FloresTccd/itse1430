@@ -77,10 +77,9 @@ namespace ContactManager.UI
             
             _listContacts.Items.Clear();
             _listContacts.DisplayMember = nameof(Contact.Name);
-
-
-
             _listContacts.Items.AddRange(_contacts.GetAll().ToArray());
+
+
 
         }
 
@@ -201,10 +200,6 @@ namespace ContactManager.UI
         {
             
 
-            
-           
-
-
             var contact = GetSelectedContact();
             if (contact == null)
                 return;
@@ -219,6 +214,8 @@ namespace ContactManager.UI
 
 
         }
+
+      
 
        
     }

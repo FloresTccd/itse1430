@@ -46,7 +46,6 @@
             this._txtboxSubject.Name = "_txtboxSubject";
             this._txtboxSubject.Size = new System.Drawing.Size(434, 20);
             this._txtboxSubject.TabIndex = 0;
-           
             // 
             // _labelSubject
             // 
@@ -114,15 +113,19 @@
             // 
             // _txtboxEmail
             // 
+            this._txtboxEmail.BackColor = System.Drawing.SystemColors.Control;
             this._txtboxEmail.Location = new System.Drawing.Point(73, 31);
             this._txtboxEmail.Name = "_txtboxEmail";
+            this._txtboxEmail.ReadOnly = true;
             this._txtboxEmail.Size = new System.Drawing.Size(434, 20);
             this._txtboxEmail.TabIndex = 8;
             // 
             // _txtboxtTo
             // 
+            this._txtboxtTo.BackColor = System.Drawing.SystemColors.Control;
             this._txtboxtTo.Location = new System.Drawing.Point(73, 6);
             this._txtboxtTo.Name = "_txtboxtTo";
+            this._txtboxtTo.ReadOnly = true;
             this._txtboxtTo.Size = new System.Drawing.Size(434, 20);
             this._txtboxtTo.TabIndex = 9;
             // 

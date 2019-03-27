@@ -151,7 +151,7 @@
             this._listMessages.ScrollAlwaysVisible = true;
             this._listMessages.Size = new System.Drawing.Size(626, 426);
             this._listMessages.TabIndex = 2;
-            
+           
             // 
             // MainForm
             // 

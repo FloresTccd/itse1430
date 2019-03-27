@@ -37,8 +37,7 @@ namespace ContactManager.UI
 
         private void OnMsgFormSave( object sender, EventArgs e )
         {
-
-            
+           
 
             DialogResult = DialogResult.OK;
             Close();
