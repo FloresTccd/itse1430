@@ -71,7 +71,6 @@
             this._txtEmail.Name = "_txtEmail";
             this._txtEmail.Size = new System.Drawing.Size(235, 20);
             this._txtEmail.TabIndex = 3;
-            
             this._txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateEmail);
             // 
             // button1
@@ -86,6 +85,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(280, 100);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -103,6 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(408, 135);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -110,7 +111,9 @@
             this.Controls.Add(this._txtName);
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.labelName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Contact Form";

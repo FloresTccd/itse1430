@@ -89,6 +89,7 @@
             // 
             // _btnMsgCancel
             // 
+            this._btnMsgCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this._btnMsgCancel.Location = new System.Drawing.Point(386, 308);
             this._btnMsgCancel.Name = "_btnMsgCancel";
             this._btnMsgCancel.Size = new System.Drawing.Size(75, 23);
@@ -142,7 +143,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 353);
+            this.CancelButton = this._btnMsgCancel;
+            this.ClientSize = new System.Drawing.Size(524, 355);
             this.Controls.Add(this._txtboxtTo);
             this.Controls.Add(this._txtboxEmail);
             this.Controls.Add(this.label3);
@@ -154,6 +156,7 @@
             this.Controls.Add(this._labelSubject);
             this.Controls.Add(this._txtboxSubject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SendMsgForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
