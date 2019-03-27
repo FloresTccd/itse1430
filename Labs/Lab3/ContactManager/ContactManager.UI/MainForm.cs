@@ -18,7 +18,7 @@ namespace ContactManager.UI
         {
             InitializeComponent();
         }
-        SendMsgForm form = new SendMsgForm();
+        SendMsgForm _form = new SendMsgForm();
 
         private void OnHelpAbout( object sender, EventArgs e )
         {
@@ -208,12 +208,12 @@ namespace ContactManager.UI
             var contact = GetSelectedContact();
             if (contact == null)
                 return;
-            form._txtboxtTo.Text = contact.Name;
-            form._txtboxEmail.Text = contact.Email;
+            _form._txtboxtTo.Text = contact.Name;
+            _form._txtboxEmail.Text = contact.Email;
                                
 
             //Modal
-            if (form.ShowDialog(this) != DialogResult.OK)
+            if (_form.ShowDialog(this) != DialogResult.OK)
                 return;
 
 

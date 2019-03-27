@@ -14,7 +14,7 @@ namespace ContactManager.UI
 
     public partial class SendMsgForm : Form
     {
-        private MainForm mainform;
+        
         public SendMsgForm()
         {
             InitializeComponent();
