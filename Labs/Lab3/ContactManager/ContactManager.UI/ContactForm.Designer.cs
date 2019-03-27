@@ -71,7 +71,7 @@
             this._txtEmail.Name = "_txtEmail";
             this._txtEmail.Size = new System.Drawing.Size(235, 20);
             this._txtEmail.TabIndex = 3;
-          
+            
             this._txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateEmail);
             // 
             // button1

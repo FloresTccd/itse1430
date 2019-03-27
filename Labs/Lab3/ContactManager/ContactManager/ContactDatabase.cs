@@ -80,7 +80,7 @@ namespace ContactManager
 
             var index = GetIndex(id);
             if (index < 0)
-                throw new Exception("Game does not exist.");
+                throw new Exception("Contact does not exist.");
 
             //contact names must be unique            
             var existingIndex = GetIndex(contact.Name);

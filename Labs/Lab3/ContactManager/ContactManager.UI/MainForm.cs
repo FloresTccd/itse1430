@@ -18,7 +18,7 @@ namespace ContactManager.UI
         {
             InitializeComponent();
         }
-        SendMsgForm _form = new SendMsgForm();
+       
 
         private void OnHelpAbout( object sender, EventArgs e )
         {
@@ -198,8 +198,8 @@ namespace ContactManager.UI
 
         private void OnSendMsg( object sender, EventArgs e )
         {
-            
 
+            SendMsgForm _form = new SendMsgForm();
             var contact = GetSelectedContact();
             if (contact == null)
                 return;

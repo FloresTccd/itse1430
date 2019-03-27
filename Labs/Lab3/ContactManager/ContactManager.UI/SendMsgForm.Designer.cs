@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._txtboxSubject = new System.Windows.Forms.TextBox();
             this._labelSubject = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this._txtboxEmail = new System.Windows.Forms.TextBox();
             this._txtboxtTo = new System.Windows.Forms.TextBox();
+            this._errors = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             this.SuspendLayout();
             // 
             // _txtboxSubject
@@ -46,6 +49,7 @@
             this._txtboxSubject.Name = "_txtboxSubject";
             this._txtboxSubject.Size = new System.Drawing.Size(434, 20);
             this._txtboxSubject.TabIndex = 0;
+            this._txtboxSubject.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateSubject);
             // 
             // _labelSubject
             // 
@@ -129,6 +133,11 @@
             this._txtboxtTo.Size = new System.Drawing.Size(434, 20);
             this._txtboxtTo.TabIndex = 9;
             // 
+            // _errors
+            // 
+            this._errors.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this._errors.ContainerControl = this;
+            // 
             // SendMsgForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +158,7 @@
             this.Name = "SendMsgForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Send Message";
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +175,6 @@
         public System.Windows.Forms.TextBox _txtboxMessage;
         public System.Windows.Forms.TextBox _txtboxEmail;
         public System.Windows.Forms.TextBox _txtboxtTo;
+        private System.Windows.Forms.ErrorProvider _errors;
     }
 }

@@ -20,6 +20,7 @@ namespace ContactManager.UI
             InitializeComponent();
             
         }
+        
 
         private void OnMsgFormCancel( object sender, EventArgs e )
         {
@@ -27,24 +28,42 @@ namespace ContactManager.UI
             Close();
         }
 
-        public TextBox TextBoxSubject
+
+        protected override void OnLoad( EventArgs e )
         {
-            get { return _txtboxSubject; }
+            base.OnLoad(e);
 
+           
 
+            ValidateChildren();
         }
-       
 
         private void OnMsgFormSave( object sender, EventArgs e )
         {
-           
+            if(!ValidateChildren())
+                return;
+
+            if (String.IsNullOrEmpty(_txtboxSubject.Text))
+            {
+                MessageBox.Show(this, "Subject is Required.", "Error", MessageBoxButtons.OK);
+                return;
+            };
+
 
             DialogResult = DialogResult.OK;
             Close();
         }
 
-       
+        private void OnValidateSubject( object sender, CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
 
-        
+            if (tb.Text.Length == 0)
+            {
+                _errors.SetError(tb, "Subject is required.");
+                e.Cancel = false;
+            } else
+                _errors.SetError(tb, "");
+        }
     }
 }
