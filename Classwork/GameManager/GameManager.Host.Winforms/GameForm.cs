@@ -33,7 +33,8 @@ namespace GameManager.Host.Winforms
             //validate - at business level
             try
             {
-                new ObjectValidator().Validate(game);
+                //new ObjectValidator().Validate(game);
+                ObjectValidator.Validate(game);
             } catch (ValidationException)
             {
                 MessageBox.Show(this, "Game not valid.", "Error", MessageBoxButtons.OK);

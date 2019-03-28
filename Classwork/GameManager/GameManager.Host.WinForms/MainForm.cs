@@ -37,6 +37,12 @@ namespace GameManager.Host.Winforms
         {
             base.OnLoad(e);
 
+            //seed if databes is empty
+            var games = _games.GetAll();
+            if (games.Count() == 0)
+                //SeedDatabase.Seed(_games);
+                _games.Seed();
+
             BindList();
         }
 
@@ -57,12 +63,19 @@ namespace GameManager.Host.Winforms
             //{
             //};
 
-            _listGames.Items.AddRange(_games.GetAll().ToArray());
+            var items = _games.GetAll();
+            
+            items = items.OrderBy(GetName);
+            _listGames.Items.AddRange(items.ToArray());
             //foreach (var game in _games)
             //{
             //    if (game != null)
             //        _listGames.Items.Add(game);
             //};
+        }
+        private string GetName( Game game )
+        {
+            return game.Name;
         }
 
         private void OnGameAdd( object sender, EventArgs e )

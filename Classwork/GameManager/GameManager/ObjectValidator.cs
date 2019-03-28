@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace GameManager
 {
-    public class ObjectValidator
+    public static class ObjectValidator
     {
-        public void Validate( IValidatableObject value )
+       // private ObjectValidator()
+        //{ }
+        public static void Validate( IValidatableObject value )
         {
             Validator.ValidateObject(value, new ValidationContext(value));
-
+            //No access to instance members
+            //_duh = 10;
         }
-
+        //private int _duh;
     }
 }
