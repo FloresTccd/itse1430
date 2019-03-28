@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+    Lab 3 ITSE1430
+    Raul Flores
+    April 1, 2019
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
