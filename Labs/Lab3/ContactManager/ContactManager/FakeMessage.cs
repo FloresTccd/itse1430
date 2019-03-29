@@ -48,7 +48,7 @@ namespace ContactManager
 
         public override string ToString()
         {
-            return "To:" + Contact + "  | Email:" + Email + "  | Subject:" + Subject + "  | Message:" + Body;
+            return "To: " + Contact + "  | Email: " + Email + "  | Subject: " + Subject + "  | Message: " + Body;
         }
       
 
