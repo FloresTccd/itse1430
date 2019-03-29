@@ -9,6 +9,6 @@ namespace ContactManager
     interface IMessageSerive
     {
 
-        Message Send( Message message );
+        FakeMessage Send( FakeMessage message );
     }
 }

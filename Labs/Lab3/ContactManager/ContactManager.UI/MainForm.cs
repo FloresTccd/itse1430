@@ -86,7 +86,17 @@ namespace ContactManager.UI
             _listContacts.Items.AddRange(_contacts.GetAll().ToArray());
 
 
+            //msg display
+            _listMessages.Items.Clear();
+            _listMessages.DisplayMember = nameof(FakeMessage);
+            
+           
 
+            foreach (var game in _emailMessages)
+            {
+                if (game != null)
+                    _listMessages.Items.Add(game);
+            };
         }
 
         private void DisplayError( Exception ex )
@@ -217,12 +227,21 @@ namespace ContactManager.UI
             if (_form.ShowDialog(this) != DialogResult.OK)
                 return;
 
-
+            _emailMessages[GetNextEmptyMessage()] = _form.Message;
+            BindList();
 
         }
 
-      
+        private FakeMessage[] _emailMessages = new FakeMessage[100];
+        private int GetNextEmptyMessage()
+        {
+            for (var index = 0; index < _emailMessages.Length; ++index)
+                if (_emailMessages[index] == null)
+                    return index;
 
-       
+            return -1;
+        }
+
+
     }
 }

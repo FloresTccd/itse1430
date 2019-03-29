@@ -26,6 +26,7 @@ namespace ContactManager.UI
             
         }
         
+        public FakeMessage Message { get; set; }
 
         private void OnMsgFormCancel( object sender, EventArgs e )
         {
@@ -38,6 +39,7 @@ namespace ContactManager.UI
         {
             base.OnLoad(e);
 
+            
            
 
             ValidateChildren();
@@ -54,7 +56,7 @@ namespace ContactManager.UI
                 return;
             };
 
-
+            Message = SaveData();
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -69,6 +71,16 @@ namespace ContactManager.UI
                 e.Cancel = false;
             } else
                 _errors.SetError(tb, "");
+        }
+
+        private FakeMessage SaveData()
+        {
+            var message = new FakeMessage();
+            message.Contact = _txtboxtTo.Text;
+            message.Email = _txtboxEmail.Text;
+            message.Subject = _txtboxSubject.Text;
+            message.Body = _txtboxMessage.Text;
+            return message;
         }
     }
 }

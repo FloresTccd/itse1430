@@ -145,13 +145,15 @@
             // _listMessages
             // 
             this._listMessages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._listMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._listMessages.ForeColor = System.Drawing.Color.Black;
             this._listMessages.FormattingEnabled = true;
+            this._listMessages.ItemHeight = 15;
             this._listMessages.Location = new System.Drawing.Point(174, 24);
             this._listMessages.Name = "_listMessages";
             this._listMessages.ScrollAlwaysVisible = true;
             this._listMessages.Size = new System.Drawing.Size(626, 426);
             this._listMessages.TabIndex = 2;
-           
             // 
             // MainForm
             // 
