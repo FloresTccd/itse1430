@@ -26,7 +26,7 @@ namespace ContactManager.UI
 
         public Contact Contact { get; set; }
 
-        //Called when the user saves the game
+        //Called when the user saves
         private void OnSave( object sender, EventArgs e )
         {
             if (!ValidateChildren())

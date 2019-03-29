@@ -18,7 +18,7 @@ namespace ContactManager
             if (!contact.Validate())
               throw new Exception("Contact is invalid.");
 
-            //Game names must be unique
+            // names must be unique
             var existing = GetIndex(contact.Name);
             if (existing >= 0)
                 throw new Exception("Contact must be unique.");
@@ -96,10 +96,10 @@ namespace ContactManager
 
         private Contact Clone( Contact contact )
         {
-            var newGame = new Contact();
-            Clone(newGame, contact);
+            var newContact = new Contact();
+            Clone(newContact, contact);
 
-            return newGame;
+            return newContact;
         }
 
         private void Clone( Contact target, Contact source )

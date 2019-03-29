@@ -92,10 +92,10 @@ namespace ContactManager.UI
             
            
 
-            foreach (var game in _emailMessages)
+            foreach (var message in _emailMessages)
             {
-                if (game != null)
-                    _listMessages.Items.Add(game);
+                if (message != null)
+                    _listMessages.Items.Add(message);
             };
         }
 
@@ -188,7 +188,7 @@ namespace ContactManager.UI
             var contact = value as Contact;
 
             //Type check
-            var game2 = (value is Contact) ? (Contact)value : null;
+            var contact2 = (value is Contact) ? (Contact)value : null;
 
             return _listContacts.SelectedItem as Contact;
         }
@@ -217,8 +217,15 @@ namespace ContactManager.UI
 
             SendMsgForm _form = new SendMsgForm();
             var contact = GetSelectedContact();
+
+          
+
             if (contact == null)
+            {
+                MessageBox.Show(this, "Please choose Contact to send message.", "Error", MessageBoxButtons.OK);
                 return;
+            }
+            
             _form._txtboxtTo.Text = contact.Name;
             _form._txtboxEmail.Text = contact.Email;
                                
