@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-    interface IMessageSerive
+    interface IMessageService
     {
 
         FakeMessage Send( FakeMessage message );
