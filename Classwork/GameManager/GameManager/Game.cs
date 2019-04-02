@@ -13,8 +13,11 @@ namespace GameManager
         /// <summary>Gets or sets the name of the game.</summary>
         public string Name
         {
-            get { return _name ?? ""; }
-            set { _name = value ?? ""; }
+            //expression bodied members aka lambda
+            //get { return _name ?? ""; }
+            get => _name ?? "";   //using lambda
+            // set { _name = value ?? ""; }
+            set => _name = value ?? "";  //using lambda
         }
 
         /// <summary>Gets or sets the description.</summary>
@@ -23,6 +26,13 @@ namespace GameManager
             get { return _description ?? ""; }
             set { _description = value; }
         }
+
+
+        //public bool IsCoolGame
+        //{
+        //    get { return Price < 59.99M; }
+        //} same thing as bottom. bottom line using lambda 
+        public bool IsCoolGame => Price < 59.99M;
 
         /// <summary>Gets or sets the price.</summary>
         public decimal Price { get; set; }
@@ -35,10 +45,11 @@ namespace GameManager
 
         /// <summary>Converts the object to a string.</summary>
         /// <returns>The string equivalent.</returns>
-        public override string ToString()
-        {
-            return Name;
-        }
+        //public override string ToString()
+        //{
+        //    return Name;
+        //}bottom is uing expression body
+        public override string ToString() => Name;
 
         /// <summary>Validates the object.</summary>
         /// <returns>true if valid or false otherwise.</returns>

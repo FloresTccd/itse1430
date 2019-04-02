@@ -183,23 +183,14 @@ namespace ContactManager.UI
             var value = _listContacts.SelectedItem;
 
             
-
-            //Preferred - null if not valid
             var contact = value as Contact;
 
-            //Type check
-            var contact2 = (value is Contact) ? (Contact)value : null;
 
             return _listContacts.SelectedItem as Contact;
         }
 
         private void OnContactSelected( object sender, EventArgs e )
         {
-            
-
-           
-
-
         }
 
         protected override void OnFormClosing( FormClosingEventArgs e )

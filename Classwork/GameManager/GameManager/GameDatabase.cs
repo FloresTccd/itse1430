@@ -78,6 +78,14 @@ namespace GameManager
 
         protected virtual Game FindByName( string name )
         {
+            //=> IEnumerable<T>
+           return (from game in GetAllCore()
+             where String.Compare(game.Name, name, true) == 0
+             //orderby game.Name, game.Id descending
+             select game).FirstOrDefault();
+
+
+
             foreach (var game in GetAllCore())
             {
                 if (String.Compare(game.Name, name, true) == 0)
