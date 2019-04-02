@@ -240,6 +240,7 @@ namespace ContactManager.UI
         }
 
         private FakeMessage[] _emailMessages = new FakeMessage[100];
+
         private int GetNextEmptyMessage()
         {
             for (var index = 0; index < _emailMessages.Length; ++index)
@@ -250,5 +251,12 @@ namespace ContactManager.UI
         }
 
 
+    }
+    public class Send : IMessageService
+    {
+        FakeMessage IMessageService.Send( FakeMessage message )
+        {
+            throw new NotImplementedException();
+        }
     }
 }
