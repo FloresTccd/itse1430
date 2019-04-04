@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameManager.FileSystem;
 
 namespace GameManager.Host.Winforms
 {
@@ -37,7 +39,7 @@ namespace GameManager.Host.Winforms
         {
             base.OnLoad(e);
 
-            //seed if databes is empty
+            //Seed if database is empty
             var games = _games.GetAll();
             if (games.Count() == 0)
                 //SeedDatabase.Seed(_games);
@@ -64,15 +66,16 @@ namespace GameManager.Host.Winforms
             //};
 
             var items = _games.GetAll();
-            
             items = items.OrderBy(GetName);
             _listGames.Items.AddRange(items.ToArray());
+
             //foreach (var game in _games)
             //{
             //    if (game != null)
             //        _listGames.Items.Add(game);
             //};
         }
+
         private string GetName( Game game )
         {
             return game.Name;
@@ -135,7 +138,7 @@ namespace GameManager.Host.Winforms
             };
         }
 
-        private IGameDatabase _games = new MemoryGameDatabase();
+        private IGameDatabase _games = new FileGameDatabase("games.dat");
 
         private void OnGameEdit( object sender, EventArgs e )
         {
@@ -195,7 +198,9 @@ namespace GameManager.Host.Winforms
         {
             var value = _listGames.SelectedItem;
 
-            _listGames.Items.OfType<Game>();
+            //Typesafe conversion to IEnumerable<T>
+            //_listGames.Items.OfType<Game>(); //as
+            //_listGames.Items.Cast<Game>(); //(T)
 
             //C-style cast - don't do this
             //var game = (Game)value;
