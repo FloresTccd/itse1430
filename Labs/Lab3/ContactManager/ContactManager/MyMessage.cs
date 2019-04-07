@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-    public class FakeMessage
+    public class MyMessage
     {
 
         #region Private Members

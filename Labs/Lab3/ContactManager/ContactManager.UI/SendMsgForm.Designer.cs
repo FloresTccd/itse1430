@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this._txtboxSubject = new System.Windows.Forms.TextBox();
             this._labelSubject = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this._labelMessage = new System.Windows.Forms.Label();
             this._txtboxMessage = new System.Windows.Forms.TextBox();
             this._btnMsgSave = new System.Windows.Forms.Button();
             this._btnMsgCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this._labelEmail = new System.Windows.Forms.Label();
+            this._labelTo = new System.Windows.Forms.Label();
             this._txtboxEmail = new System.Windows.Forms.TextBox();
             this._txtboxtTo = new System.Windows.Forms.TextBox();
             this._errors = new System.Windows.Forms.ErrorProvider(this.components);
@@ -60,14 +60,14 @@
             this._labelSubject.TabIndex = 1;
             this._labelSubject.Text = "Subject:";
             // 
-            // label2
+            // _labelMessage
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Message:";
+            this._labelMessage.AutoSize = true;
+            this._labelMessage.Location = new System.Drawing.Point(14, 97);
+            this._labelMessage.Name = "_labelMessage";
+            this._labelMessage.Size = new System.Drawing.Size(53, 13);
+            this._labelMessage.TabIndex = 2;
+            this._labelMessage.Text = "Message:";
             // 
             // _txtboxMessage
             // 
@@ -98,23 +98,23 @@
             this._btnMsgCancel.UseVisualStyleBackColor = true;
             this._btnMsgCancel.Click += new System.EventHandler(this.OnMsgFormCancel);
             // 
-            // label1
+            // _labelEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Email:";
+            this._labelEmail.AutoSize = true;
+            this._labelEmail.Location = new System.Drawing.Point(32, 34);
+            this._labelEmail.Name = "_labelEmail";
+            this._labelEmail.Size = new System.Drawing.Size(35, 13);
+            this._labelEmail.TabIndex = 6;
+            this._labelEmail.Text = "Email:";
             // 
-            // label3
+            // _labelTo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "To:";
+            this._labelTo.AutoSize = true;
+            this._labelTo.Location = new System.Drawing.Point(44, 9);
+            this._labelTo.Name = "_labelTo";
+            this._labelTo.Size = new System.Drawing.Size(23, 13);
+            this._labelTo.TabIndex = 7;
+            this._labelTo.Text = "To:";
             // 
             // _txtboxEmail
             // 
@@ -147,12 +147,12 @@
             this.ClientSize = new System.Drawing.Size(524, 355);
             this.Controls.Add(this._txtboxtTo);
             this.Controls.Add(this._txtboxEmail);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this._labelTo);
+            this.Controls.Add(this._labelEmail);
             this.Controls.Add(this._btnMsgCancel);
             this.Controls.Add(this._btnMsgSave);
             this.Controls.Add(this._txtboxMessage);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this._labelMessage);
             this.Controls.Add(this._labelSubject);
             this.Controls.Add(this._txtboxSubject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -169,11 +169,11 @@
 
         #endregion
         private System.Windows.Forms.Label _labelSubject;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label _labelMessage;
         private System.Windows.Forms.Button _btnMsgSave;
         private System.Windows.Forms.Button _btnMsgCancel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label _labelEmail;
+        private System.Windows.Forms.Label _labelTo;
         public System.Windows.Forms.TextBox _txtboxSubject;
         public System.Windows.Forms.TextBox _txtboxMessage;
         public System.Windows.Forms.TextBox _txtboxEmail;

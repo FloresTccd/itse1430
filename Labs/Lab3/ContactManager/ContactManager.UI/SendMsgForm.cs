@@ -26,7 +26,7 @@ namespace ContactManager.UI
             
         }
         
-        public FakeMessage Message { get; set; }
+        public MyMessage Message { get; set; }
 
         private void OnMsgFormCancel( object sender, EventArgs e )
         {
@@ -73,9 +73,9 @@ namespace ContactManager.UI
                 _errors.SetError(tb, "");
         }
 
-        private FakeMessage SaveData()
+        private MyMessage SaveData()
         {
-            var message = new FakeMessage();
+            var message = new MyMessage();
             message.Contact = _txtboxtTo.Text;
             message.Email = _txtboxEmail.Text;
             message.Subject = _txtboxSubject.Text;

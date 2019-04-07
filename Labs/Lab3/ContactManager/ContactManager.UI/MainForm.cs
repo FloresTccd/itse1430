@@ -50,9 +50,8 @@ namespace ContactManager.UI
                 //Add
                 try
                 {
-                    //Anything in here that raises an exception will
-                    //be sent to the catch block
-
+                   
+               
                     OnSafeAdd(form);
                     break;
                 } catch (InvalidOperationException)
@@ -88,7 +87,7 @@ namespace ContactManager.UI
 
             //msg display
             _listMessages.Items.Clear();
-            _listMessages.DisplayMember = nameof(FakeMessage);
+            _listMessages.DisplayMember = nameof(MyMessage);
             
            
 
@@ -221,7 +220,7 @@ namespace ContactManager.UI
             _form._txtboxEmail.Text = contact.Email;
                                
 
-            //Modal
+        
             if (_form.ShowDialog(this) != DialogResult.OK)
                 return;
 
@@ -230,7 +229,7 @@ namespace ContactManager.UI
 
         }
 
-        private FakeMessage[] _emailMessages = new FakeMessage[100];
+        private MyMessage[] _emailMessages = new MyMessage[100];
 
         private int GetNextEmptyMessage()
         {
@@ -245,7 +244,7 @@ namespace ContactManager.UI
     }
     public class Send : IMessageService
     {
-        FakeMessage IMessageService.Send( FakeMessage message )
+        MyMessage IMessageService.Send( MyMessage message )
         {
             throw new NotImplementedException();
         }
