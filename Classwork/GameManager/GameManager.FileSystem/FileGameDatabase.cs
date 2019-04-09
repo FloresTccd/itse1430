@@ -96,6 +96,32 @@ namespace GameManager.FileSystem
             }
 
 
+            //NEVER do this
+            //var x = 10l;
+            //reader.Close();
+            //reader.Close();
+            //reader.Dispose();
+
+            #region The Long way
+            //StreamReader reader = null;
+            //try
+            //{
+            //    reader = File.OpenText(_filename);
+            //    while (!reader.EndOfStream)
+            //    {
+            //        var line = reader.ReadLine();
+            //        var game = LoadGame(line);
+            //        if (game.Id == id)
+            //            return game;
+            //    };
+
+            //    return null;
+            //} finally
+            //{
+            //    reader?.Close();
+            //}            
+            #endregion
+
         }
 
         protected override Game UpdateCore( int id, Game newGame )
