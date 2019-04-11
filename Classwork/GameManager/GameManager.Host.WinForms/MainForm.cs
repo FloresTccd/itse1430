@@ -45,11 +45,11 @@ namespace GameManager.Host.Winforms
             var connString = ConfigurationManager.ConnectionStrings["database"];
             _games = new SqlGameDatabase(connString.ConnectionString);
 
-            //Seed if database is empty
-            var games = _games.GetAll();
-            if (games.Count() == 0)
-                //SeedDatabase.Seed(_games);
-                _games.Seed();
+            ////Seed if database is empty // commented out after seeded db
+            //var games = _games.GetAll();
+            //if (games.Count() == 0)
+            //    //SeedDatabase.Seed(_games);
+            //    _games.Seed();
 
             BindList();
         }
