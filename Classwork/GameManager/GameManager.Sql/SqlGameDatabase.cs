@@ -23,44 +23,35 @@ namespace GameManager.Sql
             {
                 connection.Open();
 
-                
-                //var cmd = new SqlCommand("",connection);
+                //var cmd = new SqlCommand("", connection);
                 var cmd = connection.CreateCommand();
                 cmd.CommandText = "AddGame";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                //add param one way to do it
-                var parameter = new SqlParameter("@name",System.Data.SqlDbType.NVarChar);
+                //Add parameter 1 - long way when you need control over parameter
+                var parameter = new SqlParameter("@name", System.Data.SqlDbType.NVarChar);
                 parameter.Value = game.Name;
                 cmd.Parameters.Add(parameter);
 
-                // add parameter shorter way
+                //Add parameter 2 - quick way when you just need type/value
                 cmd.Parameters.AddWithValue("@description", game.Description);
                 cmd.Parameters.AddWithValue("@price", game.Price);
                 cmd.Parameters.AddWithValue("@completed", game.Completed);
                 cmd.Parameters.AddWithValue("@owned", game.Owned);
 
-
-
-                //execute the command 
-                //(int)cmd.ExecuteScalar();  // did not work
+                // (int)cmd.ExecuteScalar();
                 // cmd.ExecuteScalar() as int;  //reference types 
                 var result = Convert.ToInt32(cmd.ExecuteScalar());
 
-                // returns a id for game
                 game.Id = result;
                 return game;
-
-            }
-
-            
+            };
         }
 
         private SqlConnection GetConnection()
         {
             return new SqlConnection(_connectionString);
         }
-
 
         protected override void DeleteCore( int id )
         {
@@ -78,7 +69,6 @@ namespace GameManager.Sql
                 //No results
                 cmd.ExecuteNonQuery();
             };
-
         }
 
         protected override IEnumerable<Game> GetAllCore()
@@ -90,61 +80,95 @@ namespace GameManager.Sql
                 var cmd = new SqlCommand("GetGames", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                var dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = cmd;
+                var da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
 
-                dataAdapter.Fill(ds);
+                da.Fill(ds);
 
-                //if you wanted to update
-                //dataAdapter.Update(ds);
-
+                //If you wanted to update
+                //da.Update(ds);
             };
 
+            //Disconnected from DB
+            //ds.Tables[0].Rows[0][0] = "Old";
+            //ds.Tables[0].Rows[0]["Name"] = "Old";
             var table = ds.Tables.OfType<DataTable>().FirstOrDefault();
             if (table != null)
             {
                 return from r in table.Rows.OfType<DataRow>()
                        select new Game() {
-                           Id = Convert.ToInt32(r[0]),   //using index. not really a good idea --ordinal,convert
-                           Name = r["Name"].ToString(),   //using column name -- by name , convert
-                           Description = r.IsNull("description") ? "" : r["description"].ToString(), // to see if the column could be null from db if it is makes it empty string--handels null
-                           Price = r.Field<decimal>("Price"), //converts generic decimal from db and converts it to price int
-                           Owned = r.Field<bool>("Owned"),  //convert to int than read the boolean 1 being yes to owned
+                           Id = Convert.ToInt32(r[0]),  //Ordinal, convert
+                           Name = r["Name"].ToString(), //By name, convert
+                           Description = r.IsNull("description") ? "" : r["description"].ToString(), //handle DB nulls
+                           Price = r.Field<decimal>("Price"),
+                           Owned = r.Field<bool>("Owned"),
                            Completed = r.Field<bool>("Completed"),
-
                        };
             };
 
             return Enumerable.Empty<Game>();
-
-
         }
 
         protected override Game GetCore( int id )
         {
-            return GetAllCore().FirstOrDefault(g => g.Id == id);
-           
+            using (var conn = GetConnection())
+            {
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "GetGames";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conn.Open();
+
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var gameId = reader.GetInt32(0);
+                    if (gameId == id)
+                    {
+                        return new Game() {
+                            Id = gameId,
+                            Name = GetString(reader, "Name"),
+                            Description = GetString(reader, "Description"),
+                            Price = reader.GetFieldValue<decimal>(3),
+                            Owned = Convert.ToBoolean(reader.GetValue(4)),
+                            Completed = Convert.ToBoolean(reader.GetValue(5)),
+                        };
+                    };
+                };
+            };
+
+            return null;
+        }
+
+        private string GetString( IDataReader reader, string name )
+        {
+            var ordinal = reader.GetOrdinal(name);
+
+            if (reader.IsDBNull(ordinal))
+                return "";
+
+            return reader.GetString(ordinal);
+
+
         }
 
         protected override Game UpdateCore( int id, Game game )
         {
-
             using (var connection = GetConnection())
             {
                 connection.Open();
 
-
-                //var cmd = new SqlCommand("",connection);
+                //var cmd = new SqlCommand("", connection);
                 var cmd = connection.CreateCommand();
                 cmd.CommandText = "UpdateGame";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                //add param one way to do it
+                //Add parameter 1 - long way when you need control over parameter
                 var parameter = new SqlParameter("@name", System.Data.SqlDbType.NVarChar);
                 parameter.Value = game.Name;
                 cmd.Parameters.Add(parameter);
 
-                // add parameter shorter way
+                //Add parameter 2 - quick way when you just need type/value
                 cmd.Parameters.AddWithValue("@description", game.Description);
                 cmd.Parameters.AddWithValue("@price", game.Price);
                 cmd.Parameters.AddWithValue("@completed", game.Completed);
@@ -154,9 +178,8 @@ namespace GameManager.Sql
                 //No results
                 cmd.ExecuteNonQuery();
             };
+
             return game;
-
-
         }
     }
 }
