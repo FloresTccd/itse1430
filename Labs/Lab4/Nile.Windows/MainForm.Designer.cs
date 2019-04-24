@@ -132,7 +132,7 @@ namespace Nile.Windows
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             this.aboutToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem1.Text = "&About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.OnHelpAbout);
             // 
@@ -162,6 +162,7 @@ namespace Nile.Windows
             this._gridProducts.Size = new System.Drawing.Size(827, 354);
             this._gridProducts.TabIndex = 1;
             this._gridProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnEditRow);
+            this._gridProducts.Sorted += new System.EventHandler(this.OnProductAdd);
             this._gridProducts.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDownGrid);
             // 
             // nameDataGridViewTextBoxColumn
