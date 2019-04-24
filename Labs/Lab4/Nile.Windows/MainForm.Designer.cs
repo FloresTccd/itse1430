@@ -140,6 +140,7 @@ namespace Nile.Windows
             // 
             this._gridProducts.AllowUserToAddRows = false;
             this._gridProducts.AllowUserToDeleteRows = false;
+            this._gridProducts.AllowUserToOrderColumns = true;
             this._gridProducts.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this._gridProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
