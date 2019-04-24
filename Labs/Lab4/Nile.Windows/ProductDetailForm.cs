@@ -69,7 +69,12 @@ namespace Nile.Windows
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
-            //TODO: Validate product
+        
+            if (!product.Validate())
+            {
+                MessageBox.Show(this, "Product not valid.", "Error", MessageBoxButtons.OK);
+                return;
+            };
 
             Product = product;
             DialogResult = DialogResult.OK;
@@ -102,10 +107,14 @@ namespace Nile.Windows
 
         private decimal GetPrice ( TextBox control )
         {
+
             if (Decimal.TryParse(control.Text, out var price))
                 return price;
 
-            //Validate price            
+            if (control.Text.Length == 0)
+                return 0;
+
+        
             return -1;
         }                      
         #endregion

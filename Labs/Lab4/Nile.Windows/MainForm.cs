@@ -38,9 +38,15 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: Handle errors
-            //Save product
-            _database.Add(child.Product);
+            
+            try
+            {
+                _database.Add(child.Product);
+            }catch (Exception ex)
+                {
+                DisplayError(ex);
+            };
+
             UpdateList();
         }
 
@@ -104,9 +110,16 @@ namespace Nile.Windows
                                 "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            //TODO: Handle errors
-            //Delete product
-            _database.Remove(product.Id);
+         
+            try
+            {
+                _database.Remove(product.Id);
+
+            }catch (Exception ex)
+            {
+                DisplayError(ex);
+            }
+           
             UpdateList();
         }
 
@@ -114,12 +127,27 @@ namespace Nile.Windows
         {
             var child = new ProductDetailForm("Product Details");
             child.Product = product;
-            if (child.ShowDialog(this) != DialogResult.OK)
-                return;
 
-            //TODO: Handle errors
-            //Save product
-            _database.Update(child.Product);
+            
+         
+            while (true)
+            {
+                if (child.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+
+                try
+                {
+                    _database.Update(child.Product);
+                    break;
+                } catch (Exception ex)
+                {
+                    DisplayError(ex);
+                };
+            };
+
+
+
             UpdateList();
         }
 
@@ -133,9 +161,14 @@ namespace Nile.Windows
 
         private void UpdateList ()
         {
-            //TODO: Handle errors
-
-            _bsProducts.DataSource = _database.GetAll();
+           
+            try
+            {
+                _bsProducts.DataSource = _database.GetAll();
+            }catch (Exception ex)
+            {
+                DisplayError(ex);
+            };
         }
 
         private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
@@ -146,6 +179,11 @@ namespace Nile.Windows
         {
             var form = new AboutBox();
             form.ShowDialog();
+        }
+
+        private void DisplayError( Exception ex )
+        {
+            MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

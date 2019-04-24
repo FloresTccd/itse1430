@@ -32,6 +32,19 @@ namespace Nile
         /// <summary>Determines if discontinued.</summary>
         public bool IsDiscontinued { get; set; }
 
+        public bool Validate()
+        {
+            if (String.IsNullOrEmpty(Name))
+                return false;
+            if (Price < 0)
+                return false;
+            if (Id < 0)
+                return false;
+
+            return true;
+
+        }
+
         public override string ToString()
         {
             return Name;
