@@ -2,7 +2,9 @@
  * ITSE 1430
  */
 using System;
+using System.Configuration;
 using System.Windows.Forms;
+using Nile.Stores.Sql;
 
 namespace Nile.Windows
 {
@@ -19,6 +21,11 @@ namespace Nile.Windows
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
+
+            //Load connection string from config
+            var connString = ConfigurationManager.ConnectionStrings["ProductDatabase"];
+            _database = new SqlDatabase(connString.ConnectionString);
+
 
             _gridProducts.AutoGenerateColumns = false;
 
@@ -171,7 +178,7 @@ namespace Nile.Windows
             };
         }
 
-        private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
+        private  IProductDatabase _database;
 
         #endregion
 
