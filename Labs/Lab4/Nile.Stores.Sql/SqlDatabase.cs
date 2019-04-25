@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Nile.Stores.Sql
 {
-    public class SqlDatabase : IProductDatabase
+    public class SqlDatabase : ProductDatabase
     {
         public SqlDatabase( string connectionString )
         {
@@ -22,69 +22,57 @@ namespace Nile.Stores.Sql
         }
         private readonly string _connectionString;
 
-        public Product Add( Product product )
+      
+
+        private SqlConnection GetConnection()
         {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-
-                //var cmd = new SqlCommand("", connection);
-                var cmd = connection.CreateCommand();
-                cmd.CommandText = "AddProduct";
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                //Add parameter 1 - long way when you need control over parameter
-                var parameter = new SqlParameter("@name", System.Data.SqlDbType.NVarChar);
-                parameter.Value = product.Name;
-                cmd.Parameters.Add(parameter);
-
-                //Add parameter 2 - quick way when you just need type/value
-                cmd.Parameters.AddWithValue("@description", product.Description);
-                cmd.Parameters.AddWithValue("@price", product.Price);
-                cmd.Parameters.AddWithValue("@isDiscontinued", product.IsDiscontinued);
-
-
-                // (int)cmd.ExecuteScalar();
-                // cmd.ExecuteScalar() as int;  //reference types 
-                var result = Convert.ToInt32(cmd.ExecuteScalar());
-
-                product.Id = result;
-                return product;
-
-            }
+            return new SqlConnection(_connectionString);
         }
 
-        public Product Get( int id )
+
+        private string GetString( IDataReader reader, string name )
         {
-            using (var conn = GetConnection())
-            {
-                var cmd = conn.CreateCommand();
-                cmd.CommandText = "GetAllProducts";
-                cmd.CommandType = CommandType.StoredProcedure;
+            var ordinal = reader.GetOrdinal(name);
 
-                conn.Open();
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    var gameId = reader.GetInt32(0);
-                    if (gameId == id)
-                    {
-                        return new Product() {
-                            Id = gameId,
-                            Name = GetString(reader, "Name"),
-                            Description = GetString(reader, "Description"),
-                            Price = reader.GetFieldValue<decimal>(3),
-                            IsDiscontinued = Convert.ToBoolean(reader.GetValue(4))
-                          
-                        };
-                    };
-                };
-            };
+            if (reader.IsDBNull(ordinal))
+                return "";
 
-            return null;
+            return reader.GetString(ordinal);
         }
 
-        public IEnumerable<Product> GetAll()
+        protected override Product GetCore( int id )
+        {
+            //using (var conn = GetConnection())
+            //{
+            //    var cmd = conn.CreateCommand();
+            //    cmd.CommandText = "GetAllProducts";
+            //    cmd.CommandType = CommandType.StoredProcedure;
+
+            //    conn.Open();
+            //    var reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        var gameId = reader.GetInt32(0);
+            //        if (gameId == id)
+            //        {
+            //            return new Product() {
+            //                Id = gameId,
+            //                Name = GetString(reader, "Name"),
+            //                Description = GetString(reader, "Description"),
+            //                Price = reader.GetFieldValue<decimal>(3),
+            //                IsDiscontinued = Convert.ToBoolean(reader.GetValue(4))
+
+            //            };
+            //        };
+            //    };
+            //};
+
+            //return null;
+
+            return GetAllCore().FirstOrDefault(g => g.Id == id);
+        }
+
+        protected override IEnumerable<Product> GetAllCore()
         {
             var ds = new DataSet();
 
@@ -115,11 +103,9 @@ namespace Nile.Stores.Sql
             };
 
             return Enumerable.Empty<Product>();
-
-
         }
 
-        public void Remove( int id )
+        protected override void RemoveCore( int id )
         {
             using (var connection = GetConnection())
             {
@@ -137,7 +123,7 @@ namespace Nile.Stores.Sql
             };
         }
 
-        public Product Update( Product product )
+        protected override Product UpdateCore( int id, Product product )
         {
             using (var connection = GetConnection())
             {
@@ -166,21 +152,35 @@ namespace Nile.Stores.Sql
             return product;
         }
 
-        private SqlConnection GetConnection()
+        protected override Product AddCore( Product product )
         {
-            return new SqlConnection(_connectionString);
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+                //var cmd = new SqlCommand("", connection);
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = "AddProduct";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Add parameter 1 - long way when you need control over parameter
+                var parameter = new SqlParameter("@name", System.Data.SqlDbType.NVarChar);
+                parameter.Value = product.Name;
+                cmd.Parameters.Add(parameter);
+
+                //Add parameter 2 - quick way when you just need type/value
+                cmd.Parameters.AddWithValue("@description", product.Description);
+                cmd.Parameters.AddWithValue("@price", product.Price);
+                cmd.Parameters.AddWithValue("@isDiscontinued", product.IsDiscontinued);
+
+
+                // (int)cmd.ExecuteScalar();
+                // cmd.ExecuteScalar() as int;  //reference types 
+                var result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                product.Id = result;
+                return product;
+            }
         }
-
-
-        private string GetString( IDataReader reader, string name )
-        {
-            var ordinal = reader.GetOrdinal(name);
-
-            if (reader.IsDBNull(ordinal))
-                return "";
-
-            return reader.GetString(ordinal);
-        }
-
     }
 }

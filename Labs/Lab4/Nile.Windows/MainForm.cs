@@ -137,7 +137,7 @@ namespace Nile.Windows
             var child = new ProductDetailForm("Product Details");
             child.Product = product;
 
-            
+
          
             while (true)
             {
@@ -147,7 +147,7 @@ namespace Nile.Windows
 
                 try
                 {
-                    _database.Update(child.Product);
+                    _database.Update(product.Id,child.Product);
                     break;
                 } catch (Exception ex)
                 {
