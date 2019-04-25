@@ -4,6 +4,8 @@
     April 29, 2019
 */
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nile
 {
@@ -15,6 +17,7 @@ namespace Nile
 
         /// <summary>Gets or sets the name.</summary>
         /// <value>Never returns null.</value>
+        [Required(AllowEmptyStrings = false)]
         public string Name
         {
             get { return _name ?? ""; }
@@ -29,6 +32,7 @@ namespace Nile
         }
 
         /// <summary>Gets or sets the price.</summary>
+        [Range(0, Double.MaxValue, ErrorMessage = "Price must be >= 0.")]
         public decimal Price { get; set; } = 0;      
 
         /// <summary>Determines if discontinued.</summary>
@@ -51,6 +55,16 @@ namespace Nile
         {
             return Name;
         }
+
+        public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
+        {
+            var items = new List<ValidationResult>();
+
+           
+
+            return items;
+        }
+
 
         #region Private Members
 
