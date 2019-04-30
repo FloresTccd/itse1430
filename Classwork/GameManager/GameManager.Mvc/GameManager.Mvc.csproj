@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,6 +171,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Game\Edit.cshtml" />
+    <Content Include="Views\Game\Create.cshtml" />
+    <Content Include="Views\Game\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -186,6 +191,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameManager.Sql\GameManager.Sql.csproj">
+      <Project>{25952D43-EDAE-44C2-A509-61E838B46CE8}</Project>
+      <Name>GameManager.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameManager\GameManager.csproj">
+      <Project>{a2fd1153-8361-4388-8234-0f9463049ae5}</Project>
+      <Name>GameManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

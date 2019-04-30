@@ -26,5 +26,9 @@ namespace GameManager.Mvc.Controllers
 
             return View();
         }
+
+
+
+
     }
 }
